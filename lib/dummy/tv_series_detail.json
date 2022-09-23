@@ -1,0 +1,28 @@
+{
+    "adult": false,
+    "backdrop_path": "/Aa9TLpNpBMyRkD8sPJ7ACKLjt0l.jpg",
+    "first_air_date": "2022-08-21",
+    "genres": [
+        {
+            "id": 10765,
+            "name": "Sci-Fi & Fantasy"
+        },
+        {
+            "id": 18,
+            "name": "Drama"
+        },
+        {
+            "id": 10759,
+            "name": "Action & Adventure"
+        }
+    ],
+    "id": 94997,
+    "name": "House of the Dragon",
+    "number_of_episodes": 10,
+    "number_of_seasons": 1,
+    "original_name": "House of the Dragon",
+    "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
+    "poster_path": "/z2yahl2uefxDCl0nogcRBstwruJ.jpg",
+    "vote_average": 8.642,
+    "vote_count": 1316
+}
