@@ -1,6 +1,6 @@
 import 'package:equatable/equatable.dart';
 
-import 'package:ditonton/domain/entities/episode.dart';
+import 'package:ditonton/domain/entities/tv/episode.dart';
 
 class TVSeriesSeasonDetail extends Equatable {
   TVSeriesSeasonDetail({
@@ -15,7 +15,7 @@ class TVSeriesSeasonDetail extends Equatable {
   });
 
   final String id;
-  final DateTime airDate;
+  final String airDate;
   final List<Episode> episodes;
   final String name;
   final String overview;

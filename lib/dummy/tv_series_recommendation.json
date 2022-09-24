@@ -1,0 +1,469 @@
+{
+    "results": [
+        {
+            "adult": false,
+            "backdrop_path": "/Aa9TLpNpBMyRkD8sPJ7ACKLjt0l.jpg",
+            "id": 94997,
+            "name": "House of the Dragon",
+            "original_language": "en",
+            "original_name": "House of the Dragon",
+            "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
+            "poster_path": "/z2yahl2uefxDCl0nogcRBstwruJ.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                10765,
+                18,
+                10759
+            ],
+            "popularity": 5160.014,
+            "first_air_date": "2022-08-21",
+            "vote_average": 8.644,
+            "vote_count": 1343,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/lIpJzDiMIUJkRh0UE5n1kWpHntl.jpg",
+            "id": 98039,
+            "name": "Handsome Siblings",
+            "original_language": "zh",
+            "original_name": "绝代双骄",
+            "overview": "Clashing martial arts twins face relentless villains, thorny romance and brotherly rivalry as their troubled pasts catch up to them.",
+            "poster_path": "/riotYtN6KUiRjA4Jb8flpfShTl7.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 9.956,
+            "first_air_date": "2020-01-16",
+            "vote_average": 7.85,
+            "vote_count": 10,
+            "origin_country": [
+                "CN"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/9GvhICFMiRQA82vS6ydkXxeEkrd.jpg",
+            "id": 92783,
+            "name": "She-Hulk: Attorney at Law",
+            "original_language": "en",
+            "original_name": "She-Hulk: Attorney at Law",
+            "overview": "Jennifer Walters navigates the complicated life of a single, 30-something attorney who also happens to be a green 6-foot-7-inch superpowered hulk.",
+            "poster_path": "/hJfI6AGrmr4uSHRccfJuSsapvOb.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                35,
+                10765
+            ],
+            "popularity": 5280.066,
+            "first_air_date": "2022-08-18",
+            "vote_average": 7.2,
+            "vote_count": 772,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/tdBaI1SOU1ZjqBXO7VAu8fjGcNi.jpg",
+            "id": 133700,
+            "name": "Devil in Ohio",
+            "original_language": "en",
+            "original_name": "Devil in Ohio",
+            "overview": "Determined to protect a young patient who escaped a mysterious cult, a psychiatrist takes the girl in, putting her own family — and life — in danger.",
+            "poster_path": "/AsdjYB61U8zVAsEyQgOebAjCoUN.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                80,
+                18,
+                9648
+            ],
+            "popularity": 502.735,
+            "first_air_date": "2022-09-02",
+            "vote_average": 6.869,
+            "vote_count": 65,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/eqhKMZTLcieAvoH6CBqknTTfNby.jpg",
+            "id": 90802,
+            "name": "The Sandman",
+            "original_language": "en",
+            "original_name": "The Sandman",
+            "overview": "After years of imprisonment, Morpheus — the King of Dreams — embarks on a journey across worlds to find what was stolen from him and restore his power.",
+            "poster_path": "/q54qEgagGOYCq5D1903eBVMNkbo.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                10765,
+                18
+            ],
+            "popularity": 844.727,
+            "first_air_date": "2022-08-05",
+            "vote_average": 8.2,
+            "vote_count": 935,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/1TAGd687Rg71tXOp5vhSsKif8hD.jpg",
+            "id": 132195,
+            "name": "Late Night Mash",
+            "original_language": "en",
+            "original_name": "Late Night Mash",
+            "overview": "Up-to-the-minute topical insights and fake news reports.",
+            "poster_path": "/bWSPMCz52wCcPwjIfbJs782lmnU.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                35
+            ],
+            "popularity": 14.948,
+            "first_air_date": "2021-09-02",
+            "vote_average": 7,
+            "vote_count": 1,
+            "origin_country": [
+                "GB"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/q8qNN1voEOYzxWhBezHZG9soWWW.jpg",
+            "id": 83867,
+            "name": "Star Wars: Andor",
+            "original_language": "en",
+            "original_name": "Star Wars: Andor",
+            "overview": "The tale of the burgeoning rebellion against the Empire and how people and planets became involved. In an era filled with danger, deception and intrigue, Cassian Andor embarks on the path that is destined to turn him into a rebel hero.",
+            "poster_path": "/59SVNwLfoMnZPPB6ukW6dlPxAdI.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                10765,
+                10759,
+                10768
+            ],
+            "popularity": 253.067,
+            "first_air_date": "2022-09-21",
+            "vote_average": 8.1,
+            "vote_count": 31,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/f1eLY8Lh2q4c5fj2cPY6nWUEX7z.jpg",
+            "id": 158749,
+            "name": "Vostro Onore",
+            "original_language": "it",
+            "original_name": "Vostro Onore",
+            "overview": "",
+            "poster_path": "/zoazkNMjkvmAi4xDYK0byCkQfDt.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                80,
+                18,
+                10751
+            ],
+            "popularity": 0.84,
+            "first_air_date": "2022-02-28",
+            "vote_average": 0,
+            "vote_count": 0,
+            "origin_country": [
+                "IT"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/A7pq4B0uCPCLvk1EPFKQgJZQoVG.jpg",
+            "id": 125392,
+            "name": "Little Demon",
+            "original_language": "en",
+            "original_name": "Little Demon",
+            "overview": "13 years after being impregnated by Satan, a reluctant mother, Laura, and her Antichrist daughter, Chrissy, attempt to live an ordinary life in Delaware, but are constantly thwarted by monstrous forces, including Satan, who yearns for custody of his daughter's soul.",
+            "poster_path": "/2lyFPOe6JScMBiLQuMtf3pPZxAu.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                16,
+                35
+            ],
+            "popularity": 26.178,
+            "first_air_date": "2022-08-25",
+            "vote_average": 8.4,
+            "vote_count": 10,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/iV0B1eQHEh5vazHikfAx8OuSrCC.jpg",
+            "id": 128384,
+            "name": "Tierra Incognita",
+            "original_language": "es",
+            "original_name": "Tierra incógnita",
+            "overview": "Eric returns to Cape Qwert to solve the mystery of his parents' disappearance. Back in this town, he will meet friends and foes and will have to unveil the mysteries of the town's horror-themed amusement park.",
+            "poster_path": "/l07AXl7V2GfOy4zeiFQ77CoyHJv.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                9648,
+                10765
+            ],
+            "popularity": 687.305,
+            "first_air_date": "2022-09-08",
+            "vote_average": 7.7,
+            "vote_count": 26,
+            "origin_country": [
+                "AR"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/piMRImsn3ZQerFmPdAoXgmOpc7R.jpg",
+            "id": 127714,
+            "name": "Uncle from Another World",
+            "original_language": "ja",
+            "original_name": "異世界おじさん",
+            "overview": "After being in a coma for 17 years, Takafumi's middle-aged uncle suddenly wakes up speaking an unrecognizable language and wielding magical powers.",
+            "poster_path": "/ixYH9Ngm3IcPtK4964jbvB0Czi9.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                16,
+                35,
+                10765
+            ],
+            "popularity": 43.757,
+            "first_air_date": "2022-07-06",
+            "vote_average": 7.9,
+            "vote_count": 15,
+            "origin_country": [
+                "JP"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/fFeIBjX7Rk6eoEwGMq9jugrV2yP.jpg",
+            "id": 125940,
+            "name": "Vampire Academy",
+            "original_language": "en",
+            "original_name": "Vampire Academy",
+            "overview": "In a world of privilege and glamour, two young women’s friendship transcends their strikingly different classes as they prepare to complete their education and enter royal vampire society. Based on the young adult novels by Richelle Mead.",
+            "poster_path": "/fVwWkJBbOtxM7VKg7PS1IkjYpQc.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                18,
+                10765
+            ],
+            "popularity": 644.417,
+            "first_air_date": "2022-09-15",
+            "vote_average": 6.85,
+            "vote_count": 20,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/sVzI93UPwj7KXd6Alak0gEL1pBd.jpg",
+            "id": 203555,
+            "name": "The Imperfects",
+            "original_language": "en",
+            "original_name": "The Imperfects",
+            "overview": "After an experimental gene therapy turns them into monsters, three twenty-somethings band together to hunt down the scientist responsible and force him to make them human again.",
+            "poster_path": "/67UBGyIMMhf3eoykTNoWb8sErTO.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                10759,
+                18,
+                10765
+            ],
+            "popularity": 192.136,
+            "first_air_date": "2022-09-08",
+            "vote_average": 8.393,
+            "vote_count": 28,
+            "origin_country": [
+                "CA"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/4aWJK7ViPVAT96OXdUpEQEt5PC5.jpg",
+            "id": 91907,
+            "name": "Joint Venture",
+            "original_language": "pt",
+            "original_name": "Pico da Neblina",
+            "overview": "Set in a fictional modern-day Sao Paulo, where marijuana has been legalized, this series follows 29-year-old Biriba, a drug dealer who decides to give up his criminal life and enter the legal drug sales industry. Unfortunately for Biriba, going straight is more difficult than he could have imagined.",
+            "poster_path": "/rCLY9HHbqPesoElsQsABK2VwCau.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 6.803,
+            "first_air_date": "2019-08-04",
+            "vote_average": 8.545,
+            "vote_count": 11,
+            "origin_country": [
+                "BR"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/sxbnghoLphXfk8JZLPObFcPFh91.jpg",
+            "id": 205617,
+            "name": "Sapo, S.A. Memorias de un ladrón",
+            "original_language": "es",
+            "original_name": "Sapo, S.A. Memorias de un ladrón",
+            "overview": "",
+            "poster_path": "/hBDgjLOOnQouTOcF32VcYIvw30x.jpg",
+            "media_type": "tv",
+            "genre_ids": [],
+            "popularity": 0.897,
+            "first_air_date": "2022-07-08",
+            "vote_average": 6.4,
+            "vote_count": 10,
+            "origin_country": [
+                "ES"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/t15KHp3iNfHVQBNIaqUGW12xQA4.jpg",
+            "id": 60059,
+            "name": "Better Call Saul",
+            "original_language": "en",
+            "original_name": "Better Call Saul",
+            "overview": "Six years before Saul Goodman meets Walter White. We meet him when the man who will become Saul Goodman is known as Jimmy McGill, a small-time lawyer searching for his destiny, and, more immediately, hustling to make ends meet. Working alongside, and, often, against Jimmy, is “fixer” Mike Ehrmantraut. The series tracks Jimmy’s transformation into Saul Goodman, the man who puts “criminal” in “criminal lawyer\".",
+            "poster_path": "/fC2HDm5t0kHl7mTm7jxMR31b7by.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                80,
+                18
+            ],
+            "popularity": 237.192,
+            "first_air_date": "2015-02-08",
+            "vote_average": 8.562,
+            "vote_count": 3375,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/rsJyq5B2UApvLDTtH5nUwUBzQ1O.jpg",
+            "id": 128095,
+            "name": "Under the Banner of Heaven",
+            "original_language": "en",
+            "original_name": "Under the Banner of Heaven",
+            "overview": "A devout detective's faith is tested as he investigates a brutal murder that seems to be connected to an esteemed Utah family's spiral into LDS fundamentalism and their distrust in the government.",
+            "poster_path": "/gKyXUkyKRg9LdZzZWRzk0eKD5HJ.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                80,
+                18,
+                9648
+            ],
+            "popularity": 195.18,
+            "first_air_date": "2022-04-28",
+            "vote_average": 7.981,
+            "vote_count": 105,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/75gOIR6QpygFR7R3dVfYAEXhnQ1.jpg",
+            "id": 118189,
+            "name": "The Serpent Queen",
+            "original_language": "en",
+            "original_name": "The Serpent Queen",
+            "overview": "Considered an immigrant, common and plain, Catherine de Medici is married into the 16th century French court as an orphaned teenager expected to bring a fortune in dowry and produce many heirs, only to discover that her husband is in love with an older woman, her dowry is unpaid and she’s unable to concieve. Yet, only with her intelligence and determination, she manages to keep her marriage alive and masters the bloodsport that is the monarchy better than anyone else, ruling France for 50 years.",
+            "poster_path": "/1ZHimZQ8xz8PN7RASXd0Liikivb.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 38.734,
+            "first_air_date": "2022-09-11",
+            "vote_average": 7.2,
+            "vote_count": 10,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/6KQTkktt5Ku1skBlY81AodWBewL.jpg",
+            "id": 114477,
+            "name": "Harem in the Labyrinth of Another World",
+            "original_language": "ja",
+            "original_name": "異世界迷宮でハーレムを",
+            "overview": "High school student Michio Kaga was wandering aimlessly through life and the Internet, when he finds himself transported from a shady website to a fantasy world — reborn as a strong man who can use \"cheat\" powers. He uses his powers to become an adventurer, earn money, and get the right to claim girls that have idol-level beauty to form his very own harem.",
+            "poster_path": "/b4JCDJEyd5yh8u1Z5CQpyM3eiJ4.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                16,
+                10759,
+                10765
+            ],
+            "popularity": 401.166,
+            "first_air_date": "2022-07-06",
+            "vote_average": 6.4,
+            "vote_count": 21,
+            "origin_country": [
+                "JP"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/5o2T1IFyNwe88vWXm3WkpitK9gt.jpg",
+            "id": 114502,
+            "name": "Cars on the Road",
+            "original_language": "en",
+            "original_name": "Cars on the Road",
+            "overview": "Lightning McQueen and his best friend Mater head east from Radiator Springs on a cross-country road trip to meet up with Mater’s sister.",
+            "poster_path": "/6QXirTPUQecr1BAEfgVSXPD1np0.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                16,
+                35,
+                10751
+            ],
+            "popularity": 337.018,
+            "first_air_date": "2022-09-08",
+            "vote_average": 8.022,
+            "vote_count": 46,
+            "origin_country": [
+                "US"
+            ]
+        },
+        {
+            "adult": false,
+            "backdrop_path": "/8lP3nTailw12d5qAySSyMhLna2T.jpg",
+            "id": 90812,
+            "name": "Industry",
+            "original_language": "en",
+            "original_name": "Industry",
+            "overview": "In the cutthroat world of international finance, a group of young graduates compete for a limited set of permanent positions at a top investment bank in London. The boundaries between colleague, friend, lover, and enemy soon blur as they immerse themselves in a company culture defined as much by sex, drugs and ego as it is by deals and dividends.",
+            "poster_path": "/peq2FyxbVMZKYdI9jiuSUhzmbVd.jpg",
+            "media_type": "tv",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 45.207,
+            "first_air_date": "2020-11-09",
+            "vote_average": 7.1,
+            "vote_count": 100,
+            "origin_country": [
+                "US"
+            ]
+        }
+    ],
+    "total_pages": 2,
+    "total_results": 40
+}
