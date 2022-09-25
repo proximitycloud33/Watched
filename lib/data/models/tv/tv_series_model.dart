@@ -35,37 +35,37 @@ class TVSeriesModel extends Equatable {
 
   Map<String, dynamic> toJson() {
     return {
-      'backdropPath': backdropPath,
-      'firstAirDate': firstAirDate,
-      'genreIds': genreIds,
+      'backdrop_path': backdropPath,
+      'first_air_date': firstAirDate,
+      'genre_ids': genreIds,
       'id': id,
       'name': name,
-      'originCountry': originCountry,
-      'originalLanguage': originalLanguage,
-      'originalName': originalName,
+      'origin_country': originCountry,
+      'original_language': originalLanguage,
+      'original_name': originalName,
       'overview': overview,
       'popularity': popularity,
-      'posterPath': posterPath,
-      'voteAverage': voteAverage,
-      'voteCount': voteCount,
+      'poster_path': posterPath,
+      'vote_average': voteAverage,
+      'vote_count': voteCount,
     };
   }
 
-  factory TVSeriesModel.fromMap(Map<String, dynamic> json) {
+  factory TVSeriesModel.fromJson(Map<String, dynamic> json) {
     return TVSeriesModel(
-      backdropPath: json['backdropPath'],
-      firstAirDate: json['firstAirDate'],
-      genreIds: List<int>.from(json['genreIds']),
+      backdropPath: json['backdrop_path'],
+      firstAirDate: json['first_air_date'],
+      genreIds: List<int>.from(json['genre_ids']),
       id: json['id'],
       name: json['name'],
-      originCountry: List<String>.from(json['originCountry']),
-      originalLanguage: json['originalLanguage'],
-      originalName: json['originalName'],
+      originCountry: List<String>.from(json['origin_country']),
+      originalLanguage: json['original_language'],
+      originalName: json['original_name'],
       overview: json['overview'],
       popularity: json['popularity'],
-      posterPath: json['posterPath'],
-      voteAverage: json['voteAverage'],
-      voteCount: json['voteCount'],
+      posterPath: json['poster_path'],
+      voteAverage: json['vote_average'],
+      voteCount: json['vote_count'],
     );
   }
   TVSeries toEntity() {
@@ -87,7 +87,7 @@ class TVSeriesModel extends Equatable {
   }
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       backdropPath,
       firstAirDate,

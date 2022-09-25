@@ -17,8 +17,8 @@ class TVSeries extends Equatable {
     required this.voteCount,
   });
 
-  final String backdropPath;
-  final String firstAirDate;
+  final String? backdropPath;
+  final String? firstAirDate;
   final List<int> genreIds;
   final int id;
   final String name;
@@ -32,7 +32,7 @@ class TVSeries extends Equatable {
   final int voteCount;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       backdropPath,
       firstAirDate,
