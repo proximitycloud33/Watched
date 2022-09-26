@@ -4,6 +4,7 @@ import 'package:ditonton/common/exception.dart';
 import 'package:ditonton/data/models/tv/tv_series_detail_response_model.dart';
 import 'package:ditonton/data/models/tv/tv_series_model.dart';
 import 'package:ditonton/data/models/tv/tv_series_response.dart';
+import 'package:ditonton/data/models/tv/tv_series_season_detail_model.dart';
 import 'package:http/http.dart' as http;
 
 abstract class TVSeriesRemoteDataSource {
@@ -12,6 +13,8 @@ abstract class TVSeriesRemoteDataSource {
   Future<List<TVSeriesModel>> getTopRatedTVSeries();
   Future<TVSeriesDetailResponseModel> getDetailTVSeries(int id);
   Future<List<TVSeriesModel>> searchTVSeries(String query);
+  Future<TVSeriesSeasonDetailModel> getSeasonDetailTVSeries(int id, int season);
+  Future<List<TVSeriesModel>> getRecommendationTVSeries(int id);
 }
 
 class TVSeriesRemoteDataSourceImpl implements TVSeriesRemoteDataSource {
@@ -58,14 +61,48 @@ class TVSeriesRemoteDataSourceImpl implements TVSeriesRemoteDataSource {
   }
 
   @override
-  Future<TVSeriesDetailResponseModel> getDetailTVSeries(int id) {
-    // TODO: implement getDetailTVSeries
-    throw UnimplementedError();
+  Future<TVSeriesDetailResponseModel> getDetailTVSeries(int id) async {
+    final uri = '$BASE_URL/tv/$id?$API_KEY';
+    final response = await client.get(Uri.parse(uri));
+    if (response.statusCode == 200) {
+      return TVSeriesDetailResponseModel.fromJson(json.decode(response.body));
+    } else {
+      throw ServerException();
+    }
   }
 
   @override
-  Future<List<TVSeriesModel>> searchTVSeries(String query) {
-    // TODO: implement searchTVSeries
-    throw UnimplementedError();
+  Future<List<TVSeriesModel>> searchTVSeries(String query) async {
+    final uri = '$BASE_URL/search/tv/?$API_KEY&query=$query';
+    final response = await client.get(Uri.parse(uri));
+    if (response.statusCode == 200) {
+      return TVSeriesResponse.fromJson(json.decode(response.body)).seriesList;
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<List<TVSeriesModel>> getRecommendationTVSeries(int id) async {
+    final uri = '$BASE_URL/tv/$id/recommendations?$API_KEY';
+    final response = await client.get(Uri.parse(uri));
+    if (response.statusCode == 200) {
+      return TVSeriesResponse.fromJson(json.decode(response.body)).seriesList;
+    } else {
+      throw ServerException();
+    }
+  }
+
+  @override
+  Future<TVSeriesSeasonDetailModel> getSeasonDetailTVSeries(
+      int id, int season) async {
+    final uri = '$BASE_URL/tv/$id/season/$season?$API_KEY';
+    final response = await client.get(Uri.parse(uri));
+
+    if (response.statusCode == 200) {
+      return TVSeriesSeasonDetailModel.fromJson(json.decode(response.body));
+    } else {
+      throw ServerException();
+    }
   }
 }
