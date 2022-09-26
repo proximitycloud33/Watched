@@ -33,41 +33,38 @@ class TVSeriesModel extends Equatable {
     required this.voteCount,
   });
 
-  Map<String, dynamic> toJson() {
-    return {
-      'backdrop_path': backdropPath,
-      'first_air_date': firstAirDate,
-      'genre_ids': genreIds,
-      'id': id,
-      'name': name,
-      'origin_country': originCountry,
-      'original_language': originalLanguage,
-      'original_name': originalName,
-      'overview': overview,
-      'popularity': popularity,
-      'poster_path': posterPath,
-      'vote_average': voteAverage,
-      'vote_count': voteCount,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+        'backdrop_path': backdropPath,
+        'first_air_date': firstAirDate,
+        'genre_ids': genreIds,
+        'id': id,
+        'name': name,
+        'origin_country': originCountry,
+        'original_language': originalLanguage,
+        'original_name': originalName,
+        'overview': overview,
+        'popularity': popularity,
+        'poster_path': posterPath,
+        'vote_average': voteAverage,
+        'vote_count': voteCount,
+      };
 
-  factory TVSeriesModel.fromJson(Map<String, dynamic> json) {
-    return TVSeriesModel(
-      backdropPath: json['backdrop_path'],
-      firstAirDate: json['first_air_date'],
-      genreIds: List<int>.from(json['genre_ids']),
-      id: json['id'],
-      name: json['name'],
-      originCountry: List<String>.from(json['origin_country']),
-      originalLanguage: json['original_language'],
-      originalName: json['original_name'],
-      overview: json['overview'],
-      popularity: json['popularity'],
-      posterPath: json['poster_path'],
-      voteAverage: json['vote_average'],
-      voteCount: json['vote_count'],
-    );
-  }
+  factory TVSeriesModel.fromJson(Map<String, dynamic> json) => TVSeriesModel(
+        backdropPath: json['backdrop_path'],
+        firstAirDate: json['first_air_date'],
+        genreIds: List<int>.from(json['genre_ids']),
+        id: json['id'],
+        name: json['name'],
+        originCountry: List<String>.from(json['origin_country']),
+        originalLanguage: json['original_language'],
+        originalName: json['original_name'],
+        overview: json['overview'],
+        popularity: json['popularity'],
+        posterPath: json['poster_path'],
+        voteAverage: json['vote_average'],
+        voteCount: json['vote_count'],
+      );
+
   TVSeries toEntity() {
     return TVSeries(
       backdropPath: this.backdropPath,

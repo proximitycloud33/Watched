@@ -31,39 +31,34 @@ class EpisodeModel extends Equatable {
   final double voteAverage;
   final int voteCount;
 
-  factory EpisodeModel.fromJson(Map<String, dynamic> json) {
-    return EpisodeModel(
-      airDate: json['airDate'],
-      episodeNumber: json['episodeNumber'],
-      id: json['id'],
-      name: json['name'],
-      overview: json['overview'],
-      productionCode: json['productionCode'],
-      runtime: json['runtime'],
-      seasonNumber: json['seasonNumber'],
-      showId: json['showId'],
-      stillPath: json['stillPath'],
-      voteAverage: json['voteAverage'],
-      voteCount: json['voteCount'],
-    );
-  }
+  factory EpisodeModel.fromJson(Map<String, dynamic> json) => EpisodeModel(
+        airDate: json["air_date"],
+        episodeNumber: json["episode_number"],
+        name: json["name"],
+        overview: json["overview"],
+        id: json["id"],
+        productionCode: json["production_code"],
+        runtime: json["runtime"],
+        seasonNumber: json["season_number"],
+        showId: json["show_id"],
+        stillPath: json["still_path"],
+        voteAverage: json["vote_average"],
+        voteCount: json["vote_count"],
+      );
 
-  Map<String, dynamic> toJson() {
-    return {
-      'airDate': airDate,
-      'episodeNumber': episodeNumber,
-      'id': id,
-      'name': name,
-      'overview': overview,
-      'productionCode': productionCode,
-      'runtime': runtime,
-      'seasonNumber': seasonNumber,
-      'showId': showId,
-      'stillPath': stillPath,
-      'voteAverage': voteAverage,
-      'voteCount': voteCount,
-    };
-  }
+  Map<String, dynamic> toJson() => {
+        "air_date": airDate,
+        "episode_number": episodeNumber,
+        "name": name,
+        "overview": overview,
+        "id": id,
+        "production_code": productionCode,
+        "runtime": runtime,
+        "season_number": seasonNumber,
+        "still_path": stillPath,
+        "vote_average": voteAverage,
+        "vote_count": voteCount,
+      };
 
   Episode toEntity() {
     return Episode(

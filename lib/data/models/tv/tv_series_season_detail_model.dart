@@ -24,32 +24,32 @@ class TVSeriesSeasonDetailModel extends Equatable {
     required this.seasonNumber,
   });
 
+  factory TVSeriesSeasonDetailModel.fromJson(Map<String, dynamic> json) =>
+      TVSeriesSeasonDetailModel(
+        id: json['_id'],
+        airDate: json['air_date'],
+        episodes: List<EpisodeModel>.from(
+            json['episodes'].map((x) => EpisodeModel.fromJson(x))),
+        name: json['name'],
+        overview: json['overview'],
+        purpleId: json['id'],
+        posterPath: json['poster_path'],
+        seasonNumber: json['season_number'],
+      );
+
   Map<String, dynamic> toJson() {
     return {
-      'id': id,
-      'airDate': airDate,
+      '_id': id,
+      'air_date': airDate,
       'episodes': episodes.map((x) => x.toJson()).toList(),
       'name': name,
       'overview': overview,
-      'purpleId': purpleId,
-      'posterPath': posterPath,
-      'seasonNumber': seasonNumber,
+      'id': purpleId,
+      'poster_path': posterPath,
+      'season_number': seasonNumber,
     };
   }
 
-  factory TVSeriesSeasonDetailModel.fromJson(Map<String, dynamic> json) {
-    return TVSeriesSeasonDetailModel(
-      id: json['id'],
-      airDate: json['airDate'],
-      episodes: List<EpisodeModel>.from(
-          json['episodes'].map((x) => EpisodeModel.fromJson(x))),
-      name: json['name'],
-      overview: json['overview'],
-      purpleId: json['purpleId'],
-      posterPath: json['posterPath'],
-      seasonNumber: json['seasonNumber'],
-    );
-  }
   TVSeriesSeasonDetail toEntity() {
     return TVSeriesSeasonDetail(
       id: this.id,

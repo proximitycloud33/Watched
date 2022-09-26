@@ -1,3 +1,4 @@
+import 'package:ditonton/domain/entities/tv/season.dart';
 import 'package:equatable/equatable.dart';
 
 import 'package:ditonton/domain/entities/genre.dart';
@@ -15,6 +16,7 @@ class TVSeriesDetail extends Equatable {
     required this.originalName,
     required this.overview,
     required this.posterPath,
+    required this.seasons,
     required this.voteAverage,
     required this.voteCount,
   });
@@ -30,6 +32,7 @@ class TVSeriesDetail extends Equatable {
   final String originalName;
   final String overview;
   final String posterPath;
+  final List<Season> seasons;
   final double voteAverage;
   final int voteCount;
 
