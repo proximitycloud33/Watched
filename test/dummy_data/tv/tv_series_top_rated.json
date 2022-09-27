@@ -1,5 +1,4 @@
 {
-    "page": 1,
     "results": [
         {
             "backdrop_path": "/7q448EVOnuE3gVAx24krzO7SNXM.jpg",
@@ -21,7 +20,5 @@
             "vote_count": 2935
         }
       
-    ],
-    "total_pages": 129,
-    "total_results": 2579
+    ]
 }

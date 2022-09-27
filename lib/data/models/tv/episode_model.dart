@@ -36,13 +36,13 @@ class EpisodeModel extends Equatable {
         episodeNumber: json["episode_number"],
         name: json["name"],
         overview: json["overview"],
-        id: json["id"],
+        id: json["id"].toInt(),
         productionCode: json["production_code"],
         runtime: json["runtime"],
         seasonNumber: json["season_number"],
         showId: json["show_id"],
-        stillPath: json["still_path"],
-        voteAverage: json["vote_average"],
+        stillPath: json["still_path"] ?? '',
+        voteAverage: json["vote_average"].toDouble(),
         voteCount: json["vote_count"],
       );
 
