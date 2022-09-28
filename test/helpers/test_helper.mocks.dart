@@ -17,7 +17,7 @@ import 'package:ditonton/data/datasources/tv_series_remote_data_source.dart'
     as _i20;
 import 'package:ditonton/data/models/movie/movie_detail_model.dart' as _i3;
 import 'package:ditonton/data/models/movie/movie_model.dart' as _i13;
-import 'package:ditonton/data/models/movie_table.dart' as _i15;
+import 'package:ditonton/data/models/watchlist_table.dart' as _i15;
 import 'package:ditonton/data/models/tv/tv_series_detail_response_model.dart'
     as _i4;
 import 'package:ditonton/data/models/tv/tv_series_model.dart' as _i21;
@@ -398,7 +398,7 @@ class MockDatabaseHelper extends _i1.Mock implements _i22.DatabaseHelper {
       (super.noSuchMethod(Invocation.method(#removeWatchlist, [movie]),
           returnValue: _i8.Future<int>.value(0)) as _i8.Future<int>);
   @override
-  _i8.Future<Map<String, dynamic>?> getMovieById(int? id) =>
+  _i8.Future<Map<String, dynamic>?> getWatchlistById(int? id) =>
       (super.noSuchMethod(Invocation.method(#getMovieById, [id]),
               returnValue: _i8.Future<Map<String, dynamic>?>.value())
           as _i8.Future<Map<String, dynamic>?>);
