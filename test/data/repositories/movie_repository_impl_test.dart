@@ -17,11 +17,11 @@ import '../../helpers/test_helper.mocks.dart';
 void main() {
   late MovieRepositoryImpl repository;
   late MockMovieRemoteDataSource mockRemoteDataSource;
-  late MockMovieLocalDataSource mockLocalDataSource;
+  late MockWatchlistLocalDataSource mockLocalDataSource;
 
   setUp(() {
     mockRemoteDataSource = MockMovieRemoteDataSource();
-    mockLocalDataSource = MockMovieLocalDataSource();
+    mockLocalDataSource = MockWatchlistLocalDataSource();
     repository = MovieRepositoryImpl(
       remoteDataSource: mockRemoteDataSource,
       localDataSource: mockLocalDataSource,
@@ -390,7 +390,8 @@ void main() {
     test('should return watch status whether data is found', () async {
       // arrange
       final tId = 1;
-      when(mockLocalDataSource.getMovieById(tId)).thenAnswer((_) async => null);
+      when(mockLocalDataSource.getWatchlistById(tId))
+          .thenAnswer((_) async => null);
       // act
       final result = await repository.isAddedToWatchlist(tId);
       // assert

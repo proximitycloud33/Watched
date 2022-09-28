@@ -1,9 +1,9 @@
 import 'dart:io';
 
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/data/datasources/movie_local_data_source.dart';
+import 'package:ditonton/data/datasources/watchlist_local_data_source.dart';
 import 'package:ditonton/data/datasources/movie_remote_data_source.dart';
-import 'package:ditonton/data/models/movie_table.dart';
+import 'package:ditonton/data/models/watchlist_table.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
 import 'package:ditonton/domain/repositories/movie_repository.dart';
@@ -12,7 +12,7 @@ import 'package:ditonton/common/failure.dart';
 
 class MovieRepositoryImpl implements MovieRepository {
   final MovieRemoteDataSource remoteDataSource;
-  final MovieLocalDataSource localDataSource;
+  final WatchlistLocalDataSource localDataSource;
 
   MovieRepositoryImpl({
     required this.remoteDataSource,
@@ -117,7 +117,7 @@ class MovieRepositoryImpl implements MovieRepository {
 
   @override
   Future<bool> isAddedToWatchlist(int id) async {
-    final result = await localDataSource.getMovieById(id);
+    final result = await localDataSource.getWatchlistById(id);
     return result != null;
   }
 
