@@ -28,9 +28,9 @@ class WatchlistNotifier extends ChangeNotifier {
         _message = failure.message;
         notifyListeners();
       },
-      (moviesData) {
+      (watchlist) {
         _watchlistState = RequestState.Loaded;
-        _watchlist = moviesData;
+        _watchlist = watchlist;
         notifyListeners();
       },
     );
