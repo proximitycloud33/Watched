@@ -45,7 +45,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
             final movie = provider.movie;
             return SafeArea(
               child: DetailContent(
-                movie!,
+                movie,
                 provider.movieRecommendations,
                 provider.isAddedToWatchlist,
               ),

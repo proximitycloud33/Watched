@@ -55,6 +55,7 @@ class EpisodeModel extends Equatable {
         "production_code": productionCode,
         "runtime": runtime,
         "season_number": seasonNumber,
+        "show_id": showId,
         "still_path": stillPath,
         "vote_average": voteAverage,
         "vote_count": voteCount,

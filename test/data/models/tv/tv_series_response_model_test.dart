@@ -29,7 +29,6 @@ void main() {
     test('should return a valid model from JSON', () async {
       final Map<String, dynamic> jsonMap =
           json.decode(readJson('dummy_data/tv/tv_series_on_the_air.json'));
-      print(jsonMap);
       final result = TVSeriesResponse.fromJson(jsonMap);
       expect(result, testTVSeriesResponseModel);
     });
