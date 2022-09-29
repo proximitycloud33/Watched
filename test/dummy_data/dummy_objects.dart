@@ -1,7 +1,8 @@
-import 'package:ditonton/data/models/movie_table.dart';
+import 'package:ditonton/data/models/watchlist_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
+import 'package:ditonton/domain/entities/watchlist.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -50,6 +51,13 @@ final testWatchlistTable = WatchlistTable(
   posterPath: 'posterPath',
   overview: 'overview',
 );
+final testWatchlist = Watchlist(
+  id: 1,
+  title: 'title',
+  posterPath: 'posterPath',
+  overview: 'overview',
+);
+final testListofWatchlist = [testWatchlist];
 
 final testMovieMap = {
   'id': 1,

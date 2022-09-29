@@ -3,6 +3,7 @@ import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
+import 'package:ditonton/domain/entities/watchlist.dart';
 import 'package:ditonton/presentation/provider/movie_detail_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:flutter/material.dart';
@@ -44,7 +45,7 @@ class _MovieDetailPageState extends State<MovieDetailPage> {
             final movie = provider.movie;
             return SafeArea(
               child: DetailContent(
-                movie,
+                movie!,
                 provider.movieRecommendations,
                 provider.isAddedToWatchlist,
               ),
@@ -111,12 +112,26 @@ class DetailContent extends StatelessWidget {
                                   await Provider.of<MovieDetailNotifier>(
                                           context,
                                           listen: false)
-                                      .addWatchlist(movie);
+                                      .addWatchlist(
+                                    Watchlist(
+                                      id: movie.id,
+                                      overview: movie.title,
+                                      posterPath: movie.posterPath,
+                                      title: movie.title,
+                                    ),
+                                  );
                                 } else {
                                   await Provider.of<MovieDetailNotifier>(
                                           context,
                                           listen: false)
-                                      .removeFromWatchlist(movie);
+                                      .removeFromWatchlist(
+                                    Watchlist(
+                                      id: movie.id,
+                                      overview: movie.title,
+                                      posterPath: movie.posterPath,
+                                      title: movie.title,
+                                    ),
+                                  );
                                 }
 
                                 final message =

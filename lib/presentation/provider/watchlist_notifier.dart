@@ -1,11 +1,11 @@
 import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
-import 'package:ditonton/domain/usecases/movie/get_watchlist_movies.dart';
+import 'package:ditonton/domain/entities/watchlist.dart';
+import 'package:ditonton/domain/usecases/watchlist/get_watchlist.dart';
 import 'package:flutter/foundation.dart';
 
-class WatchlistMovieNotifier extends ChangeNotifier {
-  var _watchlistMovies = <Movie>[];
-  List<Movie> get watchlistMovies => _watchlistMovies;
+class WatchlistNotifier extends ChangeNotifier {
+  var _watchlist = <Watchlist>[];
+  List<Watchlist> get watchlist => _watchlist;
 
   var _watchlistState = RequestState.Empty;
   RequestState get watchlistState => _watchlistState;
@@ -13,11 +13,11 @@ class WatchlistMovieNotifier extends ChangeNotifier {
   String _message = '';
   String get message => _message;
 
-  WatchlistMovieNotifier({required this.getWatchlistMovies});
+  WatchlistNotifier({required this.getWatchlistMovies});
 
-  final GetWatchlistMovies getWatchlistMovies;
+  final GetWatchlist getWatchlistMovies;
 
-  Future<void> fetchWatchlistMovies() async {
+  Future<void> fetchWatchlist() async {
     _watchlistState = RequestState.Loading;
     notifyListeners();
 
@@ -30,7 +30,7 @@ class WatchlistMovieNotifier extends ChangeNotifier {
       },
       (moviesData) {
         _watchlistState = RequestState.Loaded;
-        _watchlistMovies = moviesData;
+        _watchlist = moviesData;
         notifyListeners();
       },
     );
