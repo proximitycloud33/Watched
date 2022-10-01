@@ -29,6 +29,11 @@ class ListTVSeriesNotifier extends ChangeNotifier {
   List<TVSeries> get onTheAirTVSeries => _onTheAirTVSeries;
   List<TVSeries> get popularTVSeries => _popularTVSeries;
   List<TVSeries> get topRatedTVSeries => _topRatedTVSeries;
+
+  RequestState get onTheAirTVSeriesState => _onTheAirTVSeriesState;
+  RequestState get popularTVSeriesState => _popularTVSeriesState;
+  RequestState get topRatedTVSeriesState => _topRatedTVSeriesState;
+
   get message => _message;
 
   Future<void> fetchOnTheAirTVSeries() async {
@@ -67,7 +72,7 @@ class ListTVSeriesNotifier extends ChangeNotifier {
     _topRatedTVSeriesState = RequestState.Loading;
     notifyListeners();
 
-    final result = await getOnTheAirTVSeries.execute();
+    final result = await getTopRatedTVSeries.execute();
     result.fold((failure) {
       _topRatedTVSeriesState = RequestState.Error;
       _message = failure.message;

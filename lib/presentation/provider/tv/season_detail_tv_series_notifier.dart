@@ -17,6 +17,9 @@ class SeasonDetailTVSeriesNotifier extends ChangeNotifier {
   TVSeriesSeasonDetail get tvSeriesDetail => _tvSeriesSeasonDetail;
 
   Future<void> fetchTVSeriesSeasonDetail(int id, int season) async {
+    _state = RequestState.Loading;
+    notifyListeners();
+
     final detailResult = await getSeasonDetailTVSeries.execute(id, season);
     detailResult.fold((failure) {
       _state = RequestState.Error;
