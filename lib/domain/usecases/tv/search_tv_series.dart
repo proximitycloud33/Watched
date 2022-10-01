@@ -6,7 +6,7 @@ import 'package:ditonton/domain/repositories/tv_series_repository.dart';
 class SearchTVSeries {
   final TVSeriesRepository repository;
 
-  SearchTVSeries(this.repository);
+  SearchTVSeries({required this.repository});
 
   Future<Either<Failure, List<TVSeries>>> execute(String query) {
     return repository.searchTVSeries(query);

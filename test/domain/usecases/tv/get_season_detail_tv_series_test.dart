@@ -13,7 +13,7 @@ void main() {
 
   setUp(() {
     mockTVSeriesRepository = MockTVSeriesRepository();
-    usecase = GetSeasonDetailTVSeries(mockTVSeriesRepository);
+    usecase = GetSeasonDetailTVSeries(repository: mockTVSeriesRepository);
   });
 
   final testId = 1;
