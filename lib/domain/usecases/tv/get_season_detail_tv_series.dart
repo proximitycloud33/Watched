@@ -5,7 +5,7 @@ import 'package:ditonton/domain/repositories/tv_series_repository.dart';
 
 class GetSeasonDetailTVSeries {
   final TVSeriesRepository repository;
-  GetSeasonDetailTVSeries(this.repository);
+  GetSeasonDetailTVSeries({required this.repository});
 
   Future<Either<Failure, TVSeriesSeasonDetail>> execute(int id, int season) {
     return repository.getSeasonDetailTVSeries(id, season);
