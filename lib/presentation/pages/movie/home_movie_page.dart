@@ -13,6 +13,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomeMoviePage extends StatefulWidget {
+  //TODO add named route
+  static const ROUTE_NAME = '/home-movie';
   @override
   _HomeMoviePageState createState() => _HomeMoviePageState();
 }
@@ -48,6 +50,14 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 Navigator.pop(context);
               },
             ),
+            // TODO go to TVSeries home page
+            ListTile(
+              leading: Icon(Icons.live_tv_sharp),
+              title: Text('TV Series'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
             ListTile(
               leading: Icon(Icons.save_alt),
               title: Text('Watchlist'),
@@ -70,7 +80,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
+              Navigator.pushNamed(context, SearchMoviePage.ROUTE_NAME);
             },
             icon: Icon(Icons.search),
           )
