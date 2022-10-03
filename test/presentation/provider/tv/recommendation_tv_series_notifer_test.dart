@@ -60,7 +60,7 @@ void main() {
 
     await provider.fetchRecommendationTVSeries(tId);
 
-    expect(provider.tvSeries, tTVSeriesList);
+    expect(provider.tvSeriesRecommendation, tTVSeriesList);
     expect(listenerCallCount, 2);
   });
   test('should return error when data is unsuccessful', () async {

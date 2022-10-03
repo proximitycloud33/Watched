@@ -32,7 +32,7 @@ class TVSeriesDetailResponseModel extends Equatable {
   final int numberOfSeasons;
   final String originalName;
   final String overview;
-  final String posterPath;
+  final String? posterPath;
   final List<SeasonModel> seasons;
   final double voteAverage;
   final int voteCount;
@@ -94,7 +94,7 @@ class TVSeriesDetailResponseModel extends Equatable {
   }
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       adult,
       backdropPath,

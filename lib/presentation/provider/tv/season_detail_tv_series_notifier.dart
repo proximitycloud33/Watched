@@ -6,7 +6,7 @@ import 'package:flutter/foundation.dart';
 class SeasonDetailTVSeriesNotifier extends ChangeNotifier {
   final GetSeasonDetailTVSeries getSeasonDetailTVSeries;
 
-  late TVSeriesSeasonDetail _tvSeriesSeasonDetail;
+  TVSeriesSeasonDetail? _tvSeriesSeasonDetail;
   RequestState _state = RequestState.Empty;
   String _message = '';
 
@@ -14,7 +14,7 @@ class SeasonDetailTVSeriesNotifier extends ChangeNotifier {
 
   String get message => _message;
   RequestState get state => _state;
-  TVSeriesSeasonDetail get tvSeriesDetail => _tvSeriesSeasonDetail;
+  TVSeriesSeasonDetail? get tvSeriesSeasonDetail => _tvSeriesSeasonDetail;
 
   Future<void> fetchTVSeriesSeasonDetail(int id, int season) async {
     _state = RequestState.Loading;

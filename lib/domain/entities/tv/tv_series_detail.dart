@@ -31,13 +31,13 @@ class TVSeriesDetail extends Equatable {
   final int numberOfSeasons;
   final String originalName;
   final String overview;
-  final String posterPath;
+  final String? posterPath;
   final List<Season> seasons;
   final double voteAverage;
   final int voteCount;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       adult,
       backdropPath,

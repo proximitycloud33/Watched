@@ -24,7 +24,7 @@ class EpisodeModel extends Equatable {
   final String name;
   final String overview;
   final String productionCode;
-  final int runtime;
+  final int? runtime;
   final int seasonNumber;
   final int showId;
   final String stillPath;
@@ -32,7 +32,7 @@ class EpisodeModel extends Equatable {
   final int voteCount;
 
   factory EpisodeModel.fromJson(Map<String, dynamic> json) => EpisodeModel(
-        airDate: json["air_date"],
+        airDate: json["air_date"] ?? '',
         episodeNumber: json["episode_number"],
         name: json["name"],
         overview: json["overview"],
@@ -79,7 +79,7 @@ class EpisodeModel extends Equatable {
   }
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       airDate,
       episodeNumber,

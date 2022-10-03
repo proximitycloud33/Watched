@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv/tv_series.dart';
+import 'package:ditonton/presentation/pages/tv/tv_series_detail_page.dart';
 import 'package:ditonton/presentation/provider/tv/recommendation_tv_series_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -34,12 +35,11 @@ class RecommendationList extends StatelessWidget {
                   padding: const EdgeInsets.all(4.0),
                   child: InkWell(
                     onTap: () {
-                      // TODO Detail TVSeries page route
-                      // Navigator.pushReplacementNamed(
-                      //   context,
-                      //   MovieDetailPage.ROUTE_NAME,
-                      //   arguments: movie.id,
-                      // );
+                      Navigator.pushReplacementNamed(
+                        context,
+                        TVSeriesDetailPage.ROUTE_NAME,
+                        arguments: movie.id,
+                      );
                     },
                     child: ClipRRect(
                       borderRadius: BorderRadius.all(

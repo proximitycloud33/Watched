@@ -20,11 +20,11 @@ class TVSeriesSeasonDetail extends Equatable {
   final String name;
   final String overview;
   final int purpleId;
-  final String posterPath;
+  final String? posterPath;
   final int seasonNumber;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       airDate,

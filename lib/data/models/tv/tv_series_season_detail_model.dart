@@ -10,7 +10,7 @@ class TVSeriesSeasonDetailModel extends Equatable {
   final String name;
   final String overview;
   final int purpleId;
-  final String posterPath;
+  final String? posterPath;
   final int seasonNumber;
 
   TVSeriesSeasonDetailModel({
@@ -27,7 +27,7 @@ class TVSeriesSeasonDetailModel extends Equatable {
   factory TVSeriesSeasonDetailModel.fromJson(Map<String, dynamic> json) =>
       TVSeriesSeasonDetailModel(
         id: json['_id'],
-        airDate: json['air_date'],
+        airDate: json['air_date'] ?? '',
         episodes: List<EpisodeModel>.from(
             json['episodes'].map((x) => EpisodeModel.fromJson(x))),
         name: json['name'],
@@ -64,7 +64,7 @@ class TVSeriesSeasonDetailModel extends Equatable {
   }
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       id,
       airDate,

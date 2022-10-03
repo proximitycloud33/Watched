@@ -14,7 +14,7 @@ class RecommendationTVSeriesNotifier extends ChangeNotifier {
 
   String get message => _message;
   RequestState get state => _state;
-  List<TVSeries> get tvSeries => _tvSeries;
+  List<TVSeries> get tvSeriesRecommendation => _tvSeries;
 
   Future<void> fetchRecommendationTVSeries(int id) async {
     _state = RequestState.Loading;

@@ -74,7 +74,7 @@ void main() {
     await provider.fetchTVSeriesSeasonDetail(testId, testSeason);
 
     expect(provider.state, RequestState.Loaded);
-    expect(provider.tvSeriesDetail, testTVSeriesSeasonDetail);
+    expect(provider.tvSeriesSeasonDetail, testTVSeriesSeasonDetail);
     expect(listenerCallCount, 2);
   });
   test('Should return error', () async {

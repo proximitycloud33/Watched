@@ -1,5 +1,6 @@
 import 'package:ditonton/presentation/pages/tv/home_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv/popular_tv_series_page.dart';
+import 'package:ditonton/presentation/pages/tv/screen_arguments.dart';
 import 'package:ditonton/presentation/pages/tv/search_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv/top_rated_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv/tv_series_detail_page.dart';
@@ -31,6 +32,7 @@ import 'package:ditonton/presentation/provider/tv/search_tv_series_notifier.dart
 import 'package:ditonton/presentation/provider/tv/season_detail_tv_series_notifier.dart';
 import 'package:ditonton/presentation/provider/tv/top_rated_tv_series_notifier.dart';
 import 'package:ditonton/presentation/provider/watchlist_notifier.dart';
+import 'package:ditonton/presentation/pages/tv/tv_series_season_detail_page.dart';
 
 void main() {
   di.init();
@@ -135,6 +137,11 @@ class MyApp extends StatelessWidget {
                   builder: (_) => TVSeriesDetailPage(id: id));
             case SearchTVSeriesPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => SearchTVSeriesPage());
+            case TVSeriesSeasonDetailPage.ROUTE_NAME:
+              final args = settings.arguments as ScreenArguments;
+              return MaterialPageRoute(
+                  builder: (_) => TVSeriesSeasonDetailPage(
+                      id: args.id, seasonNumber: args.seasonNumber));
             default:
               return MaterialPageRoute(builder: (_) {
                 return Scaffold(

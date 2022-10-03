@@ -4,6 +4,7 @@ import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/tv/tv_series.dart';
 import 'package:ditonton/domain/entities/tv/tv_series_detail.dart';
 import 'package:ditonton/presentation/widgets/recommendation_list.dart';
+import 'package:ditonton/presentation/widgets/season_list.dart';
 import 'package:ditonton/presentation/widgets/watchlist_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -90,7 +91,11 @@ class DetailContentTVSeries extends StatelessWidget {
                               tvSeriesDetail.overview,
                             ),
                             SizedBox(height: 16),
-                            Text('Available Season'),
+                            Text(
+                              'Available Season',
+                              style: kHeading6,
+                            ),
+                            SeasonList(),
                             Text(
                               'Recommendations',
                               style: kHeading6,

@@ -22,7 +22,7 @@ class Episode extends Equatable {
   final String name;
   final String overview;
   final String productionCode;
-  final int runtime;
+  final int? runtime;
   final int seasonNumber;
   final int showId;
   final String stillPath;
@@ -30,7 +30,7 @@ class Episode extends Equatable {
   final int voteCount;
 
   @override
-  List<Object> get props {
+  List<Object?> get props {
     return [
       airDate,
       episodeNumber,

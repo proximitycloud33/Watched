@@ -41,7 +41,7 @@ class _TVSeriesDetailPageState extends State<TVSeriesDetailPage> {
             return SafeArea(
               child: DetailContentTVSeries(
                 provider1.tvSeriesDetail,
-                provider2.tvSeries,
+                provider2.tvSeriesRecommendation,
                 provider1.isAddedToWatchlist,
               ),
             );
