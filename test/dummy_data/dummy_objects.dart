@@ -47,12 +47,14 @@ final testWatchlistMovie = Movie.watchlist(
 
 final testWatchlistTable = WatchlistTable(
   id: 1,
+  type: 'tv',
   title: 'title',
   posterPath: 'posterPath',
   overview: 'overview',
 );
 final testWatchlist = Watchlist(
   id: 1,
+  type: 'tv',
   title: 'title',
   posterPath: 'posterPath',
   overview: 'overview',

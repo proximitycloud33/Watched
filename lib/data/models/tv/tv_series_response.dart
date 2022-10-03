@@ -10,7 +10,6 @@ class TVSeriesResponse extends Equatable {
       TVSeriesResponse(
         seriesList: List<TVSeriesModel>.from((json["results"] as List)
             .map((x) => TVSeriesModel.fromJson(x))
-            //ignore: unnecessary_null_comparison
             .where((element) => element.backdropPath != null)),
       );
 

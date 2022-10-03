@@ -41,7 +41,6 @@ class DatabaseHelper {
     ''');
   }
 
-  //TODO change Movie table to WatchListTABLE
   Future<int> insertWatchlist(WatchlistTable watchlist) async {
     final db = await database;
     return await db!.insert(_tblWatchlist, watchlist.toJson());

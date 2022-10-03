@@ -28,7 +28,6 @@ class TVSeriesRemoteDataSourceImpl implements TVSeriesRemoteDataSource {
   Future<List<TVSeriesModel>> getOnTheAirTVSeries() async {
     final uri = '$BASE_URL/tv/on_the_air?$API_KEY';
     final response = await client.get(Uri.parse(uri));
-
     if (response.statusCode == 200) {
       return TVSeriesResponse.fromJson(json.decode(response.body)).seriesList;
     } else {

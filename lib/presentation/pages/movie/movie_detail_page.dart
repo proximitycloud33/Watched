@@ -115,7 +115,8 @@ class DetailContent extends StatelessWidget {
                                       .addWatchlist(
                                     Watchlist(
                                       id: movie.id,
-                                      overview: movie.title,
+                                      type: 'movie',
+                                      overview: movie.overview,
                                       posterPath: movie.posterPath,
                                       title: movie.title,
                                     ),
@@ -127,6 +128,7 @@ class DetailContent extends StatelessWidget {
                                       .removeFromWatchlist(
                                     Watchlist(
                                       id: movie.id,
+                                      type: 'movie',
                                       overview: movie.overview,
                                       posterPath: movie.posterPath,
                                       title: movie.title,

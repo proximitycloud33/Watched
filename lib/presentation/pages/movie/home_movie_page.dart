@@ -6,6 +6,7 @@ import 'package:ditonton/presentation/pages/movie/movie_detail_page.dart';
 import 'package:ditonton/presentation/pages/movie/popular_movies_page.dart';
 import 'package:ditonton/presentation/pages/movie/search_movies_page.dart';
 import 'package:ditonton/presentation/pages/movie/top_rated_movies_page.dart';
+import 'package:ditonton/presentation/pages/tv/home_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/watchlist_page.dart';
 import 'package:ditonton/presentation/provider/movie/movie_list_notifier.dart';
 import 'package:ditonton/common/state_enum.dart';
@@ -13,7 +14,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class HomeMoviePage extends StatefulWidget {
-  //TODO add named route
   static const ROUTE_NAME = '/home-movie';
   @override
   _HomeMoviePageState createState() => _HomeMoviePageState();
@@ -50,12 +50,11 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 Navigator.pop(context);
               },
             ),
-            // TODO go to TVSeries home page
             ListTile(
               leading: Icon(Icons.live_tv_sharp),
               title: Text('TV Series'),
               onTap: () {
-                Navigator.pop(context);
+                Navigator.pushNamed(context, HomeTVSeriesPage.ROUTE_NAME);
               },
             ),
             ListTile(

@@ -27,7 +27,7 @@ class TVSeries extends Equatable {
   final String originalName;
   final String overview;
   final double popularity;
-  final String posterPath;
+  final String? posterPath;
   final double voteAverage;
   final int voteCount;
 

@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class TVSeriesDetailPage extends StatefulWidget {
+  static const ROUTE_NAME = '/detail-tvseries';
   final int id;
-
   const TVSeriesDetailPage({super.key, required this.id});
 
   @override
@@ -51,16 +51,5 @@ class _TVSeriesDetailPageState extends State<TVSeriesDetailPage> {
         },
       ),
     );
-  }
-}
-
-String _showDuration(int runtime) {
-  final int hours = runtime ~/ 60;
-  final int minutes = runtime % 60;
-
-  if (hours > 0) {
-    return '${hours}h ${minutes}m';
-  } else {
-    return '${minutes}m';
   }
 }

@@ -3,7 +3,7 @@ import 'package:equatable/equatable.dart';
 import 'package:ditonton/domain/entities/tv/tv_series.dart';
 
 class TVSeriesModel extends Equatable {
-  final String backdropPath;
+  final String? backdropPath;
   final String firstAirDate;
   final List<int> genreIds;
   final int id;
@@ -13,7 +13,7 @@ class TVSeriesModel extends Equatable {
   final String originalName;
   final String overview;
   final double popularity;
-  final String posterPath;
+  final String? posterPath;
   final double voteAverage;
   final int voteCount;
 

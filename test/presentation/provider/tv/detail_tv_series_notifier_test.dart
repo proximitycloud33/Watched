@@ -77,6 +77,7 @@ void main() {
   );
   final testWatchlist = Watchlist(
     id: 1,
+    type: 'tv',
     title: 'title',
     posterPath: 'posterPath',
     overview: 'overview',

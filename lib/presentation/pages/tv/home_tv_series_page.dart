@@ -2,6 +2,13 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/domain/entities/tv/tv_series.dart';
+import 'package:ditonton/presentation/pages/about_page.dart';
+import 'package:ditonton/presentation/pages/movie/home_movie_page.dart';
+import 'package:ditonton/presentation/pages/tv/popular_tv_series_page.dart';
+import 'package:ditonton/presentation/pages/tv/search_tv_series_page.dart';
+import 'package:ditonton/presentation/pages/tv/top_rated_tv_series_page.dart';
+import 'package:ditonton/presentation/pages/tv/tv_series_detail_page.dart';
+import 'package:ditonton/presentation/pages/watchlist_page.dart';
 import 'package:ditonton/presentation/provider/tv/list_tv_series_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -42,9 +49,8 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
             ListTile(
               leading: Icon(Icons.movie),
               title: Text('Movies'),
-              // TODO Go to movie home page
               onTap: () {
-                // Navigator.pop(context);
+                Navigator.pushNamed(context, HomeMoviePage.ROUTE_NAME);
               },
             ),
             ListTile(
@@ -58,12 +64,12 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
               leading: Icon(Icons.save_alt),
               title: Text('Watchlist'),
               onTap: () {
-                // Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
+                Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
               },
             ),
             ListTile(
               onTap: () {
-                // Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+                Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
               },
               leading: Icon(Icons.info_outline),
               title: Text('About'),
@@ -76,7 +82,7 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
         actions: [
           IconButton(
             onPressed: () {
-              // Navigator.pushNamed(context, SearchPage.ROUTE_NAME);
+              Navigator.pushNamed(context, SearchTVSeriesPage.ROUTE_NAME);
             },
             icon: Icon(Icons.search),
           )
@@ -100,15 +106,17 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
                   );
                 } else if (state == RequestState.Loaded) {
                   return TVSeriesList(data.onTheAirTVSeries);
-                  //TODO Create TVSeries List
                 } else {
                   return Text('Failed');
                 }
               }),
-              _buildSubHeading(title: 'Popular', onTap: () => {}
-                  //TODO Routes
-                  // Navigator.pushNamed(context, PopularMoviesPage.ROUTE_NAME),
-                  ),
+              _buildSubHeading(
+                title: 'Popular',
+                onTap: () => Navigator.pushNamed(
+                  context,
+                  PopularTVSeriesPage.ROUTE_NAME,
+                ),
+              ),
               Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
                 final state = data.popularTVSeriesState;
                 if (state == RequestState.Loading) {
@@ -116,18 +124,18 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
                     child: CircularProgressIndicator(),
                   );
                 } else if (state == RequestState.Loaded) {
-                  //TODO Create TVSeries List
                   return TVSeriesList(data.popularTVSeries);
                 } else {
                   return Text('Failed');
                 }
               }),
               _buildSubHeading(
-                  title: 'Top Rated',
-                  //TODO Routes
-                  onTap: () => {}
-                  // Navigator.pushNamed(context, TopRatedMoviesPage.ROUTE_NAME),
-                  ),
+                title: 'Top Rated',
+                onTap: () => Navigator.pushNamed(
+                  context,
+                  TopRatedTVSeriesPage.ROUTE_NAME,
+                ),
+              ),
               Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
                 final state = data.topRatedTVSeriesState;
                 if (state == RequestState.Loading) {
@@ -136,7 +144,6 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
                   );
                 } else if (state == RequestState.Loaded) {
                   return TVSeriesList(data.topRatedTVSeries);
-                  //TODO Create TVSeries list
                 } else {
                   return Text('Failed');
                 }
@@ -186,13 +193,12 @@ class TVSeriesList extends StatelessWidget {
           return Container(
             padding: const EdgeInsets.all(8),
             child: InkWell(
-              //TODO route to TVSeries Detail
               onTap: () {
-                // Navigator.pushNamed(
-                //   context,
-                //   MovieDetailPage.ROUTE_NAME,
-                //   arguments: movie.id,
-                // );
+                Navigator.pushNamed(
+                  context,
+                  TVSeriesDetailPage.ROUTE_NAME,
+                  arguments: tv.id,
+                );
               },
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(16)),

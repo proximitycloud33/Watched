@@ -23,6 +23,7 @@ class WatchlistButton extends StatelessWidget {
               .addWatchlist(
             Watchlist(
               id: tvSeriesDetail.id,
+              type: 'tv',
               overview: tvSeriesDetail.overview,
               posterPath: tvSeriesDetail.posterPath,
               title: tvSeriesDetail.name,
@@ -33,6 +34,7 @@ class WatchlistButton extends StatelessWidget {
               .removeFromWatchlist(
             Watchlist(
               id: tvSeriesDetail.id,
+              type: 'tv',
               overview: tvSeriesDetail.overview,
               posterPath: tvSeriesDetail.posterPath,
               title: tvSeriesDetail.name,
