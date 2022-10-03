@@ -34,6 +34,7 @@ class DatabaseHelper {
     await db.execute('''
       CREATE TABLE  $_tblWatchlist (
         id INTEGER PRIMARY KEY,
+        type TEXT,
         title TEXT,
         overview TEXT,
         posterPath TEXT
