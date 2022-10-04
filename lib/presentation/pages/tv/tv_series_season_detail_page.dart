@@ -43,11 +43,10 @@ class _TVSeriesSeasonDetailPageState extends State<TVSeriesSeasonDetailPage> {
               child: SeasonDetailContent(provider.tvSeriesSeasonDetail),
             );
           } else {
-            print(provider.tvSeriesSeasonDetail);
             return Center(
                 child: Text(
               provider.message +
-                  ' failure Season Number: ${widget.seasonNumber} Id: ${widget.id} ',
+                  ' failure load Season Number: ${widget.seasonNumber} Id: ${widget.id} ',
             ));
           }
         },

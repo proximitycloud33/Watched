@@ -1,6 +1,6 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:ditonton/common/constants.dart';
 import 'package:ditonton/domain/entities/tv/tv_series_season_detail.dart';
+import 'package:ditonton/common/constants.dart';
+import 'package:ditonton/presentation/pages/tv/tv_series_episode_detail_page.dart';
 import 'package:flutter/material.dart';
 
 class SeasonDetailContent extends StatelessWidget {
@@ -12,81 +12,60 @@ class SeasonDetailContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-    return Stack(
-      children: [
-        CachedNetworkImage(
-          imageUrl:
-              'https://image.tmdb.org/t/p/w500${seasonDetail!.posterPath}',
-          width: screenWidth,
-          placeholder: (context, url) => Center(
-            child: CircularProgressIndicator(),
-          ),
-          errorWidget: (context, url, error) => Icon(Icons.error),
-        ),
-        Container(
-          margin: const EdgeInsets.only(top: 48 + 8),
-          child: DraggableScrollableSheet(
-            builder: (context, scrollController) {
-              return Container(
-                decoration: BoxDecoration(
-                  color: kRichBlack,
-                  borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(seasonDetail!.name),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              if (seasonDetail!.overview != '') ...[
+                Text(
+                  'Overview',
+                  style: kHeading6,
                 ),
-                padding: const EdgeInsets.only(
-                  left: 16,
-                  top: 16,
-                  right: 16,
-                ),
-                child: Stack(
-                  children: [
-                    Container(
-                      margin: const EdgeInsets.only(top: 16),
-                      child: SingleChildScrollView(
-                        controller: scrollController,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              seasonDetail!.name,
-                              style: kHeading5,
-                            ),
-                            SizedBox(height: 16),
-                          ],
+                Text(seasonDetail!.overview),
+              ],
+              SizedBox(height: 16.0),
+              Row(
+                children: [
+                  const Text('Release Date: '),
+                  Text(seasonDetail!.airDate),
+                ],
+              ),
+              SizedBox(height: 16.0),
+              ...seasonDetail!.episodes
+                  .map(
+                    (episode) => Padding(
+                      padding: const EdgeInsets.only(bottom: 8.0),
+                      child: ListTile(
+                        title: Text(
+                          'Episode ${episode.episodeNumber}',
+                          style: TextStyle(color: kRichBlack),
                         ),
+                        tileColor: kMikadoYellow,
+                        subtitle: Text(
+                          episode.name.toString(),
+                          style: TextStyle(color: kRichBlack),
+                        ),
+                        onTap: () {
+                          Navigator.pushNamed(
+                            context,
+                            TVSeriesEpisodeDetailPage.ROUTE_NAME,
+                            arguments: episode,
+                          );
+                        },
                       ),
                     ),
-                    Align(
-                      alignment: Alignment.topCenter,
-                      child: Container(
-                        color: Colors.white,
-                        height: 4,
-                        width: 48,
-                      ),
-                    ),
-                  ],
-                ),
-              );
-            },
-            // initialChildSize: 0.5,
-            minChildSize: 0.25,
-            // maxChildSize: 1.0,
+                  )
+                  .toList(),
+            ],
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: CircleAvatar(
-            backgroundColor: kRichBlack,
-            foregroundColor: Colors.white,
-            child: IconButton(
-              icon: Icon(Icons.arrow_back),
-              onPressed: () {
-                Navigator.pop(context);
-              },
-            ),
-          ),
-        )
-      ],
+      ),
     );
   }
 

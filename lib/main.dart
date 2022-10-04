@@ -1,9 +1,11 @@
+import 'package:ditonton/domain/entities/tv/episode.dart';
 import 'package:ditonton/presentation/pages/tv/home_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv/popular_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv/screen_arguments.dart';
 import 'package:ditonton/presentation/pages/tv/search_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv/top_rated_tv_series_page.dart';
 import 'package:ditonton/presentation/pages/tv/tv_series_detail_page.dart';
+import 'package:ditonton/presentation/pages/tv/tv_series_episode_detail_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -142,6 +144,11 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(
                   builder: (_) => TVSeriesSeasonDetailPage(
                       id: args.id, seasonNumber: args.seasonNumber));
+            case TVSeriesEpisodeDetailPage.ROUTE_NAME:
+              final episode = settings.arguments as Episode;
+              return MaterialPageRoute(
+                  builder: (context) =>
+                      TVSeriesEpisodeDetailPage(episode: episode));
             default:
               return MaterialPageRoute(builder: (_) {
                 return Scaffold(
