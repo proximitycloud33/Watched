@@ -2,6 +2,8 @@ import 'package:ditonton/data/models/watchlist_table.dart';
 import 'package:ditonton/domain/entities/genre.dart';
 import 'package:ditonton/domain/entities/movie/movie.dart';
 import 'package:ditonton/domain/entities/movie/movie_detail.dart';
+import 'package:ditonton/domain/entities/tv/season.dart';
+import 'package:ditonton/domain/entities/tv/tv_series_detail.dart';
 import 'package:ditonton/domain/entities/watchlist.dart';
 
 final testMovie = Movie(
@@ -34,6 +36,32 @@ final testMovieDetail = MovieDetail(
   releaseDate: 'releaseDate',
   runtime: 120,
   title: 'title',
+  voteAverage: 1,
+  voteCount: 1,
+);
+final testTVSeriesDetail = TVSeriesDetail(
+  adult: false,
+  firstAirDate: '2022-08-21',
+  backdropPath: 'backdropPath',
+  genres: [Genre(id: 1, name: 'Action')],
+  id: 1,
+  overview: 'overview',
+  posterPath: 'posterPath',
+  name: 'Dragon',
+  originalName: 'House of Dragon',
+  numberOfEpisodes: 1,
+  numberOfSeasons: 1,
+  seasons: [
+    Season(
+      airDate: '2022-08-21',
+      episodeCount: 10,
+      id: 1,
+      name: 'Dragon',
+      overview: '',
+      posterPath: '',
+      seasonNumber: 1,
+    )
+  ],
   voteAverage: 1,
   voteCount: 1,
 );

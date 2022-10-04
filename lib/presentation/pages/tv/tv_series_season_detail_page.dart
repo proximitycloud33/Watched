@@ -45,8 +45,7 @@ class _TVSeriesSeasonDetailPageState extends State<TVSeriesSeasonDetailPage> {
           } else {
             return Center(
                 child: Text(
-              provider.message +
-                  ' failure load Season Number: ${widget.seasonNumber} Id: ${widget.id} ',
+              'Failure to load Season',
             ));
           }
         },

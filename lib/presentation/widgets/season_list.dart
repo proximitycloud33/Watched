@@ -7,8 +7,6 @@ import 'package:ditonton/common/state_enum.dart';
 import 'package:ditonton/presentation/pages/tv/tv_series_season_detail_page.dart';
 import 'package:ditonton/presentation/provider/tv/detail_tv_series_notifier.dart';
 
-/// ScreenArguments for season detail tv series
-
 class SeasonList extends StatelessWidget {
   const SeasonList({super.key});
 
