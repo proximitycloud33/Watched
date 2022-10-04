@@ -72,8 +72,8 @@ void main() {
     });
   });
 
-  group('get watchlist movies', () {
-    test('should return list of Movies', () async {
+  group('get watchlist', () {
+    test('should return list of Watchlist', () async {
       // arrange
       when(mockLocalDataSource.getWatchlist())
           .thenAnswer((_) async => [testWatchlistTable]);
@@ -81,7 +81,7 @@ void main() {
       final result = await repository.getWatchlist();
       // assert
       final resultList = result.getOrElse(() => []);
-      expect(resultList, [testWatchlistMovie]);
+      expect(resultList, [testWatchlist]);
     });
   });
 }

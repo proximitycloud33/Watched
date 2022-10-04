@@ -64,13 +64,13 @@ void main() {
     });
   });
 
-  group('Get Movie Detail By Id', () {
+  group('Get Watchlist By Id', () {
     final tId = 1;
 
-    test('should return Movie Detail Table when data is found', () async {
+    test('should return Watchlist Detail Table when data is found', () async {
       // arrange
       when(mockDatabaseHelper.getWatchlistById(tId))
-          .thenAnswer((_) async => testMovieMap);
+          .thenAnswer((_) async => testWatchlistMap);
       // act
       final result = await dataSource.getWatchlistById(tId);
       // assert
@@ -88,11 +88,11 @@ void main() {
     });
   });
 
-  group('get watchlist movies', () {
+  group('get watchlist', () {
     test('should return list of MovieTable from database', () async {
       // arrange
       when(mockDatabaseHelper.getWatchlist())
-          .thenAnswer((_) async => [testMovieMap]);
+          .thenAnswer((_) async => [testWatchlistMap]);
       // act
       final result = await dataSource.getWatchlist();
       // assert

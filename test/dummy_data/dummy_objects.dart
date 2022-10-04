@@ -67,3 +67,11 @@ final testMovieMap = {
   'posterPath': 'posterPath',
   'title': 'title',
 };
+
+final testWatchlistMap = {
+  'id': 1,
+  'type': 'tv',
+  'overview': 'overview',
+  'posterPath': 'posterPath',
+  'title': 'title',
+};
