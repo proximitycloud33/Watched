@@ -6,10 +6,11 @@
 import 'dart:async' as _i6;
 import 'dart:ui' as _i7;
 
-import 'package:ditonton/common/state_enum.dart' as _i4;
-import 'package:ditonton/domain/entities/movie/movie.dart' as _i5;
-import 'package:ditonton/domain/usecases/movie/get_popular_movies.dart' as _i2;
-import 'package:ditonton/presentation/provider/movie/popular_movies_notifier.dart'
+import '../../../../../core/lib/common/state_enum.dart' as _i4;
+import '../../../../../core/lib/domain/entities/movie/movie.dart' as _i5;
+import '../../../../../core/lib/domain/usecases/movie/get_popular_movies.dart'
+    as _i2;
+import '../../../../../core/lib/presentation/provider/movie/popular_movies_notifier.dart'
     as _i3;
 import 'package:mockito/mockito.dart' as _i1;
 

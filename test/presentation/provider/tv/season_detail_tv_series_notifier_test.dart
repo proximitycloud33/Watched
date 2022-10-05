@@ -1,10 +1,10 @@
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/tv/episode.dart';
-import 'package:ditonton/domain/entities/tv/tv_series_season_detail.dart';
-import 'package:ditonton/domain/usecases/tv/get_season_detail_tv_series.dart';
-import 'package:ditonton/presentation/provider/tv/season_detail_tv_series_notifier.dart';
+import '../../../../core/lib/common/failure.dart';
+import '../../../../core/lib/common/state_enum.dart';
+import '../../../../core/lib/domain/entities/tv/episode.dart';
+import '../../../../core/lib/domain/entities/tv/tv_series_season_detail.dart';
+import '../../../../core/lib/domain/usecases/tv/get_season_detail_tv_series.dart';
+import '../../../../core/lib/presentation/provider/tv/season_detail_tv_series_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';

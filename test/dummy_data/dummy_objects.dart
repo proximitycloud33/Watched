@@ -1,10 +1,10 @@
-import 'package:ditonton/data/models/watchlist_table.dart';
-import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
-import 'package:ditonton/domain/entities/movie/movie_detail.dart';
-import 'package:ditonton/domain/entities/tv/season.dart';
-import 'package:ditonton/domain/entities/tv/tv_series_detail.dart';
-import 'package:ditonton/domain/entities/watchlist.dart';
+import '../../core/lib/data/models/watchlist_table.dart';
+import '../../core/lib/domain/entities/genre.dart';
+import '../../core/lib/domain/entities/movie/movie.dart';
+import '../../core/lib/domain/entities/movie/movie_detail.dart';
+import '../../core/lib/domain/entities/tv/season.dart';
+import '../../core/lib/domain/entities/tv/tv_series_detail.dart';
+import '../../core/lib/domain/entities/watchlist.dart';
 
 final testMovie = Movie(
   adult: false,

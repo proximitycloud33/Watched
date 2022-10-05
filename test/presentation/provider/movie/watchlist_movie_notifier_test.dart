@@ -1,8 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/usecases/watchlist/get_watchlist.dart';
-import 'package:ditonton/presentation/provider/watchlist_notifier.dart';
+import '../../../../core/lib/common/failure.dart';
+import '../../../../core/lib/common/state_enum.dart';
+import '../../../../core/lib/domain/usecases/watchlist/get_watchlist.dart';
+import '../../../../core/lib/presentation/provider/watchlist_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
