@@ -1,13 +1,13 @@
+import 'package:core/domain/entities/movie/movie.dart';
+import 'package:core/domain/usecases/movie/get_movie_detail.dart';
+import 'package:core/domain/usecases/movie/get_movie_recommendations.dart';
+import 'package:core/domain/usecases/watchlist/get_watchlist_status.dart';
+import 'package:core/domain/usecases/watchlist/remove_watchlist.dart';
+import 'package:core/domain/usecases/watchlist/save_watchlist.dart';
+import 'package:core/presentation/provider/movie/movie_detail_notifier.dart';
+import 'package:core/utils/failure.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
-import 'package:ditonton/domain/usecases/movie/get_movie_detail.dart';
-import 'package:ditonton/domain/usecases/movie/get_movie_recommendations.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/domain/usecases/watchlist/get_watchlist_status.dart';
-import 'package:ditonton/domain/usecases/watchlist/remove_watchlist.dart';
-import 'package:ditonton/domain/usecases/watchlist/save_watchlist.dart';
-import 'package:ditonton/presentation/provider/movie/movie_detail_notifier.dart';
-import 'package:ditonton/common/state_enum.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -49,12 +49,12 @@ void main() {
       });
   });
 
-  final tId = 1;
+  const tId = 1;
 
   final tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
-    genreIds: [1, 2, 3],
+    genreIds: const [1, 2, 3],
     id: 1,
     originalTitle: 'originalTitle',
     overview: 'overview',
@@ -168,7 +168,7 @@ void main() {
     test('should execute save watchlist when function called', () async {
       // arrange
       when(mockSaveWatchlist.execute(testWatchlist))
-          .thenAnswer((_) async => Right('Success'));
+          .thenAnswer((_) async => const Right('Success'));
       when(mockGetWatchlistStatus.execute(testMovieDetail.id))
           .thenAnswer((_) async => true);
       // act
@@ -180,7 +180,7 @@ void main() {
     test('should execute remove watchlist when function called', () async {
       // arrange
       when(mockRemoveWatchlist.execute(testWatchlist))
-          .thenAnswer((_) async => Right('Removed'));
+          .thenAnswer((_) async => const Right('Removed'));
       when(mockGetWatchlistStatus.execute(testMovieDetail.id))
           .thenAnswer((_) async => false);
       // act
@@ -192,7 +192,7 @@ void main() {
     test('should update watchlist status when add watchlist success', () async {
       // arrange
       when(mockSaveWatchlist.execute(testWatchlist))
-          .thenAnswer((_) async => Right('Added to Watchlist'));
+          .thenAnswer((_) async => const Right('Added to Watchlist'));
       when(mockGetWatchlistStatus.execute(testMovieDetail.id))
           .thenAnswer((_) async => true);
       // act

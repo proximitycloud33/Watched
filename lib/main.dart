@@ -1,39 +1,16 @@
-import '../core/lib/domain/entities/tv/episode.dart';
-import '../core/lib/presentation/pages/tv/home_tv_series_page.dart';
-import '../core/lib/presentation/pages/tv/popular_tv_series_page.dart';
-import '../core/lib/presentation/pages/tv/screen_arguments.dart';
-import '../core/lib/presentation/pages/tv/search_tv_series_page.dart';
-import '../core/lib/presentation/pages/tv/top_rated_tv_series_page.dart';
-import '../core/lib/presentation/pages/tv/tv_series_detail_page.dart';
-import '../core/lib/presentation/pages/tv/tv_series_episode_detail_page.dart';
+import 'package:core/domain/entities/tv/episode.dart';
+import 'package:core/styles/colors.dart';
+import 'package:core/styles/text_styles.dart';
+import 'package:core/pages.dart';
+import 'package:core/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
+import 'package:search/search.dart';
 import 'package:about/about_page.dart';
+import 'package:core/notifier.dart';
 
 import 'package:ditonton/injection.dart' as di;
-import '../core/lib/presentation/pages/movie/home_movie_page.dart';
-import '../core/lib/presentation/pages/movie/movie_detail_page.dart';
-import '../core/lib/presentation/pages/movie/popular_movies_page.dart';
-import '../core/lib/presentation/pages/movie/search_movies_page.dart';
-import '../core/lib/presentation/pages/movie/top_rated_movies_page.dart';
-import '../core/lib/presentation/pages/watchlist_page.dart';
-import '../core/lib/presentation/provider/movie/movie_detail_notifier.dart';
-import '../core/lib/presentation/provider/movie/movie_list_notifier.dart';
-import '../core/lib/presentation/provider/movie/movie_search_notifier.dart';
-import '../core/lib/presentation/provider/movie/popular_movies_notifier.dart';
-import '../core/lib/presentation/provider/movie/top_rated_movies_notifier.dart';
-import '../core/lib/presentation/provider/tv/detail_tv_series_notifier.dart';
-import '../core/lib/presentation/provider/tv/list_tv_series_notifier.dart';
-import '../core/lib/presentation/provider/tv/on_the_air_tv_series_notifier.dart';
-import '../core/lib/presentation/provider/tv/popular_tv_series_notifier.dart';
-import '../core/lib/presentation/provider/tv/recommendation_tv_series_notifier.dart';
-import '../core/lib/presentation/provider/tv/search_tv_series_notifier.dart';
-import '../core/lib/presentation/provider/tv/season_detail_tv_series_notifier.dart';
-import '../core/lib/presentation/provider/tv/top_rated_tv_series_notifier.dart';
-import '../core/lib/presentation/provider/watchlist_notifier.dart';
-import '../core/lib/presentation/pages/tv/tv_series_season_detail_page.dart';
 
 void main() {
   di.init();

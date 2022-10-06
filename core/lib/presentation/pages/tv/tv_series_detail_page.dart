@@ -1,7 +1,7 @@
-import '../../../common/state_enum.dart';
-import 'package:core/core/lib/presentation/widgets/detail_content_tv_series.dart';
-import 'package:core/core/lib/presentation/provider/tv/detail_tv_series_notifier.dart';
-import 'package:core/core/lib/presentation/provider/tv/recommendation_tv_series_notifier.dart';
+import 'package:core/presentation/provider/tv/detail_tv_series_notifier.dart';
+import 'package:core/presentation/provider/tv/recommendation_tv_series_notifier.dart';
+import 'package:core/presentation/widgets/detail_content_tv_series.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

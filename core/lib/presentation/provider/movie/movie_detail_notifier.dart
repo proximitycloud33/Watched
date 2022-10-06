@@ -1,14 +1,15 @@
-import '../../../domain/entities/movie/movie.dart';
-import '../../../domain/entities/movie/movie_detail.dart';
-import '../../../domain/entities/watchlist.dart';
-import '../../../domain/usecases/movie/get_movie_detail.dart';
-import '../../../domain/usecases/movie/get_movie_recommendations.dart';
-import '../../../common/state_enum.dart';
-import '../../../domain/usecases/watchlist/get_watchlist_status.dart';
-import '../../../domain/usecases/watchlist/remove_watchlist.dart';
-import '../../../domain/usecases/watchlist/save_watchlist.dart';
+import 'package:core/domain/entities/movie/movie.dart';
+import 'package:core/domain/entities/movie/movie_detail.dart';
+import 'package:core/domain/entities/watchlist.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import 'package:core/domain/usecases/movie/get_movie_detail.dart';
+import 'package:core/domain/usecases/movie/get_movie_recommendations.dart';
+import 'package:core/domain/usecases/watchlist/get_watchlist_status.dart';
+import 'package:core/domain/usecases/watchlist/remove_watchlist.dart';
+import 'package:core/domain/usecases/watchlist/save_watchlist.dart';
 
 class MovieDetailNotifier extends ChangeNotifier {
   static const watchlistAddSuccessMessage = 'Added to Watchlist';

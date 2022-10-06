@@ -1,15 +1,15 @@
+import 'package:core/domain/entities/genre.dart';
+import 'package:core/domain/entities/tv/season.dart';
+import 'package:core/domain/entities/tv/tv_series_detail.dart';
+import 'package:core/domain/entities/watchlist.dart';
+import 'package:core/domain/usecases/tv/get_detail_tv_series.dart';
+import 'package:core/domain/usecases/watchlist/get_watchlist_status.dart';
+import 'package:core/domain/usecases/watchlist/remove_watchlist.dart';
+import 'package:core/domain/usecases/watchlist/save_watchlist.dart';
+import 'package:core/presentation/provider/tv/detail_tv_series_notifier.dart';
+import 'package:core/utils/failure.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/tv/season.dart';
-import 'package:ditonton/domain/entities/tv/tv_series_detail.dart';
-import 'package:ditonton/domain/entities/watchlist.dart';
-import 'package:ditonton/domain/usecases/tv/get_detail_tv_series.dart';
-import 'package:ditonton/domain/usecases/watchlist/get_watchlist_status.dart';
-import 'package:ditonton/domain/usecases/watchlist/remove_watchlist.dart';
-import 'package:ditonton/domain/usecases/watchlist/save_watchlist.dart';
-import 'package:ditonton/presentation/provider/tv/detail_tv_series_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -47,7 +47,7 @@ void main() {
         });
     },
   );
-  final testId = 1;
+  const testId = 1;
 
   final tTVSeriesDetail = TVSeriesDetail(
     adult: false,
@@ -127,7 +127,7 @@ void main() {
     });
     test('should execute save watchlist when function is called', () async {
       when(mockSaveWatchlist.execute(testWatchlist))
-          .thenAnswer((realInvocation) async => Right('Success'));
+          .thenAnswer((realInvocation) async => const Right('Success'));
       when(mockGetWatchlistStatus.execute(tTVSeriesDetail.id))
           .thenAnswer((realInvocation) async => true);
 
@@ -138,7 +138,7 @@ void main() {
     });
     test('should execute remove watchlist when function is called', () async {
       when(mockRemoveWatchlist.execute(testWatchlist))
-          .thenAnswer((realInvocation) async => Right('Removed'));
+          .thenAnswer((realInvocation) async => const Right('Removed'));
       when(mockGetWatchlistStatus.execute(tTVSeriesDetail.id))
           .thenAnswer((realInvocation) async => false);
 
@@ -149,7 +149,7 @@ void main() {
     test('should update watchlist status when add watchlist success', () async {
       // arrange
       when(mockSaveWatchlist.execute(testWatchlist))
-          .thenAnswer((_) async => Right('Added to Watchlist'));
+          .thenAnswer((_) async => const Right('Added to Watchlist'));
       when(mockGetWatchlistStatus.execute(tTVSeriesDetail.id))
           .thenAnswer((_) async => true);
       // act

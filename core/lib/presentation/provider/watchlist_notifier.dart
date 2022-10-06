@@ -1,6 +1,6 @@
-import '../../common/state_enum.dart';
-import '../../domain/entities/watchlist.dart';
-import '../../domain/usecases/watchlist/get_watchlist.dart';
+import 'package:core/domain/entities/watchlist.dart';
+import 'package:core/domain/usecases/watchlist/get_watchlist.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter/foundation.dart';
 
 class WatchlistNotifier extends ChangeNotifier {

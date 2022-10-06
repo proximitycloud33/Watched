@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/data/datasources/tv_series_remote_data_source.dart';
-import 'package:ditonton/data/models/tv/tv_series_detail_response_model.dart';
-import 'package:ditonton/data/models/tv/tv_series_response.dart';
-import 'package:ditonton/data/models/tv/tv_series_season_detail_model.dart';
+import 'package:core/data/datasources/tv_series_remote_data_source.dart';
+import 'package:core/data/models/tv/tv_series_detail_response_model.dart';
+import 'package:core/data/models/tv/tv_series_response.dart';
+import 'package:core/data/models/tv/tv_series_season_detail_model.dart';
+import 'package:core/utils/exception.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
@@ -24,8 +24,8 @@ void main() {
     datasource = TVSeriesRemoteDataSourceImpl(client: mockHttpClient);
   });
   group('Get On The Air TV Series', () {
-    final uri = '$BASE_URL/tv/on_the_air?$API_KEY';
-    final path = 'dummy_data/tv/tv_series_on_the_air.json';
+    const uri = '$BASE_URL/tv/on_the_air?$API_KEY';
+    const path = 'dummy_data/tv/tv_series_on_the_air.json';
     final testTVSeriesList =
         TVSeriesResponse.fromJson(json.decode(readJson(path))).seriesList;
     test('Should return list of TV Series model when the response is OK (200)',
@@ -45,8 +45,8 @@ void main() {
   });
 
   group('Get Popular TV Series', () {
-    final uri = '$BASE_URL/tv/popular?$API_KEY';
-    final path = 'dummy_data/tv/tv_series_popular.json';
+    const uri = '$BASE_URL/tv/popular?$API_KEY';
+    const path = 'dummy_data/tv/tv_series_popular.json';
     final testTVSeriesList =
         TVSeriesResponse.fromJson(json.decode(readJson(path))).seriesList;
     test('Should return list of TV Series model when the response is OK (200)',
@@ -66,8 +66,8 @@ void main() {
   });
 
   group('Get Top Rated TV Series', () {
-    final uri = '$BASE_URL/tv/top_rated?$API_KEY';
-    final path = 'dummy_data/tv/tv_series_top_rated.json';
+    const uri = '$BASE_URL/tv/top_rated?$API_KEY';
+    const path = 'dummy_data/tv/tv_series_top_rated.json';
     final testTVSeriesList =
         TVSeriesResponse.fromJson(json.decode(readJson(path))).seriesList;
     final headers = {
@@ -91,9 +91,9 @@ void main() {
   });
 
   group('Detail TV Series', () {
-    final testId = 1;
-    final uri = '$BASE_URL/tv/$testId?$API_KEY';
-    final path = 'dummy_data/tv/tv_series_detail.json';
+    const testId = 1;
+    const uri = '$BASE_URL/tv/$testId?$API_KEY';
+    const path = 'dummy_data/tv/tv_series_detail.json';
     final testTVSeriesDetail =
         TVSeriesDetailResponseModel.fromJson(json.decode(readJson(path)));
 
@@ -118,9 +118,9 @@ void main() {
   });
 
   group('Search TV Series', () {
-    final query = 'query';
-    final uri = '$BASE_URL/search/tv/?$API_KEY&query=$query';
-    final path = 'dummy_data/tv/tv_series_search.json';
+    const query = 'query';
+    const uri = '$BASE_URL/search/tv/?$API_KEY&query=$query';
+    const path = 'dummy_data/tv/tv_series_search.json';
     final testSearchResult =
         TVSeriesResponse.fromJson(json.decode(readJson(path))).seriesList;
 
@@ -144,9 +144,9 @@ void main() {
     });
   });
   group('Recommendation TV Series', () {
-    final testId = 1;
-    final uri = '$BASE_URL/tv/$testId/recommendations?$API_KEY';
-    final path = 'dummy_data/tv/tv_series_recommendation.json';
+    const testId = 1;
+    const uri = '$BASE_URL/tv/$testId/recommendations?$API_KEY';
+    const path = 'dummy_data/tv/tv_series_recommendation.json';
     final testTVSeriesList =
         TVSeriesResponse.fromJson(json.decode(readJson(path))).seriesList;
 
@@ -170,10 +170,10 @@ void main() {
     });
   });
   group('Season Detail TV Series', () {
-    final testId = 1;
-    final testSeason = 1;
-    final uri = '$BASE_URL/tv/$testId/season/$testSeason?$API_KEY';
-    final path = 'dummy_data/tv/tv_series_season_detail.json';
+    const testId = 1;
+    const testSeason = 1;
+    const uri = '$BASE_URL/tv/$testId/season/$testSeason?$API_KEY';
+    const path = 'dummy_data/tv/tv_series_season_detail.json';
     final testTVSeriesSeasonDetail =
         TVSeriesSeasonDetailModel.fromJson(json.decode(readJson(path)));
 

@@ -1,13 +1,13 @@
 import 'dart:convert';
 
-import 'package:ditonton/data/models/tv/tv_series_model.dart';
-import 'package:ditonton/data/models/tv/tv_series_response.dart';
+import 'package:core/data/models/tv/tv_series_model.dart';
+import 'package:core/data/models/tv/tv_series_response.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../json_reader.dart';
 
 void main() {
-  final testTVSeriesModel = TVSeriesModel(
+  const testTVSeriesModel = TVSeriesModel(
     backdropPath: "/Aa9TLpNpBMyRkD8sPJ7ACKLjt0l.jpg",
     firstAirDate: "2022-08-21",
     genreIds: [10765, 18, 10759],
@@ -23,8 +23,9 @@ void main() {
     voteAverage: 8.6,
     voteCount: 1309,
   );
+  // ignore: prefer_const_declarations
   final testTVSeriesResponseModel =
-      TVSeriesResponse(seriesList: <TVSeriesModel>[testTVSeriesModel]);
+      const TVSeriesResponse(seriesList: <TVSeriesModel>[testTVSeriesModel]);
   group('fromJson', () {
     test('should return a valid model from JSON', () async {
       final Map<String, dynamic> jsonMap =

@@ -1,9 +1,9 @@
-import 'package:ditonton/data/models/tv/tv_series_model.dart';
-import 'package:ditonton/domain/entities/tv/tv_series.dart';
+import 'package:core/data/models/tv/tv_series_model.dart';
+import 'package:core/domain/entities/tv/tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
-  final testTVSeriesModel = TVSeriesModel(
+  const testTVSeriesModel = TVSeriesModel(
     backdropPath: 'path',
     firstAirDate: 'date',
     genreIds: [4, 2, 0],
@@ -18,7 +18,7 @@ void main() {
     voteAverage: 4,
     voteCount: 2,
   );
-  final testTVSeries = TVSeries(
+  const testTVSeries = TVSeries(
     backdropPath: 'path',
     firstAirDate: 'date',
     genreIds: [4, 2, 0],

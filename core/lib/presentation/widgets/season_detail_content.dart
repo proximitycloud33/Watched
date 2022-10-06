@@ -1,8 +1,7 @@
+import 'package:core/domain/entities/tv/tv_series_season_detail.dart';
+import 'package:core/presentation/pages/tv/tv_series_episode_detail_page.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
-
-import '../../domain/entities/tv/tv_series_season_detail.dart';
-
 import 'package:flutter/material.dart';
 
 class SeasonDetailContent extends StatelessWidget {

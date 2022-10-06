@@ -1,7 +1,7 @@
+import 'package:core/domain/entities/tv/episode.dart';
+import 'package:core/domain/entities/tv/tv_series_season_detail.dart';
+import 'package:core/domain/usecases/tv/get_season_detail_tv_series.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/domain/entities/tv/episode.dart';
-import 'package:ditonton/domain/entities/tv/tv_series_season_detail.dart';
-import 'package:ditonton/domain/usecases/tv/get_season_detail_tv_series.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -16,8 +16,8 @@ void main() {
     usecase = GetSeasonDetailTVSeries(repository: mockTVSeriesRepository);
   });
 
-  final testId = 1;
-  final testSeason = 1;
+  const testId = 1;
+  const testSeason = 1;
   final testTVSeriesSeasonDetail = TVSeriesSeasonDetail(
     airDate: '2022-08-01',
     episodes: [

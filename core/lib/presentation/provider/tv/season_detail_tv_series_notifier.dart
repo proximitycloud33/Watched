@@ -1,6 +1,6 @@
-import '../../../common/state_enum.dart';
-import '../../../domain/entities/tv/tv_series_season_detail.dart';
-import '../../../domain/usecases/tv/get_season_detail_tv_series.dart';
+import 'package:core/domain/entities/tv/tv_series_season_detail.dart';
+import 'package:core/domain/usecases/tv/get_season_detail_tv_series.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter/foundation.dart';
 
 class SeasonDetailTVSeriesNotifier extends ChangeNotifier {

@@ -1,11 +1,10 @@
-import '../../common/constants.dart';
-import 'package:core/core/lib/presentation/pages/tv/screen_arguments.dart';
+import 'package:core/presentation/pages/tv/screen_arguments.dart';
+import 'package:core/presentation/pages/tv/tv_series_season_detail_page.dart';
+import 'package:core/presentation/provider/tv/detail_tv_series_notifier.dart';
+import 'package:core/styles/colors.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
-import '../../common/state_enum.dart';
-import 'package:core/core/lib/presentation/pages/tv/tv_series_season_detail_page.dart';
-import 'package:core/core/lib/presentation/provider/tv/detail_tv_series_notifier.dart';
 
 class SeasonList extends StatelessWidget {
   const SeasonList({super.key});
@@ -57,7 +56,7 @@ class SeasonList extends StatelessWidget {
                                 const EdgeInsets.symmetric(horizontal: 8.0),
                             child: Text(
                               season.name,
-                              style: TextStyle(color: kRichBlack),
+                              style: const TextStyle(color: kRichBlack),
                             ),
                           ),
                         ),

@@ -1,12 +1,12 @@
-import 'package:ditonton/data/models/movie/movie_model.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
+import 'package:core/data/models/movie/movie_model.dart';
+import 'package:core/domain/entities/movie/movie.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   final tMovieModel = MovieModel(
     adult: false,
     backdropPath: 'backdropPath',
-    genreIds: [1, 2, 3],
+    genreIds: const [1, 2, 3],
     id: 1,
     originalTitle: 'originalTitle',
     overview: 'overview',
@@ -22,7 +22,7 @@ void main() {
   final tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
-    genreIds: [1, 2, 3],
+    genreIds: const [1, 2, 3],
     id: 1,
     originalTitle: 'originalTitle',
     overview: 'overview',

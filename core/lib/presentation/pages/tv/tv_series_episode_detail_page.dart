@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import '../../../common/constants.dart';
-import '../../../domain/entities/tv/episode.dart';
+import 'package:core/domain/entities/tv/episode.dart';
+import 'package:core/styles/colors.dart';
+import 'package:core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -29,10 +30,10 @@ class TVSeriesEpisodeDetailPage extends StatelessWidget {
               child: DraggableScrollableSheet(
                 builder: (context, scrollController) {
                   return Container(
-                    decoration: BoxDecoration(
+                    decoration: const BoxDecoration(
                       color: kRichBlack,
                       borderRadius:
-                          const BorderRadius.vertical(top: Radius.circular(16)),
+                          BorderRadius.vertical(top: Radius.circular(16)),
                     ),
                     padding: const EdgeInsets.only(
                       left: 16,
@@ -57,7 +58,8 @@ class TVSeriesEpisodeDetailPage extends StatelessWidget {
                                     RatingBarIndicator(
                                       rating: episode.voteAverage / 2,
                                       itemCount: 5,
-                                      itemBuilder: (context, index) => Icon(
+                                      itemBuilder: (context, index) =>
+                                          const Icon(
                                         Icons.star,
                                         color: kMikadoYellow,
                                       ),

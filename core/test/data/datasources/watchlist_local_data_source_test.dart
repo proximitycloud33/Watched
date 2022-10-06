@@ -1,5 +1,5 @@
-import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/data/datasources/watchlist_local_data_source.dart';
+import 'package:core/data/datasources/watchlist_local_data_source.dart';
+import 'package:core/utils/exception.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -65,7 +65,7 @@ void main() {
   });
 
   group('Get Watchlist By Id', () {
-    final tId = 1;
+    const tId = 1;
 
     test('should return Watchlist Detail Table when data is found', () async {
       // arrange

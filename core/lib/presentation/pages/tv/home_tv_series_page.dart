@@ -1,10 +1,10 @@
-import 'package:about/about_page.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/presentation/provider/tv/list_tv_series_notifier.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/constants.dart';
 import 'package:core/utils/state_enum.dart';
-import '../../../domain/entities/tv/tv_series.dart';
+import 'package:core/domain/entities/tv/tv_series.dart';
+import 'package:core/utils/routes.dart';
 
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -46,7 +46,7 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
               leading: const Icon(Icons.movie),
               title: const Text('Movies'),
               onTap: () {
-                Navigator.pushNamed(context, HomeMoviePage.ROUTE_NAME);
+                Navigator.pushNamed(context, HOME_MOVIE_ROUTE);
               },
             ),
             ListTile(
@@ -60,12 +60,12 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
               leading: const Icon(Icons.save_alt),
               title: const Text('Watchlist'),
               onTap: () {
-                Navigator.pushNamed(context, WatchlistPage.ROUTE_NAME);
+                Navigator.pushNamed(context, WATCHLIST_ROUTE);
               },
             ),
             ListTile(
               onTap: () {
-                Navigator.pushNamed(context, AboutPage.ROUTE_NAME);
+                Navigator.pushNamed(context, ABOUT_ROUTE);
               },
               leading: const Icon(Icons.info_outline),
               title: const Text('About'),
@@ -78,7 +78,7 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.pushNamed(context, SearchTVSeriesPage.ROUTE_NAME);
+              Navigator.pushNamed(context, SEARCH_TV_ROUTE);
             },
             icon: const Icon(Icons.search),
           )
@@ -108,10 +108,7 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
               }),
               _buildSubHeading(
                 title: 'Popular',
-                onTap: () => Navigator.pushNamed(
-                  context,
-                  PopularTVSeriesPage.ROUTE_NAME,
-                ),
+                onTap: () => Navigator.pushNamed(context, POPULAR_TV_ROUTE),
               ),
               Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
                 final state = data.popularTVSeriesState;
@@ -127,10 +124,7 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
               }),
               _buildSubHeading(
                 title: 'Top Rated',
-                onTap: () => Navigator.pushNamed(
-                  context,
-                  TopRatedTVSeriesPage.ROUTE_NAME,
-                ),
+                onTap: () => Navigator.pushNamed(context, TOP_RATED_TV_ROUTE),
               ),
               Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
                 final state = data.topRatedTVSeriesState;
@@ -192,7 +186,7 @@ class TVSeriesList extends StatelessWidget {
               onTap: () {
                 Navigator.pushNamed(
                   context,
-                  TVSeriesDetailPage.ROUTE_NAME,
+                  DETAIL_TV_ROUTE,
                   arguments: tv.id,
                 );
               },

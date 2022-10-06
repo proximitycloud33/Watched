@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class TVSeries extends Equatable {
-  TVSeries({
+  const TVSeries({
     required this.backdropPath,
     required this.firstAirDate,
     required this.genreIds,
@@ -23,8 +23,8 @@ class TVSeries extends Equatable {
   final int id;
   final String name;
   final List<String> originCountry;
-  final String originalLanguage;
-  final String originalName;
+  final String? originalLanguage;
+  final String? originalName;
   final String overview;
   final double popularity;
   final String? posterPath;

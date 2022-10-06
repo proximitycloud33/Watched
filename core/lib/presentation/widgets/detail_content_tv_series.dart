@@ -1,11 +1,12 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import '../../common/constants.dart';
-import '../../domain/entities/genre.dart';
-import '../../domain/entities/tv/tv_series.dart';
-import '../../domain/entities/tv/tv_series_detail.dart';
-import '../../../core/lib/presentation/widgets/recommendation_list.dart';
-import '../../../core/lib/presentation/widgets/season_list.dart';
-import '../../../core/lib/presentation/widgets/watchlist_button.dart';
+import 'package:core/domain/entities/genre.dart';
+import 'package:core/domain/entities/tv/tv_series.dart';
+import 'package:core/domain/entities/tv/tv_series_detail.dart';
+import 'package:core/presentation/widgets/recommendation_list.dart';
+import 'package:core/presentation/widgets/season_list.dart';
+import 'package:core/presentation/widgets/watchlist_button.dart';
+import 'package:core/styles/colors.dart';
+import 'package:core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -14,7 +15,7 @@ class DetailContentTVSeries extends StatelessWidget {
   final List<TVSeries> recommendations;
   final bool isAddedWatchlist;
 
-  DetailContentTVSeries(
+  const DetailContentTVSeries(
     this.tvSeriesDetail,
     this.recommendations,
     this.isAddedWatchlist,
@@ -29,17 +30,17 @@ class DetailContentTVSeries extends StatelessWidget {
           imageUrl:
               'https://image.tmdb.org/t/p/w500${tvSeriesDetail.posterPath}',
           width: screenWidth,
-          placeholder: (context, url) => Center(
+          placeholder: (context, url) => const Center(
             child: CircularProgressIndicator(),
           ),
-          errorWidget: (context, url, error) => Icon(Icons.error),
+          errorWidget: (context, url, error) => const Icon(Icons.error),
         ),
         Container(
           margin: const EdgeInsets.only(top: 48 + 8),
           child: DraggableScrollableSheet(
             builder: (context, scrollController) {
               return Container(
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                   color: kRichBlack,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(16)),
                 ),
@@ -73,7 +74,7 @@ class DetailContentTVSeries extends StatelessWidget {
                                 RatingBarIndicator(
                                   rating: tvSeriesDetail.voteAverage / 2,
                                   itemCount: 5,
-                                  itemBuilder: (context, index) => Icon(
+                                  itemBuilder: (context, index) => const Icon(
                                     Icons.star,
                                     color: kMikadoYellow,
                                   ),
@@ -82,7 +83,7 @@ class DetailContentTVSeries extends StatelessWidget {
                                 Text('${tvSeriesDetail.voteAverage}')
                               ],
                             ),
-                            SizedBox(height: 16),
+                            const SizedBox(height: 16),
                             Text(
                               'Overview',
                               style: kHeading6,
@@ -90,12 +91,12 @@ class DetailContentTVSeries extends StatelessWidget {
                             Text(
                               tvSeriesDetail.overview,
                             ),
-                            SizedBox(height: 16),
+                            const SizedBox(height: 16),
                             Text(
                               'Available Season',
                               style: kHeading6,
                             ),
-                            SeasonList(),
+                            const SeasonList(),
                             Text(
                               'Recommendations',
                               style: kHeading6,
@@ -130,7 +131,7 @@ class DetailContentTVSeries extends StatelessWidget {
             backgroundColor: kRichBlack,
             foregroundColor: Colors.white,
             child: IconButton(
-              icon: Icon(Icons.arrow_back),
+              icon: const Icon(Icons.arrow_back),
               onPressed: () {
                 Navigator.pop(context);
               },
@@ -144,7 +145,7 @@ class DetailContentTVSeries extends StatelessWidget {
   String _showGenres(List<Genre> genres) {
     String result = '';
     for (var genre in genres) {
-      result += genre.name + ', ';
+      result += '${genre.name}, ';
     }
 
     if (result.isEmpty) {

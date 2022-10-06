@@ -1,15 +1,15 @@
 import 'dart:convert';
 
-import 'package:ditonton/data/models/tv/episode_model.dart';
-import 'package:ditonton/data/models/tv/tv_series_season_detail_model.dart';
-import 'package:ditonton/domain/entities/tv/episode.dart';
-import 'package:ditonton/domain/entities/tv/tv_series_season_detail.dart';
+import 'package:core/data/models/tv/episode_model.dart';
+import 'package:core/data/models/tv/tv_series_season_detail_model.dart';
+import 'package:core/domain/entities/tv/episode.dart';
+import 'package:core/domain/entities/tv/tv_series_season_detail.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import '../../../json_reader.dart';
 
 void main() {
-  final testTVSeriesSeasonDetailModel = TVSeriesSeasonDetailModel(
+  const testTVSeriesSeasonDetailModel = TVSeriesSeasonDetailModel(
     airDate: "2022-08-21",
     episodes: [
       EpisodeModel(

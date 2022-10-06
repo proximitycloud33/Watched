@@ -1,13 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import '../../common/constants.dart';
-import '../../domain/entities/tv/tv_series.dart';
-import '../../../core/lib/presentation/pages/tv/tv_series_detail_page.dart';
+import 'package:core/domain/entities/tv/tv_series.dart';
+import 'package:core/styles/text_styles.dart';
+import 'package:core/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:core/utils/routes.dart';
 
 class TVSeriesCardList extends StatelessWidget {
   final TVSeries tvSeries;
 
-  TVSeriesCardList(this.tvSeries);
+  const TVSeriesCardList(this.tvSeries, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +18,7 @@ class TVSeriesCardList extends StatelessWidget {
         onTap: () {
           Navigator.pushNamed(
             context,
-            TVSeriesDetailPage.ROUTE_NAME,
+            DETAIL_TV_ROUTE,
             arguments: tvSeries.id,
           );
         },
@@ -40,7 +41,7 @@ class TVSeriesCardList extends StatelessWidget {
                       overflow: TextOverflow.ellipsis,
                       style: kHeading6,
                     ),
-                    SizedBox(height: 16),
+                    const SizedBox(height: 16),
                     Text(
                       tvSeries.overview,
                       maxLines: 2,
@@ -56,15 +57,15 @@ class TVSeriesCardList extends StatelessWidget {
                 bottom: 16,
               ),
               child: ClipRRect(
+                borderRadius: const BorderRadius.all(Radius.circular(8)),
                 child: CachedNetworkImage(
                   imageUrl: '$BASE_IMAGE_URL${tvSeries.posterPath}',
                   width: 80,
-                  placeholder: (context, url) => Center(
+                  placeholder: (context, url) => const Center(
                     child: CircularProgressIndicator(),
                   ),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
+                  errorWidget: (context, url, error) => const Icon(Icons.error),
                 ),
-                borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
             ),
           ],

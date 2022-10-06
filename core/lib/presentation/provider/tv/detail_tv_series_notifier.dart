@@ -1,12 +1,12 @@
-import '../../../domain/entities/watchlist.dart';
+import 'package:core/domain/entities/watchlist.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../../common/state_enum.dart';
-import '../../../domain/entities/tv/tv_series_detail.dart';
-import '../../../domain/usecases/tv/get_detail_tv_series.dart';
-import '../../../domain/usecases/watchlist/get_watchlist_status.dart';
-import '../../../domain/usecases/watchlist/remove_watchlist.dart';
-import '../../../domain/usecases/watchlist/save_watchlist.dart';
+import 'package:core/domain/entities/tv/tv_series_detail.dart';
+import 'package:core/domain/usecases/tv/get_detail_tv_series.dart';
+import 'package:core/domain/usecases/watchlist/get_watchlist_status.dart';
+import 'package:core/domain/usecases/watchlist/remove_watchlist.dart';
+import 'package:core/domain/usecases/watchlist/save_watchlist.dart';
 
 class DetailTVSeriesNotifier extends ChangeNotifier {
   static const watchlistAddSuccessMessage = 'Added to Watchlist';

@@ -1,7 +1,7 @@
+import 'package:core/data/repositories/watchlist_repository_impl.dart';
+import 'package:core/utils/exception.dart';
+import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/data/repositories/watchlist_repository_impl.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -23,7 +23,7 @@ void main() {
       // act
       final result = await repository.saveWatchlist(testWatchlist);
       // assert
-      expect(result, Right('Added to Watchlist'));
+      expect(result, const Right('Added to Watchlist'));
     });
 
     test('should return DatabaseFailure when saving unsuccessful', () async {
@@ -45,7 +45,7 @@ void main() {
       // act
       final result = await repository.removeWatchlist(testWatchlist);
       // assert
-      expect(result, Right('Removed from watchlist'));
+      expect(result, const Right('Removed from watchlist'));
     });
 
     test('should return DatabaseFailure when remove unsuccessful', () async {
@@ -62,7 +62,7 @@ void main() {
   group('get watchlist status', () {
     test('should return watch status whether data is found', () async {
       // arrange
-      final tId = 1;
+      const tId = 1;
       when(mockLocalDataSource.getWatchlistById(tId))
           .thenAnswer((_) async => null);
       // act

@@ -1,8 +1,8 @@
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter/foundation.dart';
 
-import '../../../common/state_enum.dart';
-import '../../../domain/entities/tv/tv_series.dart';
-import '../../../domain/usecases/tv/get_on_the_air_tv_series.dart';
+import 'package:core/domain/entities/tv/tv_series.dart';
+import 'package:core/domain/usecases/tv/get_on_the_air_tv_series.dart';
 
 class OnTheAirTVSeriesNotifier extends ChangeNotifier {
   final GetOnTheAirTVSeries getOnTheAirTVSeries;

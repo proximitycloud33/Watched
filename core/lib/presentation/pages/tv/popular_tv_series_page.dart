@@ -1,6 +1,6 @@
-import '../../../common/state_enum.dart';
-import 'package:core/core/lib/presentation/provider/tv/popular_tv_series_notifier.dart';
-import 'package:core/core/lib/presentation/widgets/tv_series_card_list.dart';
+import 'package:core/presentation/provider/tv/popular_tv_series_notifier.dart';
+import 'package:core/presentation/widgets/tv_series_card_list.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

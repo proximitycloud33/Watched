@@ -1,15 +1,15 @@
-import 'package:ditonton/data/models/watchlist_table.dart';
-import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
-import 'package:ditonton/domain/entities/movie/movie_detail.dart';
-import 'package:ditonton/domain/entities/tv/season.dart';
-import 'package:ditonton/domain/entities/tv/tv_series_detail.dart';
-import 'package:ditonton/domain/entities/watchlist.dart';
+import 'package:core/data/models/watchlist_table.dart';
+import 'package:core/domain/entities/genre.dart';
+import 'package:core/domain/entities/movie/movie.dart';
+import 'package:core/domain/entities/movie/movie_detail.dart';
+import 'package:core/domain/entities/tv/season.dart';
+import 'package:core/domain/entities/tv/tv_series_detail.dart';
+import 'package:core/domain/entities/watchlist.dart';
 
 final testMovie = Movie(
   adult: false,
   backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-  genreIds: [14, 28],
+  genreIds: const [14, 28],
   id: 557,
   originalTitle: 'Spider-Man',
   overview:
@@ -73,7 +73,7 @@ final testWatchlistMovie = Movie.watchlist(
   overview: 'overview',
 );
 
-final testWatchlistTable = WatchlistTable(
+const testWatchlistTable = WatchlistTable(
   id: 1,
   type: 'tv',
   title: 'title',

@@ -1,9 +1,9 @@
+import 'package:core/domain/entities/movie/movie.dart';
+import 'package:core/domain/usecases/movie/get_popular_movies.dart';
+import 'package:core/presentation/provider/movie/popular_movies_notifier.dart';
+import 'package:core/utils/failure.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
-import 'package:ditonton/domain/usecases/movie/get_popular_movies.dart';
-import 'package:ditonton/presentation/provider/movie/popular_movies_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
@@ -28,7 +28,7 @@ void main() {
   final tMovie = Movie(
     adult: false,
     backdropPath: 'backdropPath',
-    genreIds: [1, 2, 3],
+    genreIds: const [1, 2, 3],
     id: 1,
     originalTitle: 'originalTitle',
     overview: 'overview',

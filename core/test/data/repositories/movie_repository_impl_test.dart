@@ -1,13 +1,14 @@
 import 'dart:io';
 
+import 'package:core/data/models/genre_model.dart';
+import 'package:core/data/models/movie/movie_detail_model.dart';
+import 'package:core/data/models/movie/movie_model.dart';
+import 'package:core/data/repositories/movie_repository_impl.dart';
+import 'package:core/domain/entities/movie/movie.dart';
+import 'package:core/utils/exception.dart';
+import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/data/models/genre_model.dart';
-import 'package:ditonton/data/models/movie/movie_detail_model.dart';
-import 'package:ditonton/data/models/movie/movie_model.dart';
-import 'package:ditonton/data/repositories/movie_repository_impl.dart';
-import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/domain/entities/movie/movie.dart';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -29,7 +30,7 @@ void main() {
   final tMovieModel = MovieModel(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-    genreIds: [14, 28],
+    genreIds: const [14, 28],
     id: 557,
     originalTitle: 'Spider-Man',
     overview:
@@ -46,7 +47,7 @@ void main() {
   final tMovie = Movie(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-    genreIds: [14, 28],
+    genreIds: const [14, 28],
     id: 557,
     originalTitle: 'Spider-Man',
     overview:
@@ -97,7 +98,7 @@ void main() {
         () async {
       // arrange
       when(mockRemoteDataSource.getNowPlayingMovies())
-          .thenThrow(SocketException('Failed to connect to the network'));
+          .thenThrow(const SocketException('Failed to connect to the network'));
       // act
       final result = await repository.getNowPlayingMovies();
       // assert
@@ -138,7 +139,7 @@ void main() {
         () async {
       // arrange
       when(mockRemoteDataSource.getPopularMovies())
-          .thenThrow(SocketException('Failed to connect to the network'));
+          .thenThrow(const SocketException('Failed to connect to the network'));
       // act
       final result = await repository.getPopularMovies();
       // assert
@@ -177,7 +178,7 @@ void main() {
         () async {
       // arrange
       when(mockRemoteDataSource.getTopRatedMovies())
-          .thenThrow(SocketException('Failed to connect to the network'));
+          .thenThrow(const SocketException('Failed to connect to the network'));
       // act
       final result = await repository.getTopRatedMovies();
       // assert
@@ -187,7 +188,7 @@ void main() {
   });
 
   group('Get Movie Detail', () {
-    final tId = 1;
+    const tId = 1;
     final tMovieResponse = MovieDetailResponse(
       adult: false,
       backdropPath: 'backdropPath',
@@ -243,7 +244,7 @@ void main() {
         () async {
       // arrange
       when(mockRemoteDataSource.getMovieDetail(tId))
-          .thenThrow(SocketException('Failed to connect to the network'));
+          .thenThrow(const SocketException('Failed to connect to the network'));
       // act
       final result = await repository.getMovieDetail(tId);
       // assert
@@ -255,7 +256,7 @@ void main() {
 
   group('Get Movie Recommendations', () {
     final tMovieList = <MovieModel>[];
-    final tId = 1;
+    const tId = 1;
 
     test('should return data (movie list) when the call is successful',
         () async {
@@ -289,7 +290,7 @@ void main() {
         () async {
       // arrange
       when(mockRemoteDataSource.getMovieRecommendations(tId))
-          .thenThrow(SocketException('Failed to connect to the network'));
+          .thenThrow(const SocketException('Failed to connect to the network'));
       // act
       final result = await repository.getMovieRecommendations(tId);
       // assert
@@ -300,7 +301,7 @@ void main() {
   });
 
   group('Seach Movies', () {
-    final tQuery = 'spiderman';
+    const tQuery = 'spiderman';
 
     test('should return movie list when call to data source is successful',
         () async {
@@ -331,7 +332,7 @@ void main() {
         () async {
       // arrange
       when(mockRemoteDataSource.searchMovies(tQuery))
-          .thenThrow(SocketException('Failed to connect to the network'));
+          .thenThrow(const SocketException('Failed to connect to the network'));
       // act
       final result = await repository.searchMovies(tQuery);
       // assert

@@ -1,19 +1,19 @@
+import 'package:core/data/models/genre_model.dart';
+import 'package:core/data/models/tv/episode_model.dart';
+import 'package:core/data/models/tv/season_model.dart';
+import 'package:core/data/models/tv/tv_series_detail_response_model.dart';
+import 'package:core/data/models/tv/tv_series_model.dart';
+import 'package:core/data/models/tv/tv_series_season_detail_model.dart';
+import 'package:core/data/repositories/tv_series_repository_impl.dart';
+import 'package:core/domain/entities/genre.dart';
+import 'package:core/domain/entities/tv/episode.dart';
+import 'package:core/domain/entities/tv/season.dart';
+import 'package:core/domain/entities/tv/tv_series.dart';
+import 'package:core/domain/entities/tv/tv_series_detail.dart';
+import 'package:core/domain/entities/tv/tv_series_season_detail.dart';
+import 'package:core/utils/exception.dart';
+import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/exception.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/data/models/genre_model.dart';
-import 'package:ditonton/data/models/tv/episode_model.dart';
-import 'package:ditonton/data/models/tv/season_model.dart';
-import 'package:ditonton/data/models/tv/tv_series_detail_response_model.dart';
-import 'package:ditonton/data/models/tv/tv_series_model.dart';
-import 'package:ditonton/data/models/tv/tv_series_season_detail_model.dart';
-import 'package:ditonton/data/repositories/tv_series_repository_impl.dart';
-import 'package:ditonton/domain/entities/genre.dart';
-import 'package:ditonton/domain/entities/tv/episode.dart';
-import 'package:ditonton/domain/entities/tv/season.dart';
-import 'package:ditonton/domain/entities/tv/tv_series.dart';
-import 'package:ditonton/domain/entities/tv/tv_series_detail.dart';
-import 'package:ditonton/domain/entities/tv/tv_series_season_detail.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
 
@@ -28,7 +28,7 @@ void main() {
     repository = TVSeriesRepositoryImpl(remoteDataSource: mockRemoteDataSource);
   });
 
-  final testTVSeriesModel = TVSeriesModel(
+  final testTVSeriesModel = const TVSeriesModel(
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
     id: 557,
@@ -45,7 +45,7 @@ void main() {
     voteCount: 13507,
   );
 
-  final testTVSeries = TVSeries(
+  final testTVSeries = const TVSeries(
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
     id: 557,
@@ -143,7 +143,7 @@ void main() {
     });
   });
   group('Detail TV Series', () {
-    final testId = 1;
+    const testId = 1;
     //model
     final testTVSeriesDetailResponse = TVSeriesDetailResponseModel(
       adult: false,
@@ -224,7 +224,7 @@ void main() {
   });
   group('Get TV Series Recommendations', () {
     final testTVSeriesList = <TVSeriesModel>[];
-    final testId = 1;
+    const testId = 1;
     test('Should return data (list of tv series) when the call is success',
         () async {
       when(mockRemoteDataSource.getRecommendationTVSeries(testId))
@@ -252,7 +252,7 @@ void main() {
     });
   });
   group('Search TV Series', () {
-    final testQuery = 'test';
+    const testQuery = 'test';
     test('Should return data (list of tv series) when the call is success',
         () async {
       when(mockRemoteDataSource.searchTVSeries(testQuery))
@@ -279,9 +279,9 @@ void main() {
       expect(result, equals(Left(ServerFailure(''))));
     });
     group('Get Season Details', () {
-      final testId = 1;
-      final testSeason = 1;
-      final testTVSeriesSeasonDetailModel = TVSeriesSeasonDetailModel(
+      const testId = 1;
+      const testSeason = 1;
+      final testTVSeriesSeasonDetailModel = const TVSeriesSeasonDetailModel(
         airDate: '2022-08-01',
         episodes: [
           EpisodeModel(

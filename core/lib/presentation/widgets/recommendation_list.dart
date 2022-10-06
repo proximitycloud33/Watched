@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import '../../common/state_enum.dart';
-import '../../domain/entities/tv/tv_series.dart';
-import '../../../core/lib/presentation/pages/tv/tv_series_detail_page.dart';
-import '../../../core/lib/presentation/provider/tv/recommendation_tv_series_notifier.dart';
+import 'package:core/domain/entities/tv/tv_series.dart';
+import 'package:core/presentation/provider/tv/recommendation_tv_series_notifier.dart';
+import 'package:core/utils/state_enum.dart';
+import 'package:core/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -19,13 +19,13 @@ class RecommendationList extends StatelessWidget {
     return Consumer<RecommendationTVSeriesNotifier>(
       builder: (context, data, child) {
         if (data.state == RequestState.Loading) {
-          return Center(
+          return const Center(
             child: CircularProgressIndicator(),
           );
         } else if (data.state == RequestState.Error) {
           return Text(data.message);
         } else if (data.state == RequestState.Loaded) {
-          return Container(
+          return SizedBox(
             height: 150,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
@@ -37,21 +37,22 @@ class RecommendationList extends StatelessWidget {
                     onTap: () {
                       Navigator.pushReplacementNamed(
                         context,
-                        TVSeriesDetailPage.ROUTE_NAME,
+                        DETAIL_TV_ROUTE,
                         arguments: movie.id,
                       );
                     },
                     child: ClipRRect(
-                      borderRadius: BorderRadius.all(
+                      borderRadius: const BorderRadius.all(
                         Radius.circular(8),
                       ),
                       child: CachedNetworkImage(
                         imageUrl:
                             'https://image.tmdb.org/t/p/w500${movie.posterPath}',
-                        placeholder: (context, url) => Center(
+                        placeholder: (context, url) => const Center(
                           child: CircularProgressIndicator(),
                         ),
-                        errorWidget: (context, url, error) => Icon(Icons.error),
+                        errorWidget: (context, url, error) =>
+                            const Icon(Icons.error),
                       ),
                     ),
                   ),

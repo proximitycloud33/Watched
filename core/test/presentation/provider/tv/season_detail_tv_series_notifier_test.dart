@@ -1,11 +1,12 @@
+import 'package:core/domain/entities/tv/episode.dart';
+import 'package:core/domain/entities/tv/tv_series_season_detail.dart';
+import 'package:core/domain/usecases/tv/get_season_detail_tv_series.dart';
+import 'package:core/presentation/provider/tv/season_detail_tv_series_notifier.dart';
+import 'package:core/utils/failure.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:dartz/dartz.dart';
-import 'package:ditonton/common/failure.dart';
-import 'package:ditonton/common/state_enum.dart';
-import 'package:ditonton/domain/entities/tv/episode.dart';
-import 'package:ditonton/domain/entities/tv/tv_series_season_detail.dart';
-import 'package:ditonton/domain/usecases/tv/get_season_detail_tv_series.dart';
-import 'package:ditonton/presentation/provider/tv/season_detail_tv_series_notifier.dart';
 import 'package:flutter_test/flutter_test.dart';
+
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 
@@ -53,8 +54,8 @@ void main() {
     overview: "",
     seasonNumber: 1,
   );
-  final testId = 1;
-  final testSeason = 1;
+  const testId = 1;
+  const testSeason = 1;
 
   test('should change state to loading when usecase is called', () {
     when(mockGetSeasonDetailTVSeries.execute(testId, testSeason))
