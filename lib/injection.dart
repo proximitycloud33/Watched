@@ -48,6 +48,8 @@ void init() {
       getWatchlistMovies: locator(),
     ),
   );
+  // movie BLOC
+  locator.registerFactory(() => SearchBloc(locator()));
 
   // TV Series provider
   locator.registerFactory(
