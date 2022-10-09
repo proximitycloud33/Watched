@@ -5,6 +5,7 @@ import 'package:core/pages.dart';
 import 'package:core/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:search/search.dart';
 import 'package:about/about_page.dart';
@@ -38,7 +39,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => di.locator<PopularMoviesNotifier>(),
         ),
-
+        BlocProvider(
+          create: (context) => di.locator<SearchBloc>(),
+        ),
         //* Watchlist
         ChangeNotifierProvider(
           create: (_) => di.locator<WatchlistNotifier>(),
