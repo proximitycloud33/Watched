@@ -29,6 +29,12 @@ dependencies:
     path: core
   search:
     path: search
+  movie:
+    path: movie
+  tv_series:
+    path: tv_series
+  watchlist:
+    path: watchlist
 
 
   # The following adds the Cupertino Icons font to your application.

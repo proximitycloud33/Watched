@@ -1,17 +1,17 @@
-import 'package:core/domain/entities/tv/episode.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
-import 'package:core/pages.dart';
 import 'package:core/utils/utils.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:movie/movie_presentation.dart';
 import 'package:provider/provider.dart';
 import 'package:search/search.dart';
 import 'package:about/about_page.dart';
-import 'package:core/notifier.dart';
-
 import 'package:ditonton/injection.dart' as di;
+import 'package:tv_series/domain/entities/episode.dart';
+import 'package:tv_series/tv_series_presentation.dart';
+import 'package:watchlist/watchlist_presentation.dart';
 
 void main() {
   di.init();

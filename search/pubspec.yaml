@@ -5,7 +5,7 @@ homepage:
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 environment:
-  sdk: '>=2.18.1 <3.0.0'
+  sdk: '>=2.18.1 <3.3.3'
   flutter: ">=1.17.0"
 
 dependencies:
@@ -13,11 +13,16 @@ dependencies:
     sdk: flutter
   core:
     path: ../core
+  movie:
+    path: ../movie
+  tv_series:
+    path: ../tv_series
   dartz: ^0.10.0-nullsafety.2
   flutter_bloc: ^8.1.1
   bloc_test: ^9.1.0
   rxdart: ^0.27.5
   equatable: ^2.0.5
+  provider: ^6.0.3
 
 dev_dependencies:
   flutter_test:

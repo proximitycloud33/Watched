@@ -1,9 +1,14 @@
-import 'package:core/notifier.dart';
-import 'package:core/usecases.dart';
-import 'package:core/data_repository.dart';
-import 'package:core/domain_repository.dart';
-import 'package:core/datasources.dart';
 import 'package:search/search.dart';
+import 'package:movie/movie_presentation.dart';
+import 'package:movie/movie_domain.dart';
+import 'package:movie/movie_data.dart';
+import 'package:tv_series/tv_series_data.dart';
+import 'package:tv_series/tv_series_domain.dart';
+import 'package:tv_series/tv_series_presentation.dart';
+import 'package:watchlist/watchlist_data.dart';
+import 'package:watchlist/watchlist_domain.dart';
+import 'package:watchlist/watchlist_presentation.dart';
+
 import 'package:http/http.dart' as http;
 import 'package:get_it/get_it.dart';
 
@@ -45,7 +50,7 @@ void init() {
   // watchlist provider
   locator.registerFactory(
     () => WatchlistNotifier(
-      getWatchlistMovies: locator(),
+      getWatchlist: locator(),
     ),
   );
   // movie BLOC
