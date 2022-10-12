@@ -1,10 +1,10 @@
-import 'package:core/domain/entities/movie/movie.dart';
-import 'package:core/domain/usecases/movie/get_top_rated_movies.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:movie/domain/entities/movie.dart';
+import 'package:movie/domain/usecases/get_top_rated_movies.dart';
 
-import '../../../helpers/test_helper.mocks.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late GetTopRatedMovies usecase;

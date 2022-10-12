@@ -1,10 +1,8 @@
-import '../../../watchlist/lib/models/watchlist_table.dart';
-import 'package:core/domain/entities/genre.dart';
-import 'package:core/domain/entities/movie/movie.dart';
-import 'package:core/domain/entities/movie/movie_detail.dart';
-import 'package:core/domain/entities/tv/season.dart';
-import 'package:core/domain/entities/tv/tv_series_detail.dart';
-import '../../../watchlist/lib/entity/watchlist.dart';
+import 'package:movie/domain/entities/genre.dart';
+import 'package:movie/domain/entities/movie.dart';
+import 'package:movie/domain/entities/movie_detail.dart';
+import 'package:watchlist/data/models/watchlist_table.dart';
+import 'package:watchlist/domain/entities/watchlist.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -25,7 +23,7 @@ final testMovie = Movie(
 
 final testMovieList = [testMovie];
 
-final testMovieDetail = MovieDetail(
+const testMovieDetail = MovieDetail(
   adult: false,
   backdropPath: 'backdropPath',
   genres: [Genre(id: 1, name: 'Action')],
@@ -38,39 +36,6 @@ final testMovieDetail = MovieDetail(
   title: 'title',
   voteAverage: 1,
   voteCount: 1,
-);
-final testTVSeriesDetail = TVSeriesDetail(
-  adult: false,
-  firstAirDate: '2022-08-21',
-  backdropPath: 'backdropPath',
-  genres: [Genre(id: 1, name: 'Action')],
-  id: 1,
-  overview: 'overview',
-  posterPath: 'posterPath',
-  name: 'Dragon',
-  originalName: 'House of Dragon',
-  numberOfEpisodes: 1,
-  numberOfSeasons: 1,
-  seasons: [
-    Season(
-      airDate: '2022-08-21',
-      episodeCount: 10,
-      id: 1,
-      name: 'Dragon',
-      overview: '',
-      posterPath: '',
-      seasonNumber: 1,
-    )
-  ],
-  voteAverage: 1,
-  voteCount: 1,
-);
-
-final testWatchlistMovie = Movie.watchlist(
-  id: 1,
-  title: 'title',
-  posterPath: 'posterPath',
-  overview: 'overview',
 );
 
 const testWatchlistTable = WatchlistTable(

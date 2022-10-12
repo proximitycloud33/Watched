@@ -1,12 +1,12 @@
-import 'package:core/data/models/movie/movie_model.dart';
-import 'package:core/domain/entities/movie/movie.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:movie/data/models/movie_model.dart';
+import 'package:movie/domain/entities/movie.dart';
 
 void main() {
-  final tMovieModel = MovieModel(
+  const tMovieModel = MovieModel(
     adult: false,
     backdropPath: 'backdropPath',
-    genreIds: const [1, 2, 3],
+    genreIds: [1, 2, 3],
     id: 1,
     originalTitle: 'originalTitle',
     overview: 'overview',

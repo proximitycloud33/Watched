@@ -101,7 +101,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 } else if (state == RequestState.Loaded) {
                   return MovieList(data.nowPlayingMovies);
                 } else {
-                  return const Text('Failed');
+                  return Text(data.message);
                 }
               }),
               _buildSubHeading(
@@ -117,7 +117,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 } else if (state == RequestState.Loaded) {
                   return MovieList(data.popularMovies);
                 } else {
-                  return const Text('Failed');
+                  return Text(data.message);
                 }
               }),
               _buildSubHeading(
@@ -134,7 +134,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
                 } else if (state == RequestState.Loaded) {
                   return MovieList(data.topRatedMovies);
                 } else {
-                  return const Text('Failed');
+                  return Text(data.message);
                 }
               }),
             ],
