@@ -59,6 +59,7 @@ void init() {
         locator(),
         locator(),
         locator(),
+        locator(),
       ));
 
   // TV Series provider

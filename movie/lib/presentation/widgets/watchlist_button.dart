@@ -18,7 +18,7 @@ class WatchlistButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {
+      onPressed: () async {
         if (!isAddedWatchlist) {
           context.read<WatchlistCubit>().addWatchlist(
                 Watchlist(
@@ -40,21 +40,27 @@ class WatchlistButton extends StatelessWidget {
                 ),
               );
         }
-        final message = context.read<WatchlistCubit>().state.watchlistMessage;
+        await Future.delayed(
+          const Duration(milliseconds: 150),
+          () {
+            final message =
+                context.read<WatchlistCubit>().state.watchlistMessage;
 
-        if (message == WatchlistState.watchlistAddSuccessMessage ||
-            message == WatchlistState.watchlistRemoveSuccessMessage) {
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(message)));
-        } else {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  content: Text(message),
-                );
-              });
-        }
+            if (message == WatchlistState.watchlistAddSuccessMessage ||
+                message == WatchlistState.watchlistRemoveSuccessMessage) {
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(message)));
+            } else {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      content: Text(message),
+                    );
+                  });
+            }
+          },
+        );
       },
       child: Row(
         mainAxisSize: MainAxisSize.min,

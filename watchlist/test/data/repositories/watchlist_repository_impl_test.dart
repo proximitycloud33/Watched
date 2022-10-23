@@ -1,12 +1,12 @@
-import '../../../lib/data/repository/watchlist_repository_impl.dart';
 import 'package:core/utils/exception.dart';
 import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:watchlist/watchlist_data.dart';
 
-import '../../../../core/test/dummy_data/dummy_objects.dart';
-import '../../../../core/test/helpers/test_helper.mocks.dart';
+import '../../dummy_objects.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late MockWatchlistLocalDataSource mockLocalDataSource;
@@ -33,7 +33,7 @@ void main() {
       // act
       final result = await repository.saveWatchlist(testWatchlist);
       // assert
-      expect(result, Left(DatabaseFailure('Failed to add watchlist')));
+      expect(result, const Left(DatabaseFailure('Failed to add watchlist')));
     });
   });
 
@@ -55,7 +55,7 @@ void main() {
       // act
       final result = await repository.removeWatchlist(testWatchlist);
       // assert
-      expect(result, Left(DatabaseFailure('Failed to remove watchlist')));
+      expect(result, const Left(DatabaseFailure('Failed to remove watchlist')));
     });
   });
 

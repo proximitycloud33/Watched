@@ -1,9 +1,9 @@
 import 'package:core/utils/state_enum.dart';
 import 'package:core/utils/utils.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:watchlist/presentation/provider/watchlist_notifier.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watchlist/presentation/widget/watchlist_card_list.dart';
+import 'package:watchlist/watchlist_presentation.dart';
 
 class WatchlistPage extends StatefulWidget {
   static const ROUTE_NAME = '/watchlist-page';
@@ -18,9 +18,9 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<WatchlistNotifier>(context, listen: false)
-            .fetchWatchlist());
+    Future.microtask(() {
+      context.read<WatchlistCubit>().fetchWatchlist();
+    });
   }
 
   @override
@@ -31,7 +31,7 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
 
   @override
   void didPopNext() {
-    Provider.of<WatchlistNotifier>(context, listen: false).fetchWatchlist();
+    context.read<WatchlistCubit>().fetchWatchlist();
   }
 
   @override
@@ -42,24 +42,24 @@ class _WatchlistPageState extends State<WatchlistPage> with RouteAware {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<WatchlistNotifier>(
-          builder: (context, data, child) {
-            if (data.watchlistState == RequestState.loading) {
+        child: BlocBuilder<WatchlistCubit, WatchlistState>(
+          builder: (context, state) {
+            if (state.watchlistRequestState == RequestState.loading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.watchlistState == RequestState.loaded) {
+            } else if (state.watchlistRequestState == RequestState.loaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final watchlist = data.watchlist[index];
+                  final watchlist = state.watchlist[index];
                   return WatchlistCard(watchlist);
                 },
-                itemCount: data.watchlist.length,
+                itemCount: state.watchlist.length,
               );
             } else {
               return Center(
                 key: const Key('error_message'),
-                child: Text(data.message),
+                child: Text(state.failureMessage),
               );
             }
           },

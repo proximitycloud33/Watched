@@ -1,10 +1,10 @@
-import 'package:core/domain/usecases/watchlist/remove_watchlist.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:watchlist/watchlist_domain.dart';
 
-import '../../../../../core/test/dummy_data/dummy_objects.dart';
-import '../../../../../core/test/helpers/test_helper.mocks.dart';
+import '../../dummy_objects.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late RemoveWatchlist usecase;
@@ -18,11 +18,11 @@ void main() {
   test('should remove watchlist from repository', () async {
     // arrange
     when(mockWatchlistRepository.removeWatchlist(testWatchlist))
-        .thenAnswer((_) async => Right('Removed from watchlist'));
+        .thenAnswer((_) async => const Right('Removed from watchlist'));
     // act
     final result = await usecase.execute(testWatchlist);
     // assert
     verify(mockWatchlistRepository.removeWatchlist(testWatchlist));
-    expect(result, Right('Removed from watchlist'));
+    expect(result, const Right('Removed from watchlist'));
   });
 }
