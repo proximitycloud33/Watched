@@ -7,10 +7,10 @@ import 'package:search/domain/usecases/search_movies.dart';
 part 'search_event.dart';
 part 'search_state.dart';
 
-class SearchBloc extends Bloc<SearchEvent, SearchState> {
+class SearchMoviesBloc extends Bloc<SearchEvent, SearchState> {
   final SearchMovies _searchMovies;
 
-  SearchBloc(this._searchMovies) : super(SearchEmpty()) {
+  SearchMoviesBloc(this._searchMovies) : super(SearchEmpty()) {
     on<OnQueryChanged>((event, emit) async {
       final query = event.query;
 
@@ -25,10 +25,10 @@ class SearchBloc extends Bloc<SearchEvent, SearchState> {
           emit(SearchHasData(data));
         },
       );
-    }, transformer: debounce(const Duration(milliseconds: 500)));
+    }, transformer: _debounce(const Duration(milliseconds: 500)));
   }
 }
 
-EventTransformer<T> debounce<T>(Duration duration) {
+EventTransformer<T> _debounce<T>(Duration duration) {
   return (events, mapper) => events.debounceTime(duration).flatMap(mapper);
 }

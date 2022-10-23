@@ -13,13 +13,13 @@ class SeasonList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<DetailTVSeriesNotifier>(
       builder: (context, data, child) {
-        if (data.tvSeriesState == RequestState.Loading) {
+        if (data.tvSeriesState == RequestState.loading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (data.tvSeriesState == RequestState.Error) {
+        } else if (data.tvSeriesState == RequestState.error) {
           return Text(data.message);
-        } else if (data.tvSeriesState == RequestState.Loaded) {
+        } else if (data.tvSeriesState == RequestState.loaded) {
           int itemcount = data.tvSeriesDetail.seasons.length;
           return SizedBox(
             height: 75,

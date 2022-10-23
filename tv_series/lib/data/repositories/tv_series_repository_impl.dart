@@ -18,9 +18,11 @@ class TVSeriesRepositoryImpl implements TVSeriesRepository {
       final result = await remoteDataSource.getDetailTVSeries(id);
       return Right(result.toEntity());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to the internet'));
+      return const Left(ConnectionFailure('Failed to connect to the internet'));
+    } on TlsException {
+      return const Left(CommonFailure('Certificate invalid'));
     }
   }
 
@@ -30,9 +32,11 @@ class TVSeriesRepositoryImpl implements TVSeriesRepository {
       final result = await remoteDataSource.getOnTheAirTVSeries();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to internet'));
+      return const Left(ConnectionFailure('Failed to connect to internet'));
+    } on TlsException {
+      return const Left(CommonFailure('Certificate invalid'));
     }
   }
 
@@ -42,9 +46,11 @@ class TVSeriesRepositoryImpl implements TVSeriesRepository {
       final result = await remoteDataSource.getPopularTVSeries();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to internet'));
+      return const Left(ConnectionFailure('Failed to connect to internet'));
+    } on TlsException {
+      return const Left(CommonFailure('Certificate invalid'));
     }
   }
 
@@ -55,9 +61,11 @@ class TVSeriesRepositoryImpl implements TVSeriesRepository {
       final result = await remoteDataSource.getRecommendationTVSeries(id);
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to internet'));
+      return const Left(ConnectionFailure('Failed to connect to internet'));
+    } on TlsException {
+      return const Left(CommonFailure('Certificate invalid'));
     }
   }
 
@@ -68,9 +76,11 @@ class TVSeriesRepositoryImpl implements TVSeriesRepository {
       final result = await remoteDataSource.getSeasonDetailTVSeries(id, season);
       return Right(result.toEntity());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to internet'));
+      return const Left(ConnectionFailure('Failed to connect to internet'));
+    } on TlsException {
+      return const Left(CommonFailure('Certificate invalid'));
     }
   }
 
@@ -80,9 +90,11 @@ class TVSeriesRepositoryImpl implements TVSeriesRepository {
       final result = await remoteDataSource.getTopRatedTVSeries();
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to internet'));
+      return const Left(ConnectionFailure('Failed to connect to internet'));
+    } on TlsException {
+      return const Left(CommonFailure('Certificate invalid'));
     }
   }
 
@@ -92,9 +104,11 @@ class TVSeriesRepositoryImpl implements TVSeriesRepository {
       final result = await remoteDataSource.searchTVSeries(query);
       return Right(result.map((model) => model.toEntity()).toList());
     } on ServerException {
-      return Left(ServerFailure(''));
+      return const Left(ServerFailure(''));
     } on SocketException {
-      return Left(ConnectionFailure('Failed to connect to internet'));
+      return const Left(ConnectionFailure('Failed to connect to internet'));
+    } on TlsException {
+      return const Left(CommonFailure('Certificate invalid'));
     }
   }
 }

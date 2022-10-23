@@ -49,7 +49,7 @@ void main() {
 
     provider.fetchPopularTVSeries();
 
-    expect(provider.state, RequestState.Loading);
+    expect(provider.movieState, RequestState.loading);
     expect(listenerCallCount, 1);
   });
   test('should change TVSeries data when data is gotten successfully',
@@ -68,7 +68,7 @@ void main() {
 
     await provider.fetchPopularTVSeries();
 
-    expect(provider.state, RequestState.Error);
+    expect(provider.movieState, RequestState.error);
     expect(provider.message, 'Server Failure');
     expect(listenerCallCount, 2);
   });

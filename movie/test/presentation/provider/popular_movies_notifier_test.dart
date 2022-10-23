@@ -50,7 +50,7 @@ void main() {
     // act
     notifier.fetchPopularMovies();
     // assert
-    expect(notifier.state, RequestState.Loading);
+    expect(notifier.movieState, RequestState.loading);
     expect(listenerCallCount, 1);
   });
 
@@ -61,7 +61,7 @@ void main() {
     // act
     await notifier.fetchPopularMovies();
     // assert
-    expect(notifier.state, RequestState.Loaded);
+    expect(notifier.movieState, RequestState.loaded);
     expect(notifier.movies, tMovieList);
     expect(listenerCallCount, 2);
   });
@@ -69,11 +69,11 @@ void main() {
   test('should return error when data is unsuccessful', () async {
     // arrange
     when(mockGetPopularMovies.execute())
-        .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
     // act
     await notifier.fetchPopularMovies();
     // assert
-    expect(notifier.state, RequestState.Error);
+    expect(notifier.movieState, RequestState.error);
     expect(notifier.message, 'Server Failure');
     expect(listenerCallCount, 2);
   });

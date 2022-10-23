@@ -7,7 +7,7 @@ class SeasonDetailTVSeriesNotifier extends ChangeNotifier {
   final GetSeasonDetailTVSeries getSeasonDetailTVSeries;
 
   TVSeriesSeasonDetail? _tvSeriesSeasonDetail;
-  RequestState _state = RequestState.Empty;
+  RequestState _state = RequestState.empty;
   String _message = '';
 
   SeasonDetailTVSeriesNotifier(this.getSeasonDetailTVSeries);
@@ -17,16 +17,16 @@ class SeasonDetailTVSeriesNotifier extends ChangeNotifier {
   TVSeriesSeasonDetail? get tvSeriesSeasonDetail => _tvSeriesSeasonDetail;
 
   Future<void> fetchTVSeriesSeasonDetail(int id, int season) async {
-    _state = RequestState.Loading;
+    _state = RequestState.loading;
     notifyListeners();
 
     final detailResult = await getSeasonDetailTVSeries.execute(id, season);
     detailResult.fold((failure) {
-      _state = RequestState.Error;
+      _state = RequestState.error;
       _message = failure.message;
       notifyListeners();
     }, (tvSeriesSeasonDetail) {
-      _state = RequestState.Loaded;
+      _state = RequestState.loaded;
       _tvSeriesSeasonDetail = tvSeriesSeasonDetail;
       notifyListeners();
     });

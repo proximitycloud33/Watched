@@ -53,7 +53,7 @@ void main() {
   final tTVSeriesList = <TVSeries>[tTVSeries];
   group('On The Air TV Series', () {
     test('Starting state should be empty', () {
-      expect(provider.onTheAirTVSeriesState, RequestState.Empty);
+      expect(provider.onTheAirTVSeriesState, RequestState.empty);
     });
     test('Should get data from the usecase', () {
       when(mockGetOnTheAirTVSeries.execute())
@@ -68,7 +68,7 @@ void main() {
           .thenAnswer((realInvocation) async => Right(tTVSeriesList));
 
       provider.fetchOnTheAirTVSeries();
-      expect(provider.onTheAirTVSeriesState, RequestState.Loading);
+      expect(provider.onTheAirTVSeriesState, RequestState.loading);
     });
     test('should change TV Series when data is gotten succefully', () async {
       when(mockGetOnTheAirTVSeries.execute())
@@ -76,18 +76,19 @@ void main() {
 
       await provider.fetchOnTheAirTVSeries();
 
-      expect(provider.onTheAirTVSeriesState, RequestState.Loaded);
+      expect(provider.onTheAirTVSeriesState, RequestState.loaded);
       expect(provider.onTheAirTVSeries, tTVSeriesList);
       expect(listenerCallCount, 2);
     });
 
     test('should return error when fetching data is unsuccessful', () async {
       when(mockGetOnTheAirTVSeries.execute()).thenAnswer(
-          (realInvocation) async => Left(ServerFailure('Server Failure')));
+          (realInvocation) async =>
+              const Left(ServerFailure('Server Failure')));
 
       await provider.fetchOnTheAirTVSeries();
 
-      expect(provider.onTheAirTVSeriesState, RequestState.Error);
+      expect(provider.onTheAirTVSeriesState, RequestState.error);
       expect(provider.message, 'Server Failure');
       expect(listenerCallCount, 2);
     });
@@ -95,7 +96,7 @@ void main() {
 
   group('Popular TV Series', () {
     test('Starting state should be empty', () {
-      expect(provider.popularTVSeriesState, RequestState.Empty);
+      expect(provider.popularTVSeriesState, RequestState.empty);
     });
     test('Should get data from the usecase', () {
       when(mockGetPopularTVSeries.execute())
@@ -111,7 +112,7 @@ void main() {
           .thenAnswer((realInvocation) async => Right(tTVSeriesList));
 
       provider.fetchPopularTVSeries();
-      expect(provider.popularTVSeriesState, RequestState.Loading);
+      expect(provider.popularTVSeriesState, RequestState.loading);
     });
     test('should change TV Series when data is gotten succefully', () async {
       when(mockGetPopularTVSeries.execute())
@@ -119,25 +120,26 @@ void main() {
 
       await provider.fetchPopularTVSeries();
 
-      expect(provider.popularTVSeriesState, RequestState.Loaded);
+      expect(provider.popularTVSeriesState, RequestState.loaded);
       expect(provider.popularTVSeries, tTVSeriesList);
       expect(listenerCallCount, 2);
     });
 
     test('should return error when fetching data is unsuccessful', () async {
       when(mockGetPopularTVSeries.execute()).thenAnswer(
-          (realInvocation) async => Left(ServerFailure('Server Failure')));
+          (realInvocation) async =>
+              const Left(ServerFailure('Server Failure')));
 
       await provider.fetchPopularTVSeries();
 
-      expect(provider.popularTVSeriesState, RequestState.Error);
+      expect(provider.popularTVSeriesState, RequestState.error);
       expect(provider.message, 'Server Failure');
       expect(listenerCallCount, 2);
     });
   });
   group('Top Rated TV Series', () {
     test('Starting state should be empty', () {
-      expect(provider.topRatedTVSeriesState, RequestState.Empty);
+      expect(provider.topRatedTVSeriesState, RequestState.empty);
     });
     test('Should get data from the usecase', () {
       when(mockGetTopRatedTVSeries.execute())
@@ -153,7 +155,7 @@ void main() {
           .thenAnswer((realInvocation) async => Right(tTVSeriesList));
 
       provider.fetchTopRatedTVSeries();
-      expect(provider.topRatedTVSeriesState, RequestState.Loading);
+      expect(provider.topRatedTVSeriesState, RequestState.loading);
     });
     test('should change TV Series data when data is gotten succefully',
         () async {
@@ -162,18 +164,19 @@ void main() {
 
       await provider.fetchTopRatedTVSeries();
 
-      expect(provider.topRatedTVSeriesState, RequestState.Loaded);
+      expect(provider.topRatedTVSeriesState, RequestState.loaded);
       expect(provider.topRatedTVSeries, tTVSeriesList);
       expect(listenerCallCount, 2);
     });
 
     test('should return error when fetching data is unsuccessful', () async {
       when(mockGetTopRatedTVSeries.execute()).thenAnswer(
-          (realInvocation) async => Left(ServerFailure('Server Failure')));
+          (realInvocation) async =>
+              const Left(ServerFailure('Server Failure')));
 
       await provider.fetchTopRatedTVSeries();
 
-      expect(provider.topRatedTVSeriesState, RequestState.Error);
+      expect(provider.topRatedTVSeriesState, RequestState.error);
       expect(provider.message, 'Server Failure');
       expect(listenerCallCount, 2);
     });

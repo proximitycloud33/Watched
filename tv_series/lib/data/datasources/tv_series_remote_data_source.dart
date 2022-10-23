@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:core/utils/exception.dart';
-import 'package:http/http.dart' as http;
+import 'package:core/utils/ssl_pinning.dart';
 import 'package:tv_series/data/models/tv_series_detail_response_model.dart';
 import 'package:tv_series/data/models/tv_series_model.dart';
 import 'package:tv_series/data/models/tv_series_response.dart';
@@ -21,7 +21,8 @@ class TVSeriesRemoteDataSourceImpl implements TVSeriesRemoteDataSource {
   static const API_KEY = 'api_key=2174d146bb9c0eab47529b2e77d6b526';
   static const BASE_URL = 'https://api.themoviedb.org/3';
 
-  final http.Client client;
+  // final http.Client client;
+  final IOClientWithSSL client;
   TVSeriesRemoteDataSourceImpl({required this.client});
 
   @override

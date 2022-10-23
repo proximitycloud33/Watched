@@ -1,10 +1,10 @@
-import '../../../watchlist/lib/models/watchlist_table.dart';
+import 'package:watchlist/models/watchlist_table.dart';
 import 'package:core/domain/entities/genre.dart';
 import 'package:core/domain/entities/movie/movie.dart';
 import 'package:core/domain/entities/movie/movie_detail.dart';
 import 'package:core/domain/entities/tv/season.dart';
 import 'package:core/domain/entities/tv/tv_series_detail.dart';
-import '../../../watchlist/lib/entity/watchlist.dart';
+import 'package:watchlist/entity/watchlist.dart';
 
 final testMovie = Movie(
   adult: false,
@@ -64,13 +64,6 @@ final testTVSeriesDetail = TVSeriesDetail(
   ],
   voteAverage: 1,
   voteCount: 1,
-);
-
-final testWatchlistMovie = Movie.watchlist(
-  id: 1,
-  title: 'title',
-  posterPath: 'posterPath',
-  overview: 'overview',
 );
 
 const testWatchlistTable = WatchlistTable(

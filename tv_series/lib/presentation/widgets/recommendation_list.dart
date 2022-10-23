@@ -19,13 +19,13 @@ class RecommendationList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<RecommendationTVSeriesNotifier>(
       builder: (context, data, child) {
-        if (data.state == RequestState.Loading) {
+        if (data.state == RequestState.loading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (data.state == RequestState.Error) {
+        } else if (data.state == RequestState.error) {
           return Text(data.message);
-        } else if (data.state == RequestState.Loaded) {
+        } else if (data.state == RequestState.loaded) {
           return SizedBox(
             height: 150,
             child: ListView.builder(

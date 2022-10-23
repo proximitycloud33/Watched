@@ -49,7 +49,7 @@ void main() {
 
     provider.fetchOnTheAirTVSeries();
 
-    expect(provider.state, RequestState.Loading);
+    expect(provider.movieState, RequestState.loading);
     expect(listenerCallCount, 1);
   });
 
@@ -60,7 +60,7 @@ void main() {
 
     await provider.fetchOnTheAirTVSeries();
 
-    expect(provider.state, RequestState.Loaded);
+    expect(provider.movieState, RequestState.loaded);
     expect(provider.tvSeries, tTVSeriesList);
     expect(listenerCallCount, 2);
   });
@@ -71,7 +71,7 @@ void main() {
 
     await provider.fetchOnTheAirTVSeries();
 
-    expect(provider.state, RequestState.Error);
+    expect(provider.movieState, RequestState.error);
     expect(provider.message, 'Server Failure');
     expect(listenerCallCount, 2);
   });

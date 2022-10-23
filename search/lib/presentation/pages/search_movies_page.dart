@@ -21,12 +21,8 @@ class SearchMoviePage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             TextField(
-              // onSubmitted: (query) {
-              //   Provider.of<MovieSearchNotifier>(context, listen: false)
-              //       .fetchMovieSearch(query);
-              // },
               onChanged: (query) {
-                context.read<SearchBloc>().add(OnQueryChanged(query));
+                context.read<SearchMoviesBloc>().add(OnQueryChanged(query));
               },
               decoration: const InputDecoration(
                 hintText: 'Search title',
@@ -40,7 +36,7 @@ class SearchMoviePage extends StatelessWidget {
               'Search Result',
               style: kHeading6,
             ),
-            BlocBuilder<SearchBloc, SearchState>(
+            BlocBuilder<SearchMoviesBloc, SearchState>(
               builder: (context, state) {
                 if (state is SearchLoading) {
                   return const Center(

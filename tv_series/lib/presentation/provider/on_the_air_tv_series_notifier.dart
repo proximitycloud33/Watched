@@ -6,7 +6,7 @@ import 'package:tv_series/domain/usecases/get_on_the_air_tv_series.dart';
 class OnTheAirTVSeriesNotifier extends ChangeNotifier {
   final GetOnTheAirTVSeries getOnTheAirTVSeries;
 
-  RequestState _state = RequestState.Empty;
+  RequestState _state = RequestState.empty;
   List<TVSeries> _tvSeries = [];
   String _message = '';
 
@@ -17,7 +17,7 @@ class OnTheAirTVSeriesNotifier extends ChangeNotifier {
   RequestState get state => _state;
 
   Future<void> fetchOnTheAirTVSeries() async {
-    _state = RequestState.Loading;
+    _state = RequestState.loading;
     notifyListeners();
 
     final result = await getOnTheAirTVSeries.execute();
@@ -25,12 +25,12 @@ class OnTheAirTVSeriesNotifier extends ChangeNotifier {
     result.fold(
       (failure) {
         _message = failure.message;
-        _state = RequestState.Error;
+        _state = RequestState.error;
         notifyListeners();
       },
       (tvSeries) {
         _tvSeries = tvSeries;
-        _state = RequestState.Loaded;
+        _state = RequestState.loaded;
         notifyListeners();
       },
     );

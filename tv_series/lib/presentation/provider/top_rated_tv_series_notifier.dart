@@ -6,7 +6,7 @@ import 'package:tv_series/domain/usecases/get_top_rated_tv_series.dart';
 class TopRatedTVSeriesNotifier extends ChangeNotifier {
   final GetTopRatedTVSeries getTopRatedTVSeries;
 
-  RequestState _state = RequestState.Empty;
+  RequestState _state = RequestState.empty;
 
   List<TVSeries> _tvSeries = [];
   String _message = '';
@@ -18,7 +18,7 @@ class TopRatedTVSeriesNotifier extends ChangeNotifier {
   RequestState get state => _state;
 
   Future<void> fetchTopRatedTVSeries() async {
-    _state = RequestState.Loading;
+    _state = RequestState.loading;
     notifyListeners();
 
     final result = await getTopRatedTVSeries.execute();
@@ -26,12 +26,12 @@ class TopRatedTVSeriesNotifier extends ChangeNotifier {
     result.fold(
       (failure) {
         _message = failure.message;
-        _state = RequestState.Error;
+        _state = RequestState.error;
         notifyListeners();
       },
       (tvSeries) {
         _tvSeries = tvSeries;
-        _state = RequestState.Loaded;
+        _state = RequestState.loaded;
         notifyListeners();
       },
     );

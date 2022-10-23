@@ -94,11 +94,11 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               ),
               Consumer<MovieListNotifier>(builder: (context, data, child) {
                 final state = data.nowPlayingState;
-                if (state == RequestState.Loading) {
+                if (state == RequestState.loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.Loaded) {
+                } else if (state == RequestState.loaded) {
                   return MovieList(data.nowPlayingMovies);
                 } else {
                   return Text(data.message);
@@ -110,11 +110,11 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               ),
               Consumer<MovieListNotifier>(builder: (context, data, child) {
                 final state = data.popularMoviesState;
-                if (state == RequestState.Loading) {
+                if (state == RequestState.loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.Loaded) {
+                } else if (state == RequestState.loaded) {
                   return MovieList(data.popularMovies);
                 } else {
                   return Text(data.message);
@@ -127,11 +127,11 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
               ),
               Consumer<MovieListNotifier>(builder: (context, data, child) {
                 final state = data.topRatedMoviesState;
-                if (state == RequestState.Loading) {
+                if (state == RequestState.loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.Loaded) {
+                } else if (state == RequestState.loaded) {
                   return MovieList(data.topRatedMovies);
                 } else {
                   return Text(data.message);

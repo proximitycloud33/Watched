@@ -63,7 +63,7 @@ void main() {
 
     provider.fetchTVSeriesSeasonDetail(testId, testSeason);
 
-    expect(provider.state, RequestState.Loading);
+    expect(provider.movieState, RequestState.loading);
     expect(listenerCallCount, 1);
   });
   test(
@@ -74,7 +74,7 @@ void main() {
 
     await provider.fetchTVSeriesSeasonDetail(testId, testSeason);
 
-    expect(provider.state, RequestState.Loaded);
+    expect(provider.movieState, RequestState.loaded);
     expect(provider.tvSeriesSeasonDetail, testTVSeriesSeasonDetail);
     expect(listenerCallCount, 2);
   });
@@ -84,7 +84,7 @@ void main() {
 
     await provider.fetchTVSeriesSeasonDetail(testId, testSeason);
 
-    expect(provider.state, RequestState.Error);
+    expect(provider.movieState, RequestState.error);
     expect(provider.message, 'Server Failure');
     expect(listenerCallCount, 2);
   });

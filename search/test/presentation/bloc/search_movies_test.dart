@@ -1,30 +1,30 @@
 import 'package:bloc_test/bloc_test.dart';
-import 'package:core/domain/entities/movie/movie.dart';
 import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:movie/domain/entities/movie.dart';
 import 'package:search/domain/usecases/search_movies.dart';
 import 'package:search/presentation/bloc/movie/search_bloc.dart';
 
-import 'search_bloc_test.mocks.dart';
+import 'search_movies_test.mocks.dart';
 
 @GenerateMocks([SearchMovies])
 void main() {
-  late SearchBloc searchBloc;
+  late SearchMoviesBloc searchBloc;
   late MockSearchMovies mockSearchMovies;
   setUp(
     () {
       mockSearchMovies = MockSearchMovies();
-      searchBloc = SearchBloc(mockSearchMovies);
+      searchBloc = SearchMoviesBloc(mockSearchMovies);
     },
   );
 
-  final tMovieModel = Movie(
+  const tMovieModel = Movie(
     adult: false,
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-    genreIds: const [14, 28],
+    genreIds: [14, 28],
     id: 557,
     originalTitle: 'Spider-Man',
     overview:
@@ -43,7 +43,7 @@ void main() {
   test('initial state should be empty', () {
     expect(searchBloc.state, SearchEmpty());
   });
-  blocTest<SearchBloc, SearchState>(
+  blocTest<SearchMoviesBloc, SearchState>(
     'emits [Loading, HasData] when data is Gotten.',
     build: () {
       when(mockSearchMovies.execute(tQuery))
@@ -58,11 +58,12 @@ void main() {
     ],
     verify: (bloc) => verify(mockSearchMovies.execute(tQuery)),
   );
-  blocTest<SearchBloc, SearchState>(
-    'emits [MyState] when MyEvent is added.',
+  blocTest<SearchMoviesBloc, SearchState>(
+    'emits [SearchLoading, SearchError] when there is exception.',
     build: () {
       when(mockSearchMovies.execute(tQuery)).thenAnswer(
-          (realInvocation) async => Left(ServerFailure('Server Failure')));
+          (realInvocation) async =>
+              const Left(ServerFailure('Server Failure')));
       return searchBloc;
     },
     wait: const Duration(milliseconds: 500),

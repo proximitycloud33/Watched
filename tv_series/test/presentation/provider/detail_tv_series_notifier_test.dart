@@ -98,21 +98,21 @@ void main() {
     test('should change state to Loading when usecase is called', () async {
       _arrangeUsecase();
       provider.fetchTVSeriesDetail(testId);
-      expect(provider.tvSeriesState, RequestState.Loading);
+      expect(provider.tvSeriesState, RequestState.loading);
       expect(listenerCallCount, 1);
     });
     test('should change TVSeries when data is gotten', () async {
       _arrangeUsecase();
       await provider.fetchTVSeriesDetail(testId);
-      expect(provider.tvSeriesState, RequestState.Loaded);
+      expect(provider.tvSeriesState, RequestState.loaded);
       expect(provider.tvSeriesDetail, tTVSeriesDetail);
       expect(listenerCallCount, 2);
     });
     test('should return error when Request state is error', () async {
-      when(mockGetDetailTVSeries.execute(testId))
-          .thenAnswer((realInvocation) async => Left(ServerFailure('Failed')));
+      when(mockGetDetailTVSeries.execute(testId)).thenAnswer(
+          (realInvocation) async => const Left(ServerFailure('Failed')));
       await provider.fetchTVSeriesDetail(testId);
-      expect(provider.tvSeriesState, RequestState.Error);
+      expect(provider.tvSeriesState, RequestState.error);
       expect(provider.message, 'Failed');
     });
   });

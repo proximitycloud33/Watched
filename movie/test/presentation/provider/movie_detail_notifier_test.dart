@@ -90,7 +90,7 @@ void main() {
       // act
       provider.fetchMovieDetail(tId);
       // assert
-      expect(provider.movieState, RequestState.Loading);
+      expect(provider.movieState, RequestState.loading);
       expect(listenerCallCount, 1);
     });
 
@@ -100,7 +100,7 @@ void main() {
       // act
       await provider.fetchMovieDetail(tId);
       // assert
-      expect(provider.movieState, RequestState.Loaded);
+      expect(provider.movieState, RequestState.loaded);
       expect(provider.movie, testMovieDetail);
       expect(listenerCallCount, 3);
     });
@@ -112,7 +112,7 @@ void main() {
       // act
       await provider.fetchMovieDetail(tId);
       // assert
-      expect(provider.movieState, RequestState.Loaded);
+      expect(provider.movieState, RequestState.loaded);
       expect(provider.movieRecommendations, tMovies);
     });
   });
@@ -135,7 +135,7 @@ void main() {
       // act
       await provider.fetchMovieDetail(tId);
       // assert
-      expect(provider.recommendationState, RequestState.Loaded);
+      expect(provider.recommendationState, RequestState.loaded);
       expect(provider.movieRecommendations, tMovies);
     });
 
@@ -148,7 +148,7 @@ void main() {
       // act
       await provider.fetchMovieDetail(tId);
       // assert
-      expect(provider.recommendationState, RequestState.Error);
+      expect(provider.recommendationState, RequestState.error);
       expect(provider.message, 'Failed');
     });
   });
@@ -226,7 +226,7 @@ void main() {
       // act
       await provider.fetchMovieDetail(tId);
       // assert
-      expect(provider.movieState, RequestState.Error);
+      expect(provider.movieState, RequestState.error);
       expect(provider.message, 'Server Failure');
       expect(listenerCallCount, 2);
     });

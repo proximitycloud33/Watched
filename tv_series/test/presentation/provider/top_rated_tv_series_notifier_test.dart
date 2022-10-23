@@ -49,7 +49,7 @@ void main() {
 
     provider.fetchTopRatedTVSeries();
 
-    expect(provider.state, RequestState.Loading);
+    expect(provider.movieState, RequestState.loading);
     expect(listenerCallCount, 1);
   });
 
@@ -60,18 +60,18 @@ void main() {
 
     await provider.fetchTopRatedTVSeries();
 
-    expect(provider.state, RequestState.Loaded);
+    expect(provider.movieState, RequestState.loaded);
     expect(provider.tvSeries, tTVSeriesList);
     expect(listenerCallCount, 2);
   });
 
   test('should return error when data is unsuccessful', () async {
     when(mockGetTopRatedTVSeries.execute())
-        .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
 
     await provider.fetchTopRatedTVSeries();
 
-    expect(provider.state, RequestState.Error);
+    expect(provider.movieState, RequestState.error);
     expect(provider.message, 'Server Failure');
     expect(listenerCallCount, 2);
   });

@@ -1,6 +1,7 @@
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/utils.dart';
+import 'package:ditonton/simple_bloc_observer.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,7 @@ import 'package:watchlist/watchlist_presentation.dart';
 
 void main() {
   di.init();
+  Bloc.observer = SimpleBlocObserver();
   runApp(MyApp());
 }
 
@@ -30,8 +32,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (_) => di.locator<MovieDetailNotifier>(),
         ),
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieSearchNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieDetailBloc>(),
         ),
         ChangeNotifierProvider(
           create: (_) => di.locator<TopRatedMoviesNotifier>(),
@@ -40,13 +42,15 @@ class MyApp extends StatelessWidget {
           create: (_) => di.locator<PopularMoviesNotifier>(),
         ),
         BlocProvider(
-          create: (context) => di.locator<SearchBloc>(),
+          create: (context) => di.locator<SearchMoviesBloc>(),
         ),
         //* Watchlist
         ChangeNotifierProvider(
           create: (_) => di.locator<WatchlistNotifier>(),
         ),
-
+        BlocProvider(
+          create: (_) => di.locator<WatchlistCubit>(),
+        ),
         //* TV Series
         ChangeNotifierProvider(
           create: (context) => di.locator<ListTVSeriesNotifier>(),
@@ -66,8 +70,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(
           create: (context) => di.locator<RecommendationTVSeriesNotifier>(),
         ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<SearchTVSeriesNotifier>(),
+        BlocProvider(
+          create: (context) => di.locator<SearchTVSeriesBloc>(),
         ),
         ChangeNotifierProvider(
           create: (context) => di.locator<SeasonDetailTVSeriesNotifier>(),

@@ -34,11 +34,11 @@ class _TVSeriesSeasonDetailPageState extends State<TVSeriesSeasonDetailPage> {
     return Scaffold(
       body: Consumer<SeasonDetailTVSeriesNotifier>(
         builder: (context, provider, child) {
-          if (provider.state == RequestState.Loading) {
+          if (provider.state == RequestState.loading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (provider.state == RequestState.Loaded) {
+          } else if (provider.state == RequestState.loaded) {
             return SafeArea(
               child: SeasonDetailContent(provider.tvSeriesSeasonDetail),
             );

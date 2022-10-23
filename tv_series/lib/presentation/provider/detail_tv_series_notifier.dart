@@ -17,7 +17,7 @@ class DetailTVSeriesNotifier extends ChangeNotifier {
   final RemoveWatchlist removeWatchlist;
 
   late TVSeriesDetail _tvSeriesDetail;
-  RequestState _tvSeriesState = RequestState.Empty;
+  RequestState _tvSeriesState = RequestState.empty;
   String _message = '';
   bool _isAddedToWatchlist = false;
   String _watchlistMessage = '';
@@ -36,15 +36,15 @@ class DetailTVSeriesNotifier extends ChangeNotifier {
   String get watchlistMessage => _watchlistMessage;
 
   Future<void> fetchTVSeriesDetail(int id) async {
-    _tvSeriesState = RequestState.Loading;
+    _tvSeriesState = RequestState.loading;
     notifyListeners();
     final detailResult = await getDetailTVSeries.execute(id);
     detailResult.fold((failure) {
-      _tvSeriesState = RequestState.Error;
+      _tvSeriesState = RequestState.error;
       _message = failure.message;
       notifyListeners();
     }, (tvSeriesDetail) {
-      _tvSeriesState = RequestState.Loaded;
+      _tvSeriesState = RequestState.loaded;
       _tvSeriesDetail = tvSeriesDetail;
       notifyListeners();
     });

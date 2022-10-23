@@ -96,11 +96,11 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
               ),
               Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
                 final state = data.onTheAirTVSeriesState;
-                if (state == RequestState.Loading) {
+                if (state == RequestState.loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.Loaded) {
+                } else if (state == RequestState.loaded) {
                   return TVSeriesList(data.onTheAirTVSeries);
                 } else {
                   return const Text('Failed');
@@ -112,11 +112,11 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
               ),
               Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
                 final state = data.popularTVSeriesState;
-                if (state == RequestState.Loading) {
+                if (state == RequestState.loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.Loaded) {
+                } else if (state == RequestState.loaded) {
                   return TVSeriesList(data.popularTVSeries);
                 } else {
                   return const Text('Failed');
@@ -128,11 +128,11 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
               ),
               Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
                 final state = data.topRatedTVSeriesState;
-                if (state == RequestState.Loading) {
+                if (state == RequestState.loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.Loaded) {
+                } else if (state == RequestState.loaded) {
                   return TVSeriesList(data.topRatedTVSeries);
                 } else {
                   return const Text('Failed');
