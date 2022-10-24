@@ -26,8 +26,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         //* Movies
-        ChangeNotifierProvider(
-          create: (_) => di.locator<MovieListNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<MovieListBloc>(),
         ),
         ChangeNotifierProvider(
           create: (_) => di.locator<MovieDetailNotifier>(),

@@ -16,6 +16,7 @@ final locator = GetIt.instance;
 void init() {
   // provider
   // movie provider
+  //!delete this later
   locator.registerFactory(
     () => MovieListNotifier(
       getNowPlayingMovies: locator(),
@@ -23,6 +24,11 @@ void init() {
       getTopRatedMovies: locator(),
     ),
   );
+  locator.registerFactory(() => MovieListBloc(
+        locator(),
+        locator(),
+        locator(),
+      ));
   locator.registerFactory(() => MovieDetailBloc(
         locator(),
         locator(),
