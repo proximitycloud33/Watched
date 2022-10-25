@@ -25,7 +25,7 @@ class TopRatedMoviesBloc
     final result = await getTopRatedMovies.execute();
     result.fold(
       (failure) => emit(state.copyWith(
-        topRatedMoviesRequestState: RequestState.empty,
+        topRatedMoviesRequestState: RequestState.error,
         message: failure.message,
       )),
       (data) => emit(state.copyWith(

@@ -32,7 +32,7 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
     result.fold(
       (failure) => emit(state.copyWith(
         message: failure.message,
-        nowPlayingMoviesState: RequestState.empty,
+        nowPlayingMoviesState: RequestState.error,
       )),
       (data) => emit(state.copyWith(
         nowPlayingMoviesState: RequestState.loaded,
@@ -50,7 +50,7 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
     result.fold(
       (failure) => emit(state.copyWith(
         message: failure.message,
-        popularMoviesState: RequestState.empty,
+        popularMoviesState: RequestState.error,
       )),
       (data) => emit(state.copyWith(
         popularMoviesState: RequestState.loaded,
@@ -68,7 +68,7 @@ class MovieListBloc extends Bloc<MovieListEvent, MovieListState> {
     result.fold(
       (failure) => emit(state.copyWith(
         message: failure.message,
-        topRatedMoviesState: RequestState.empty,
+        topRatedMoviesState: RequestState.error,
       )),
       (data) => emit(state.copyWith(
         topRatedMoviesState: RequestState.loaded,

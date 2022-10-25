@@ -10,7 +10,7 @@ import 'package:movie/domain/entities/movie.dart';
 import 'package:movie/domain/entities/movie_detail.dart';
 import 'package:movie/movie_domain.dart';
 import 'package:movie/presentation/bloc/movie_detail/movie_detail_bloc.dart';
-import 'movie_detail_bloc_test.mocks.dart';
+import 'mocks/movie_detail_bloc_test.mocks.dart';
 
 @GenerateMocks([
   GetMovieDetail,
