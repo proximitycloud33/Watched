@@ -14,16 +14,8 @@ import 'package:get_it/get_it.dart';
 
 final locator = GetIt.instance;
 void init() {
-  // provider
-  // movie provider
-  //!delete this later
-  locator.registerFactory(
-    () => MovieListNotifier(
-      getNowPlayingMovies: locator(),
-      getPopularMovies: locator(),
-      getTopRatedMovies: locator(),
-    ),
-  );
+  //* bloc
+  //* movie bloc
   locator.registerFactory(() => MovieListBloc(
         locator(),
         locator(),
@@ -34,28 +26,21 @@ void init() {
         locator(),
       ));
   locator.registerFactory(
-    () => MovieDetailNotifier(
-      getMovieDetail: locator(),
-      getMovieRecommendations: locator(),
-      getWatchListStatus: locator(),
-      saveWatchlist: locator(),
-      removeWatchlist: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => SearchMoviesBloc(locator()),
-  );
-  locator.registerFactory(
-    () => PopularMoviesNotifier(
+    () => SearchMoviesBloc(
       locator(),
     ),
   );
   locator.registerFactory(
-    () => TopRatedMoviesNotifier(
-      getTopRatedMovies: locator(),
+    () => PopularMoviesBloc(
+      locator(),
     ),
   );
-  // watchlist provider
+  locator.registerFactory(
+    () => TopRatedMoviesBloc(
+      locator(),
+    ),
+  );
+  //* watchlist bloc
   locator.registerFactory(
     () => WatchlistNotifier(
       getWatchlist: locator(),

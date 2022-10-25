@@ -122,7 +122,7 @@ void main() {
       await provider.fetchPopularMovies();
       // assert
       expect(provider.popularMoviesState, RequestState.loaded);
-      expect(provider.popularMovies, tMovieList);
+      expect(provider.TopRatedMovies, tMovieList);
       expect(listenerCallCount, 2);
     });
 
