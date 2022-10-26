@@ -5,11 +5,6 @@ export 'package:movie/presentation/pages/movie_detail_page.dart';
 export 'package:movie/presentation/pages/popular_movies_page.dart';
 export 'package:movie/presentation/pages/top_rated_movies_page.dart';
 
-export 'package:movie/presentation/provider/movie_list_notifier.dart';
-export 'package:movie/presentation/provider/movie_detail_notifier.dart';
-export 'package:movie/presentation/provider/popular_movies_notifier.dart';
-export 'package:movie/presentation/provider/top_rated_movies_notifier.dart';
-
 export 'package:movie/presentation/bloc/movie_detail/movie_detail_bloc.dart';
 export 'package:movie/presentation/bloc/movie_list/movie_list_bloc.dart';
 export 'package:movie/presentation/bloc/popular_movies/popular_movies_bloc.dart';

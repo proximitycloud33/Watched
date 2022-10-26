@@ -45,6 +45,8 @@ class WatchlistButton extends StatelessWidget {
           () {
             final message =
                 context.read<WatchlistCubit>().state.watchlistMessage;
+            final failureMessage =
+                context.read<WatchlistCubit>().state.failureMessage;
 
             if (message == WatchlistState.watchlistAddSuccessMessage ||
                 message == WatchlistState.watchlistRemoveSuccessMessage) {
@@ -55,7 +57,7 @@ class WatchlistButton extends StatelessWidget {
                   context: context,
                   builder: (context) {
                     return AlertDialog(
-                      content: Text(message),
+                      content: Text(failureMessage),
                     );
                   });
             }
