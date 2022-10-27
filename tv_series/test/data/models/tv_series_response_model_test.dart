@@ -1,10 +1,10 @@
 import 'dart:convert';
 
-import 'package:core/data/models/tv/tv_series_model.dart';
-import 'package:core/data/models/tv/tv_series_response.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tv_series/data/models/tv_series_model.dart';
+import 'package:tv_series/data/models/tv_series_response.dart';
 
-import '../../../json_reader.dart';
+import '../../json_reader.dart';
 
 void main() {
   const testTVSeriesModel = TVSeriesModel(
@@ -23,9 +23,8 @@ void main() {
     voteAverage: 8.6,
     voteCount: 1309,
   );
-  // ignore: prefer_const_declarations
-  final testTVSeriesResponseModel =
-      const TVSeriesResponse(seriesList: <TVSeriesModel>[testTVSeriesModel]);
+  const testTVSeriesResponseModel =
+      TVSeriesResponse(seriesList: <TVSeriesModel>[testTVSeriesModel]);
   group('fromJson', () {
     test('should return a valid model from JSON', () async {
       final Map<String, dynamic> jsonMap =

@@ -1,21 +1,21 @@
-import 'package:core/data/models/genre_model.dart';
-import 'package:core/data/models/tv/episode_model.dart';
-import 'package:core/data/models/tv/season_model.dart';
-import 'package:core/data/models/tv/tv_series_detail_response_model.dart';
-import 'package:core/data/models/tv/tv_series_model.dart';
-import 'package:core/data/models/tv/tv_series_season_detail_model.dart';
-import 'package:core/data/repositories/tv_series_repository_impl.dart';
-import 'package:core/domain/entities/genre.dart';
-import 'package:core/domain/entities/tv/episode.dart';
-import 'package:core/domain/entities/tv/season.dart';
-import 'package:core/domain/entities/tv/tv_series.dart';
-import 'package:core/domain/entities/tv/tv_series_detail.dart';
-import 'package:core/domain/entities/tv/tv_series_season_detail.dart';
 import 'package:core/utils/exception.dart';
 import 'package:core/utils/failure.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:tv_series/data/models/episode_model.dart';
+import 'package:tv_series/data/models/genre_model.dart';
+import 'package:tv_series/data/models/season_model.dart';
+import 'package:tv_series/data/models/tv_series_detail_response_model.dart';
+import 'package:tv_series/data/models/tv_series_model.dart';
+import 'package:tv_series/data/models/tv_series_season_detail_model.dart';
+import 'package:tv_series/data/repositories/tv_series_repository_impl.dart';
+import 'package:tv_series/domain/entities/episode.dart';
+import 'package:tv_series/domain/entities/genre.dart';
+import 'package:tv_series/domain/entities/season.dart';
+import 'package:tv_series/domain/entities/tv_series.dart';
+import 'package:tv_series/domain/entities/tv_series_detail.dart';
+import 'package:tv_series/domain/entities/tv_series_season_detail.dart';
 
 import '../../helpers/test_helper.mocks.dart';
 
@@ -28,7 +28,7 @@ void main() {
     repository = TVSeriesRepositoryImpl(remoteDataSource: mockRemoteDataSource);
   });
 
-  final testTVSeriesModel = const TVSeriesModel(
+  const testTVSeriesModel = TVSeriesModel(
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
     id: 557,
@@ -45,7 +45,7 @@ void main() {
     voteCount: 13507,
   );
 
-  final testTVSeries = const TVSeries(
+  const testTVSeries = TVSeries(
     backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
     genreIds: [14, 28],
     id: 557,
@@ -87,7 +87,7 @@ void main() {
 
       verify(mockRemoteDataSource.getOnTheAirTVSeries());
 
-      expect(result, equals(Left(ServerFailure(''))));
+      expect(result, equals(const Left(ServerFailure(''))));
     });
   });
   group('Popular TV Series', () {
@@ -113,7 +113,7 @@ void main() {
 
       verify(mockRemoteDataSource.getPopularTVSeries());
 
-      expect(result, equals(Left(ServerFailure(''))));
+      expect(result, equals(const Left(ServerFailure(''))));
     });
   });
   group('Top Rated TV Series', () {
@@ -139,13 +139,13 @@ void main() {
 
       verify(mockRemoteDataSource.getTopRatedTVSeries());
 
-      expect(result, equals(Left(ServerFailure(''))));
+      expect(result, equals(const Left(ServerFailure(''))));
     });
   });
   group('Detail TV Series', () {
     const testId = 1;
     //model
-    final testTVSeriesDetailResponse = TVSeriesDetailResponseModel(
+    const testTVSeriesDetailResponse = TVSeriesDetailResponseModel(
       adult: false,
       firstAirDate: '2022-08-21',
       backdropPath: 'backdropPath',
@@ -172,7 +172,7 @@ void main() {
       voteCount: 1,
     );
     //entity
-    final testTVSeriesDetail = TVSeriesDetail(
+    const testTVSeriesDetail = TVSeriesDetail(
       adult: false,
       firstAirDate: '2022-08-21',
       backdropPath: 'backdropPath',
@@ -207,7 +207,7 @@ void main() {
 
       verify(mockRemoteDataSource.getDetailTVSeries(testId));
 
-      expect(result, equals(Right(testTVSeriesDetail)));
+      expect(result, equals(const Right(testTVSeriesDetail)));
     });
     test(
         'Should return server failure when the call to remote data is unsuccessful',
@@ -219,7 +219,7 @@ void main() {
 
       verify(mockRemoteDataSource.getDetailTVSeries(testId));
 
-      expect(result, equals(Left(ServerFailure(''))));
+      expect(result, equals(const Left(ServerFailure(''))));
     });
   });
   group('Get TV Series Recommendations', () {
@@ -248,7 +248,7 @@ void main() {
 
       verify(mockRemoteDataSource.getRecommendationTVSeries(testId));
 
-      expect(result, equals(Left(ServerFailure(''))));
+      expect(result, equals(const Left(ServerFailure(''))));
     });
   });
   group('Search TV Series', () {
@@ -276,12 +276,12 @@ void main() {
 
       verify(mockRemoteDataSource.searchTVSeries(testQuery));
 
-      expect(result, equals(Left(ServerFailure(''))));
+      expect(result, equals(const Left(ServerFailure(''))));
     });
     group('Get Season Details', () {
       const testId = 1;
       const testSeason = 1;
-      final testTVSeriesSeasonDetailModel = const TVSeriesSeasonDetailModel(
+      const testTVSeriesSeasonDetailModel = TVSeriesSeasonDetailModel(
         airDate: '2022-08-01',
         episodes: [
           EpisodeModel(
@@ -306,7 +306,7 @@ void main() {
         purpleId: 1,
         seasonNumber: 1,
       );
-      final testTVSeriesSeasonDetail = TVSeriesSeasonDetail(
+      const testTVSeriesSeasonDetail = TVSeriesSeasonDetail(
         airDate: '2022-08-01',
         episodes: [
           Episode(
@@ -342,7 +342,7 @@ void main() {
         verify(
             mockRemoteDataSource.getSeasonDetailTVSeries(testId, testSeason));
 
-        expect(result, equals(Right(testTVSeriesSeasonDetail)));
+        expect(result, equals(const Right(testTVSeriesSeasonDetail)));
       });
       test(
           'Should return server failure when the call to remote data is unsuccessful',
@@ -356,7 +356,7 @@ void main() {
         verify(
             mockRemoteDataSource.getSeasonDetailTVSeries(testId, testSeason));
 
-        expect(result, equals(Left(ServerFailure(''))));
+        expect(result, equals(const Left(ServerFailure(''))));
       });
     });
   });

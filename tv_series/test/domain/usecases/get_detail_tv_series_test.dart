@@ -1,12 +1,12 @@
-import 'package:core/domain/entities/genre.dart';
-import 'package:core/domain/entities/tv/season.dart';
-import 'package:core/domain/entities/tv/tv_series_detail.dart';
-import 'package:core/domain/usecases/tv/get_detail_tv_series.dart';
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:tv_series/domain/entities/genre.dart';
+import 'package:tv_series/domain/entities/season.dart';
+import 'package:tv_series/domain/entities/tv_series_detail.dart';
+import 'package:tv_series/domain/usecases/get_detail_tv_series.dart';
 
-import '../../../helpers/test_helper.mocks.dart';
+import '../../helpers/test_helper.mocks.dart';
 
 void main() {
   late GetDetailTVSeries usecase;
@@ -18,7 +18,7 @@ void main() {
     },
   );
   const testId = 1;
-  final testTVSeriesDetail = TVSeriesDetail(
+  const testTVSeriesDetail = TVSeriesDetail(
     adult: false,
     firstAirDate: '2022-08-21',
     backdropPath: 'backdropPath',
@@ -46,10 +46,10 @@ void main() {
   );
   test('Should get tv series detail from the repository', () async {
     when(mockTVSeriesRepository.getDetailTVSeries(testId))
-        .thenAnswer((realInvocation) async => Right(testTVSeriesDetail));
+        .thenAnswer((realInvocation) async => const Right(testTVSeriesDetail));
 
     final result = await usecase.execute(testId);
 
-    expect(result, Right(testTVSeriesDetail));
+    expect(result, const Right(testTVSeriesDetail));
   });
 }

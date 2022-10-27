@@ -1,12 +1,12 @@
 import 'dart:convert';
 
-import 'package:core/data/models/tv/episode_model.dart';
-import 'package:core/data/models/tv/tv_series_season_detail_model.dart';
-import 'package:core/domain/entities/tv/episode.dart';
-import 'package:core/domain/entities/tv/tv_series_season_detail.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:tv_series/data/models/episode_model.dart';
+import 'package:tv_series/data/models/tv_series_season_detail_model.dart';
+import 'package:tv_series/domain/entities/episode.dart';
+import 'package:tv_series/domain/entities/tv_series_season_detail.dart';
 
-import '../../../json_reader.dart';
+import '../../json_reader.dart';
 
 void main() {
   const testTVSeriesSeasonDetailModel = TVSeriesSeasonDetailModel(
@@ -35,7 +35,7 @@ void main() {
     overview: "",
     seasonNumber: 1,
   );
-  final testTVSeriesSeasonDetail = TVSeriesSeasonDetail(
+  const testTVSeriesSeasonDetail = TVSeriesSeasonDetail(
     airDate: "2022-08-21",
     episodes: [
       Episode(
