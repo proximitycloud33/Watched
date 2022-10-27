@@ -2,36 +2,30 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:core/utils/routes.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:tv_series/domain/entities/tv_series.dart';
-import 'package:tv_series/presentation/provider/recommendation_tv_series_notifier.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tv_series/presentation/bloc/detail_tv_series_bloc/detail_tv_series_bloc.dart';
 
 //TODO Change routes into seperate package || not in core;
 class RecommendationList extends StatelessWidget {
-  const RecommendationList({
-    Key? key,
-    required this.recommendations,
-  }) : super(key: key);
-
-  final List<TVSeries> recommendations;
+  const RecommendationList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<RecommendationTVSeriesNotifier>(
-      builder: (context, data, child) {
-        if (data.state == RequestState.loading) {
+    return BlocBuilder<DetailTVSeriesBloc, DetailTVSeriesState>(
+      builder: (context, state) {
+        if (state.recommendationState == RequestState.loading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (data.state == RequestState.error) {
-          return Text(data.message);
-        } else if (data.state == RequestState.loaded) {
+        } else if (state.recommendationState == RequestState.error) {
+          return Text(state.message);
+        } else if (state.recommendationState == RequestState.loaded) {
           return SizedBox(
             height: 150,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemBuilder: (context, index) {
-                final movie = recommendations[index];
+                final movie = state.tvSeriesRecommendations[index];
                 return Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: InkWell(
@@ -59,7 +53,7 @@ class RecommendationList extends StatelessWidget {
                   ),
                 );
               },
-              itemCount: recommendations.length,
+              itemCount: state.tvSeriesRecommendations.length,
             ),
           );
         } else {

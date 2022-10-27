@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tv_series/domain/entities/tv_series_detail.dart';
-import 'package:tv_series/presentation/provider/detail_tv_series_notifier.dart';
 import 'package:watchlist/domain/entities/watchlist.dart';
+import 'package:watchlist/presentation/bloc/watchlist/watchlist_cubit.dart';
 
 class WatchlistButton extends StatelessWidget {
   const WatchlistButton({
@@ -19,47 +19,48 @@ class WatchlistButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: () async {
         if (!isAddedWatchlist) {
-          await Provider.of<DetailTVSeriesNotifier>(context, listen: false)
-              .addWatchlist(
-            Watchlist(
-              id: tvSeriesDetail.id,
-              type: 'tv',
-              overview: tvSeriesDetail.overview,
-              posterPath: tvSeriesDetail.posterPath,
-              title: tvSeriesDetail.name,
-            ),
-          );
+          await context.read<WatchlistCubit>().addWatchlist(
+                Watchlist(
+                  id: tvSeriesDetail.id,
+                  type: 'tv',
+                  overview: tvSeriesDetail.overview,
+                  posterPath: tvSeriesDetail.posterPath,
+                  title: tvSeriesDetail.name,
+                ),
+              );
         } else {
-          await Provider.of<DetailTVSeriesNotifier>(context, listen: false)
-              .removeFromWatchlist(
-            Watchlist(
-              id: tvSeriesDetail.id,
-              type: 'tv',
-              overview: tvSeriesDetail.overview,
-              posterPath: tvSeriesDetail.posterPath,
-              title: tvSeriesDetail.name,
-            ),
-          );
+          await context.read<WatchlistCubit>().removeFromWatchlist(
+                Watchlist(
+                  id: tvSeriesDetail.id,
+                  type: 'tv',
+                  overview: tvSeriesDetail.overview,
+                  posterPath: tvSeriesDetail.posterPath,
+                  title: tvSeriesDetail.name,
+                ),
+              );
         }
-        final message =
-            // ignore: use_build_context_synchronously
-            Provider.of<DetailTVSeriesNotifier>(context, listen: false)
-                .watchlistMessage;
+        await Future.delayed(
+          const Duration(milliseconds: 150),
+          () {
+            final message =
+                context.read<WatchlistCubit>().state.watchlistMessage;
 
-        if (message == DetailTVSeriesNotifier.watchlistAddSuccessMessage ||
-            message == DetailTVSeriesNotifier.watchlistRemoveSuccessMessage) {
-          // ignore: use_build_context_synchronously
-          ScaffoldMessenger.of(context)
-              .showSnackBar(SnackBar(content: Text(message)));
-        } else {
-          showDialog(
-              context: context,
-              builder: (context) {
-                return AlertDialog(
-                  content: Text(message),
-                );
-              });
-        }
+            if (message == WatchlistState.watchlistAddSuccessMessage ||
+                message == WatchlistState.watchlistRemoveSuccessMessage) {
+              // ignore: use_build_context_synchronously
+              ScaffoldMessenger.of(context)
+                  .showSnackBar(SnackBar(content: Text(message)));
+            } else {
+              showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      content: Text(message),
+                    );
+                  });
+            }
+          },
+        );
       },
       child: Row(
         mainAxisSize: MainAxisSize.min,

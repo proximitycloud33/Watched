@@ -2,22 +2,19 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tv_series/domain/entities/genre.dart';
-import 'package:tv_series/domain/entities/tv_series.dart';
 import 'package:tv_series/domain/entities/tv_series_detail.dart';
 import 'package:tv_series/presentation/widgets/recommendation_list.dart';
 import 'package:tv_series/presentation/widgets/season_list.dart';
 import 'package:tv_series/presentation/widgets/watchlist_button.dart';
+import 'package:watchlist/presentation/bloc/watchlist/watchlist_cubit.dart';
 
 class DetailContentTVSeries extends StatelessWidget {
   final TVSeriesDetail tvSeriesDetail;
-  final List<TVSeries> recommendations;
-  final bool isAddedWatchlist;
 
-  const DetailContentTVSeries(
-      this.tvSeriesDetail, this.recommendations, this.isAddedWatchlist,
-      {super.key});
+  const DetailContentTVSeries(this.tvSeriesDetail, {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -60,9 +57,14 @@ class DetailContentTVSeries extends StatelessWidget {
                               tvSeriesDetail.name,
                               style: kHeading5,
                             ),
-                            WatchlistButton(
-                              isAddedWatchlist: isAddedWatchlist,
-                              tvSeriesDetail: tvSeriesDetail,
+                            BlocSelector<WatchlistCubit, WatchlistState, bool>(
+                              selector: (state) => state.isAddedToWatchList,
+                              builder: (context, state) {
+                                return WatchlistButton(
+                                  isAddedWatchlist: state,
+                                  tvSeriesDetail: tvSeriesDetail,
+                                );
+                              },
                             ),
                             Text(
                               _showGenres(tvSeriesDetail.genres),
@@ -99,9 +101,7 @@ class DetailContentTVSeries extends StatelessWidget {
                               'Recommendations',
                               style: kHeading6,
                             ),
-                            RecommendationList(
-                              recommendations: recommendations,
-                            ),
+                            const RecommendationList(),
                           ],
                         ),
                       ),

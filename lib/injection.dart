@@ -41,11 +41,6 @@ void init() {
     ),
   );
   //* watchlist bloc
-  locator.registerFactory(
-    () => WatchlistNotifier(
-      getWatchlist: locator(),
-    ),
-  );
   locator.registerFactory(() => WatchlistCubit(
         locator(),
         locator(),
@@ -53,42 +48,34 @@ void init() {
         locator(),
       ));
 
-  // TV Series provider
+  //* TV Series Bloc
   locator.registerFactory(
-    () => ListTVSeriesNotifier(
-      getOnTheAirTVSeries: locator(),
-      getPopularTVSeries: locator(),
-      getTopRatedTVSeries: locator(),
+    () => ListTVSeriesBloc(
+      locator(),
+      locator(),
+      locator(),
     ),
   );
   locator.registerFactory(
-    () => OnTheAirTVSeriesNotifier(locator()),
+    () => DetailTVSeriesBloc(locator(), locator()),
   );
   locator.registerFactory(
-    () => PopularTVSeriesNotifier(locator()),
+    () => OnTheAirTVSeriesBloc(locator()),
   );
   locator.registerFactory(
-    () => TopRatedTVSeriesNotifier(locator()),
+    () => PopularTVSeriesBloc(locator()),
   );
   locator.registerFactory(
-    () => DetailTVSeriesNotifier(
-      getDetailTVSeries: locator(),
-      getWatchListStatus: locator(),
-      removeWatchlist: locator(),
-      saveWatchlist: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => RecommendationTVSeriesNotifier(locator()),
+    () => TopRatedTVSeriesBloc(locator()),
   );
   locator.registerFactory(
     () => SearchTVSeriesBloc(locator()),
   );
   locator.registerFactory(
-    () => SeasonDetailTVSeriesNotifier(locator()),
+    () => SeasonDetailTVSeriesBloc(locator()),
   );
 
-  // Movies usecases / Bussiness Logic
+  //* Movies usecases / Bussiness Logic
   locator.registerLazySingleton(() => GetNowPlayingMovies(locator()));
   locator.registerLazySingleton(() => GetPopularMovies(locator()));
   locator.registerLazySingleton(() => GetTopRatedMovies(locator()));
@@ -96,7 +83,7 @@ void init() {
   locator.registerLazySingleton(() => GetMovieRecommendations(locator()));
   locator.registerLazySingleton(() => SearchMovies(locator()));
 
-  // TVSeries usecases / Bussiness Logic
+  //* TVSeries usecases / Bussiness Logic
   locator.registerLazySingleton(
     () => GetOnTheAirTVSeries(repository: locator()),
   );
@@ -119,13 +106,13 @@ void init() {
     () => SearchTVSeries(repository: locator()),
   );
 
-  // Watchlist usecases / Bussiness Logic
+  //* Watchlist usecases / Bussiness Logic
   locator.registerLazySingleton(() => GetWatchListStatus(locator()));
   locator.registerLazySingleton(() => SaveWatchlist(locator()));
   locator.registerLazySingleton(() => RemoveWatchlist(locator()));
   locator.registerLazySingleton(() => GetWatchlist(locator()));
 
-  //  repository
+  //*  repository
   locator.registerLazySingleton<MovieRepository>(
     () => MovieRepositoryImpl(remoteDataSource: locator()),
   );
@@ -136,7 +123,7 @@ void init() {
     () => TVSeriesRepositoryImpl(remoteDataSource: locator()),
   );
 
-  // data sources
+  //* data sources
   locator.registerLazySingleton<MovieRemoteDataSource>(
     () => MovieRemoteDataSourceImpl(client: locator()),
   );
@@ -147,9 +134,9 @@ void init() {
     () => TVSeriesRemoteDataSourceImpl(client: locator()),
   );
 
-  // helper
+  //* helper
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
-  // external
+  //* external
   locator.registerLazySingleton(() => IOClientWithSSL());
 }

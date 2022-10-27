@@ -4,10 +4,10 @@ import 'package:movie/domain/entities/movie_detail.dart';
 import 'package:watchlist/data/models/watchlist_table.dart';
 import 'package:watchlist/domain/entities/watchlist.dart';
 
-final testMovie = Movie(
+const testMovie = Movie(
   adult: false,
   backdropPath: '/muth4OYamXf41G2evdrLEg8d3om.jpg',
-  genreIds: const [14, 28],
+  genreIds: [14, 28],
   id: 557,
   originalTitle: 'Spider-Man',
   overview:

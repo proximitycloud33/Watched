@@ -1,36 +1,36 @@
 import 'package:core/styles/colors.dart';
 import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tv_series/presentation/bloc/detail_tv_series_bloc/detail_tv_series_bloc.dart';
 import 'package:tv_series/presentation/pages/screen_arguments.dart';
 import 'package:tv_series/presentation/pages/tv_series_season_detail_page.dart';
-import 'package:tv_series/presentation/provider/detail_tv_series_notifier.dart';
 
 class SeasonList extends StatelessWidget {
   const SeasonList({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Consumer<DetailTVSeriesNotifier>(
-      builder: (context, data, child) {
-        if (data.tvSeriesState == RequestState.loading) {
+    return BlocBuilder<DetailTVSeriesBloc, DetailTVSeriesState>(
+      builder: (context, state) {
+        if (state.tvSeriesDetailState == RequestState.loading) {
           return const Center(
             child: CircularProgressIndicator(),
           );
-        } else if (data.tvSeriesState == RequestState.error) {
-          return Text(data.message);
-        } else if (data.tvSeriesState == RequestState.loaded) {
-          int itemcount = data.tvSeriesDetail.seasons.length;
+        } else if (state.tvSeriesDetailState == RequestState.error) {
+          return Text(state.message);
+        } else if (state.tvSeriesDetailState == RequestState.loaded) {
+          int itemcount = state.tvSeriesDetail.seasons.length;
           return SizedBox(
             height: 75,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: itemcount,
               itemBuilder: (context, index) {
-                if (data.tvSeriesDetail.seasons[index].name == 'Specials') {
+                if (state.tvSeriesDetail.seasons[index].name == 'Specials') {
                   return Container();
                 }
-                final season = data.tvSeriesDetail.seasons[index];
+                final season = state.tvSeriesDetail.seasons[index];
                 return Padding(
                   padding: const EdgeInsets.all(4.0),
                   child: InkWell(
@@ -39,7 +39,7 @@ class SeasonList extends StatelessWidget {
                         context,
                         TVSeriesSeasonDetailPage.ROUTE_NAME,
                         arguments: ScreenArguments(
-                          id: data.tvSeriesDetail.id,
+                          id: state.tvSeriesDetail.id,
                           seasonNumber: season.seasonNumber,
                         ),
                       );

@@ -5,9 +5,9 @@ import 'package:core/utils/state_enum.dart';
 import 'package:core/utils/routes.dart';
 
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_series/domain/entities/tv_series.dart';
-import 'package:tv_series/presentation/provider/list_tv_series_notifier.dart';
+import 'package:tv_series/tv_series_presentation.dart';
 
 class HomeTVSeriesPage extends StatefulWidget {
   static const ROUTE_NAME = '/home-tvseries';
@@ -21,12 +21,9 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(
-      () => Provider.of<ListTVSeriesNotifier>(context, listen: false)
-        ..fetchOnTheAirTVSeries()
-        ..fetchPopularTVSeries()
-        ..fetchTopRatedTVSeries(),
-    );
+    context.read<ListTVSeriesBloc>().add(ListTVSeriesOnTheAirFetched());
+    context.read<ListTVSeriesBloc>().add(ListTVSeriesPopularFetched());
+    context.read<ListTVSeriesBloc>().add(ListTVSeriesTopRatedFetched());
   }
 
   @override
@@ -94,14 +91,14 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
                 'On The Air',
                 style: kHeading6,
               ),
-              Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
-                final state = data.onTheAirTVSeriesState;
-                if (state == RequestState.loading) {
+              BlocBuilder<ListTVSeriesBloc, ListTVSeriesState>(
+                  builder: (context, state) {
+                if (state.onTheAirTVSeriesState == RequestState.loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.loaded) {
-                  return TVSeriesList(data.onTheAirTVSeries);
+                } else if (state.onTheAirTVSeriesState == RequestState.loaded) {
+                  return TVSeriesList(state.onTheAirTVSeries);
                 } else {
                   return const Text('Failed');
                 }
@@ -110,14 +107,14 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
                 title: 'Popular',
                 onTap: () => Navigator.pushNamed(context, POPULAR_TV_ROUTE),
               ),
-              Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
-                final state = data.popularTVSeriesState;
-                if (state == RequestState.loading) {
+              BlocBuilder<ListTVSeriesBloc, ListTVSeriesState>(
+                  builder: (context, state) {
+                if (state.popularTVSeriesState == RequestState.loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.loaded) {
-                  return TVSeriesList(data.popularTVSeries);
+                } else if (state.popularTVSeriesState == RequestState.loaded) {
+                  return TVSeriesList(state.popularTVSeries);
                 } else {
                   return const Text('Failed');
                 }
@@ -126,14 +123,14 @@ class _HomeTVSeriesPageState extends State<HomeTVSeriesPage> {
                 title: 'Top Rated',
                 onTap: () => Navigator.pushNamed(context, TOP_RATED_TV_ROUTE),
               ),
-              Consumer<ListTVSeriesNotifier>(builder: (context, data, child) {
-                final state = data.topRatedTVSeriesState;
-                if (state == RequestState.loading) {
+              BlocBuilder<ListTVSeriesBloc, ListTVSeriesState>(
+                  builder: (context, state) {
+                if (state.topRatedTVSeriesState == RequestState.loading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state == RequestState.loaded) {
-                  return TVSeriesList(data.topRatedTVSeries);
+                } else if (state.topRatedTVSeriesState == RequestState.loaded) {
+                  return TVSeriesList(state.topRatedTVSeries);
                 } else {
                   return const Text('Failed');
                 }

@@ -42,36 +42,30 @@ class MyApp extends StatelessWidget {
           create: (context) => di.locator<SearchMoviesBloc>(),
         ),
         //* Watchlist
-        ChangeNotifierProvider(
-          create: (_) => di.locator<WatchlistNotifier>(),
-        ),
         BlocProvider(
           create: (_) => di.locator<WatchlistCubit>(),
         ),
         //* TV Series
-        ChangeNotifierProvider(
-          create: (context) => di.locator<ListTVSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<OnTheAirTVSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<PopularTVSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<TopRatedTVSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<DetailTVSeriesNotifier>(),
-        ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<RecommendationTVSeriesNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<ListTVSeriesBloc>(),
         ),
         BlocProvider(
-          create: (context) => di.locator<SearchTVSeriesBloc>(),
+          create: (_) => di.locator<DetailTVSeriesBloc>(),
         ),
-        ChangeNotifierProvider(
-          create: (context) => di.locator<SeasonDetailTVSeriesNotifier>(),
+        BlocProvider(
+          create: (_) => di.locator<OnTheAirTVSeriesBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<PopularTVSeriesBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TopRatedTVSeriesBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<SearchTVSeriesBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<SeasonDetailTVSeriesBloc>(),
         ),
       ],
       child: MaterialApp(

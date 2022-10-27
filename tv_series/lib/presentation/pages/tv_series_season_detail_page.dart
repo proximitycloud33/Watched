@@ -1,7 +1,7 @@
 import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:tv_series/presentation/provider/season_detail_tv_series_notifier.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tv_series/presentation/bloc/season_detail_tv_series_bloc/season_detail_tv_series_bloc.dart';
 import 'package:tv_series/presentation/widgets/season_detail_content.dart';
 
 class TVSeriesSeasonDetailPage extends StatefulWidget {
@@ -23,29 +23,27 @@ class _TVSeriesSeasonDetailPageState extends State<TVSeriesSeasonDetailPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() {
-      Provider.of<SeasonDetailTVSeriesNotifier>(context, listen: false)
-          .fetchTVSeriesSeasonDetail(widget.id, widget.seasonNumber);
-    });
+    context.read<SeasonDetailTVSeriesBloc>().add(SeasonDetailTVSeriesFetched(
+        id: widget.id, season: widget.seasonNumber));
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Consumer<SeasonDetailTVSeriesNotifier>(
-        builder: (context, provider, child) {
-          if (provider.state == RequestState.loading) {
+      body: BlocBuilder<SeasonDetailTVSeriesBloc, SeasonDetailTVSeriesState>(
+        builder: (context, state) {
+          if (state.seasonDetailState == RequestState.loading) {
             return const Center(
               child: CircularProgressIndicator(),
             );
-          } else if (provider.state == RequestState.loaded) {
+          } else if (state.seasonDetailState == RequestState.loaded) {
             return SafeArea(
-              child: SeasonDetailContent(provider.tvSeriesSeasonDetail),
+              child: SeasonDetailContent(state.tvSeriesSeasonDetail),
             );
           } else {
             return const Center(
                 child: Text(
-              'Failure to load Season',
+              'Fail to load Season',
             ));
           }
         },
