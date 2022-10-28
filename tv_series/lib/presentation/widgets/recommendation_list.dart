@@ -1,11 +1,10 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:core/utils/state_enum.dart';
 import 'package:core/utils/routes.dart';
+import 'package:core/utils/state_enum.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_series/presentation/bloc/detail_tv_series_bloc/detail_tv_series_bloc.dart';
 
-//TODO Change routes into seperate package || not in core;
 class RecommendationList extends StatelessWidget {
   const RecommendationList({Key? key}) : super(key: key);
 
@@ -32,7 +31,7 @@ class RecommendationList extends StatelessWidget {
                     onTap: () {
                       Navigator.pushReplacementNamed(
                         context,
-                        DETAIL_TV_ROUTE,
+                        detailTVRoute,
                         arguments: movie.id,
                       );
                     },
