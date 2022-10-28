@@ -27,3 +27,11 @@ class SearchHasData extends SearchState {
   @override
   List<Object?> get props => [result];
 }
+
+class SearchNotFound extends SearchState {
+  final List result;
+  const SearchNotFound(this.result);
+
+  @override
+  List<Object?> get props => [result];
+}

@@ -14,11 +14,18 @@ class SearchTVSeriesBloc extends Bloc<SearchEvent, SearchState> {
       emit(SearchLoading());
       final result = await _searchTVSeries.execute(query);
 
-      result.fold((failure) {
-        emit(SearchError(failure.message));
-      }, (data) {
-        emit(SearchHasData(data));
-      });
+      result.fold(
+        (failure) {
+          emit(SearchError(failure.message));
+        },
+        (data) {
+          if (data.isNotEmpty) {
+            emit(SearchHasData(data));
+          } else {
+            emit(SearchNotFound(data));
+          }
+        },
+      );
     }, transformer: _debounce(const Duration(milliseconds: 500)));
   }
 }

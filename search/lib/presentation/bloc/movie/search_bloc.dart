@@ -22,7 +22,11 @@ class SearchMoviesBloc extends Bloc<SearchEvent, SearchState> {
           emit(SearchError(failure.message));
         },
         (data) {
-          emit(SearchHasData(data));
+          if (data.isNotEmpty) {
+            emit(SearchHasData(data));
+          } else {
+            emit(SearchNotFound(data));
+          }
         },
       );
     }, transformer: _debounce(const Duration(milliseconds: 500)));

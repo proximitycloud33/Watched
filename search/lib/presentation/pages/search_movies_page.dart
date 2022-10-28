@@ -52,6 +52,21 @@ class SearchMoviePage extends StatelessWidget {
                       itemCount: result.length,
                     ),
                   );
+                } else if (state is SearchNotFound) {
+                  return Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.search_off),
+                        Text(
+                          'Not Found',
+                          textAlign: TextAlign.center,
+                          style: kHeading6,
+                        ),
+                      ],
+                    ),
+                  );
                 } else {
                   return Expanded(
                     child: Container(),

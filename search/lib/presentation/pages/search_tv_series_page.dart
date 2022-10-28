@@ -31,7 +31,7 @@ class SearchTVSeriesPage extends StatelessWidget {
             ),
             const SizedBox(height: 16),
             Text(
-              'Search TV Series',
+              'Search Result',
               style: kHeading6,
             ),
             BlocBuilder<SearchTVSeriesBloc, SearchState>(
@@ -50,6 +50,21 @@ class SearchTVSeriesPage extends StatelessWidget {
                         return TVSeriesCardList(tv);
                       },
                       itemCount: result.length,
+                    ),
+                  );
+                } else if (state is SearchNotFound) {
+                  return Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Icon(Icons.search_off),
+                        Text(
+                          'Not Found',
+                          textAlign: TextAlign.center,
+                          style: kHeading6,
+                        ),
+                      ],
                     ),
                   );
                 } else {
