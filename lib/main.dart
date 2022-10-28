@@ -13,8 +13,13 @@ import 'package:ditonton/injection.dart' as di;
 import 'package:tv_series/domain/entities/episode.dart';
 import 'package:tv_series/tv_series_presentation.dart';
 import 'package:watchlist/watchlist_presentation.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   di.init();
   Bloc.observer = SimpleBlocObserver();
   runApp(MyApp());
