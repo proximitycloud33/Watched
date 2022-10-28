@@ -14,8 +14,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:watchlist/watchlist_presentation.dart';
 
 class MovieDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail-movie';
-
   final int id;
   const MovieDetailPage({super.key, required this.id});
 

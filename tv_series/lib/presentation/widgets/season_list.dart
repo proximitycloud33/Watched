@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tv_series/presentation/bloc/detail_tv_series_bloc/detail_tv_series_bloc.dart';
 import 'package:tv_series/presentation/pages/screen_arguments.dart';
-import 'package:tv_series/presentation/pages/tv_series_season_detail_page.dart';
+import 'package:core/utils/routes.dart';
 
 class SeasonList extends StatelessWidget {
   const SeasonList({super.key});
@@ -37,7 +37,7 @@ class SeasonList extends StatelessWidget {
                     onTap: () {
                       Navigator.pushNamed(
                         context,
-                        TVSeriesSeasonDetailPage.ROUTE_NAME,
+                        seasonDetailTVRoute,
                         arguments: ScreenArguments(
                           id: state.tvSeriesDetail.id,
                           seasonNumber: season.seasonNumber,

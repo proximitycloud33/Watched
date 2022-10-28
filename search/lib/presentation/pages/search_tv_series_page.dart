@@ -5,7 +5,7 @@ import 'package:search/presentation/bloc/tv/search_bloc.dart';
 import 'package:tv_series/presentation/widgets/tv_series_card_list.dart';
 
 class SearchTVSeriesPage extends StatelessWidget {
-  static const ROUTE_NAME = '/search-tvseries';
+  const SearchTVSeriesPage({super.key});
 
   @override
   Widget build(BuildContext context) {

@@ -17,7 +17,7 @@ class WatchlistCard extends StatelessWidget {
       child: InkWell(
         onTap: () {
           final routeName =
-              watchlist.type == 'movie' ? DETAIL_MOVIE_ROUTE : DETAIL_TV_ROUTE;
+              watchlist.type == 'movie' ? detailMovieRoute : detailTVRoute;
           Navigator.pushNamed(
             context,
             routeName,

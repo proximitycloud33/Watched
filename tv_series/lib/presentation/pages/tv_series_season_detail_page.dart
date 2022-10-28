@@ -5,7 +5,6 @@ import 'package:tv_series/presentation/bloc/season_detail_tv_series_bloc/season_
 import 'package:tv_series/presentation/widgets/season_detail_content.dart';
 
 class TVSeriesSeasonDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/season-detail-tvseries';
   final int id;
   final int seasonNumber;
   const TVSeriesSeasonDetailPage({

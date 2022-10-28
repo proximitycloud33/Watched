@@ -1,9 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/utils/state_enum.dart';
+import 'package:core/utils/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/presentation/bloc/movie_detail/movie_detail_bloc.dart';
-import 'package:movie/presentation/pages/movie_detail_page.dart';
 
 class RecommendationList extends StatelessWidget {
   const RecommendationList({
@@ -33,7 +33,7 @@ class RecommendationList extends StatelessWidget {
                       onTap: () {
                         Navigator.pushReplacementNamed(
                           context,
-                          MovieDetailPage.ROUTE_NAME,
+                          detailMovieRoute,
                           arguments: movie.id,
                         );
                       },

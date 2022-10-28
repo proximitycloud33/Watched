@@ -6,8 +6,6 @@ import 'package:watchlist/presentation/widget/watchlist_card_list.dart';
 import 'package:watchlist/watchlist_presentation.dart';
 
 class WatchlistPage extends StatefulWidget {
-  static const ROUTE_NAME = '/watchlist-page';
-
   const WatchlistPage({super.key});
 
   @override

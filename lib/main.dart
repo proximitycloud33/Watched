@@ -1,22 +1,25 @@
+import 'package:about/about_page.dart';
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
+import 'package:core/utils/routes.dart';
 import 'package:core/utils/utils.dart';
-import 'package:ditonton/simple_bloc_observer.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:movie/movie_presentation.dart';
-import 'package:provider/provider.dart';
 import 'package:search/search.dart';
-import 'package:about/about_page.dart';
-import 'package:ditonton/injection.dart' as di;
 import 'package:tv_series/domain/entities/episode.dart';
 import 'package:tv_series/tv_series_presentation.dart';
 import 'package:watchlist/watchlist_presentation.dart';
-import 'package:firebase_core/firebase_core.dart';
+
+import 'package:ditonton/injection.dart' as di;
+import 'package:ditonton/simple_bloc_observer.dart';
+
 import 'firebase_options.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
@@ -28,7 +31,7 @@ void main() async {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
+    return MultiBlocProvider(
       providers: [
         //* Movies
         BlocProvider(
@@ -86,44 +89,44 @@ class MyApp extends StatelessWidget {
         onGenerateRoute: (RouteSettings settings) {
           switch (settings.name) {
             //* Movie
-            case HomeMoviePage.ROUTE_NAME:
+            case homeMovieRoute:
               return MaterialPageRoute(builder: (_) => HomeMoviePage());
-            case PopularMoviesPage.ROUTE_NAME:
+            case popularMovieRoute:
               return CupertinoPageRoute(builder: (_) => PopularMoviesPage());
-            case TopRatedMoviesPage.ROUTE_NAME:
+            case topRatedMovieRoute:
               return CupertinoPageRoute(builder: (_) => TopRatedMoviesPage());
-            case MovieDetailPage.ROUTE_NAME:
+            case detailMovieRoute:
               final id = settings.arguments as int;
               return MaterialPageRoute(
                 builder: (_) => MovieDetailPage(id: id),
                 settings: settings,
               );
-            case SearchMoviePage.ROUTE_NAME:
+            case searchMovieRoute:
               return CupertinoPageRoute(builder: (_) => SearchMoviePage());
             //* Misc
-            case WatchlistPage.ROUTE_NAME:
+            case watchlistRoute:
               return MaterialPageRoute(builder: (_) => WatchlistPage());
             case AboutPage.ROUTE_NAME:
               return MaterialPageRoute(builder: (_) => AboutPage());
             //* TVSeries
-            case HomeTVSeriesPage.ROUTE_NAME:
+            case homeTVRoute:
               return MaterialPageRoute(builder: (_) => HomeTVSeriesPage());
-            case PopularTVSeriesPage.ROUTE_NAME:
+            case popularTVRoute:
               return CupertinoPageRoute(builder: (_) => PopularTVSeriesPage());
-            case TopRatedTVSeriesPage.ROUTE_NAME:
+            case topRatedTVRoute:
               return CupertinoPageRoute(builder: (_) => TopRatedTVSeriesPage());
-            case TVSeriesDetailPage.ROUTE_NAME:
+            case detailTVRoute:
               final id = settings.arguments as int;
               return MaterialPageRoute(
                   builder: (_) => TVSeriesDetailPage(id: id));
-            case SearchTVSeriesPage.ROUTE_NAME:
+            case searchTVRoute:
               return MaterialPageRoute(builder: (_) => SearchTVSeriesPage());
-            case TVSeriesSeasonDetailPage.ROUTE_NAME:
+            case seasonDetailTVRoute:
               final args = settings.arguments as ScreenArguments;
               return MaterialPageRoute(
                   builder: (_) => TVSeriesSeasonDetailPage(
                       id: args.id, seasonNumber: args.seasonNumber));
-            case TVSeriesEpisodeDetailPage.ROUTE_NAME:
+            case episodeDetailTVRoute:
               final episode = settings.arguments as Episode;
               return MaterialPageRoute(
                   builder: (context) =>

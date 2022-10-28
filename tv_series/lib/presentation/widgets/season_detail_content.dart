@@ -1,8 +1,8 @@
 import 'package:core/styles/colors.dart';
 import 'package:core/styles/text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:core/utils/routes.dart';
 import 'package:tv_series/domain/entities/tv_series_season_detail.dart';
-import 'package:tv_series/presentation/pages/tv_series_episode_detail_page.dart';
 
 class SeasonDetailContent extends StatelessWidget {
   final TVSeriesSeasonDetail? seasonDetail;
@@ -53,7 +53,7 @@ class SeasonDetailContent extends StatelessWidget {
                         onTap: () {
                           Navigator.pushNamed(
                             context,
-                            TVSeriesEpisodeDetailPage.ROUTE_NAME,
+                            episodeDetailTVRoute,
                             arguments: episode,
                           );
                         },

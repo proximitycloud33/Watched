@@ -6,7 +6,6 @@ import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:tv_series/domain/entities/episode.dart';
 
 class TVSeriesEpisodeDetailPage extends StatelessWidget {
-  static const ROUTE_NAME = '/episode-detail-page';
   final Episode episode;
   const TVSeriesEpisodeDetailPage({super.key, required this.episode});
 

@@ -5,7 +5,6 @@ import 'package:tv_series/presentation/bloc/top_rated_tv_series_bloc/top_rated_t
 import 'package:tv_series/presentation/widgets/tv_series_card_list.dart';
 
 class TopRatedTVSeriesPage extends StatefulWidget {
-  static const ROUTE_NAME = '/top-rated-tvseries';
   const TopRatedTVSeriesPage({super.key});
 
   @override

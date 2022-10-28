@@ -7,7 +7,6 @@ import 'package:watchlist/presentation/bloc/watchlist/watchlist_cubit.dart';
 import '../bloc/detail_tv_series_bloc/detail_tv_series_bloc.dart';
 
 class TVSeriesDetailPage extends StatefulWidget {
-  static const ROUTE_NAME = '/detail-tvseries';
   final int id;
   const TVSeriesDetailPage({super.key, required this.id});
 
