@@ -29,6 +29,13 @@
             {
               "client_id": "256613228271-m56uj37kjpa1odprvaqvg0d3e0enlrlk.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "256613228271-3t6ouli5to5fm308iq9ba3l9qphfur0q.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.dicoding.ditonton"
+              }
             }
           ]
         }

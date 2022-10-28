@@ -4,6 +4,7 @@ import 'package:core/styles/text_styles.dart';
 import 'package:core/utils/routes.dart';
 import 'package:core/utils/utils.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +24,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
   di.init();
   Bloc.observer = SimpleBlocObserver();
   runApp(MyApp());
